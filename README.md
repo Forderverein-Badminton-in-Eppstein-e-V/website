@@ -1,0 +1,99 @@
+# TSV Eppstein Badminton – Website (GitHub Pages)
+
+## Struktur
+
+```
+/
+├── index.html                  ← Startseite (fertig, als Vorlage für weitere Seiten)
+├── partials/
+│   ├── header.html             ← Topbar + Logo + Navigation (an EINER Stelle pflegen)
+│   └── footer.html             ← Vereinsinfos + rechtliche Links
+├── assets/
+│   ├── css/style.css           ← komplettes Design (Farben, Schrift, Layout)
+│   └── js/main.js              ← bindet header.html/footer.html ein, Mobile-Menü
+```
+
+## Funktionsprinzip
+
+Jede Seite hat im HTML nur zwei leere Platzhalter:
+
+```html
+<div id="site-header"></div>
+...Seiteninhalt...
+<div id="site-footer"></div>
+<script src="/assets/js/main.js"></script>
+```
+
+`main.js` lädt beim Aufruf automatisch `partials/header.html` und
+`partials/footer.html` per `fetch()` und fügt sie ein. Ändert sich z. B.
+ein Navigationspunkt, reicht es, `partials/header.html` einmal anzupassen –
+alle Seiten sind sofort aktuell.
+
+**Wichtig:** `fetch()` auf lokale Dateien funktioniert nur über HTTP(S).
+Auf GitHub Pages ist das automatisch der Fall. Zum lokalen Testen vor dem
+Hochladen brauchst du einen kleinen lokalen Server, z. B.:
+
+```bash
+cd site-ordner
+python -m http.server 8000
+```
+
+und dann `http://localhost:8000` im Browser öffnen (nicht die Datei per
+Doppelklick öffnen – dann bleibt Header/Footer leer).
+
+## Design-Entscheidungen
+
+- **Farben:** dunkles "Spielfeld-Grün" für Header/Footer, ein frisches
+  Grün-Gelb (Filzball-Farbe) als Akzent für Buttons/Links, statt der
+  generischen Creme/Terracotta- oder Dunkel-mit-Neongrün-Templates.
+- **Schrift:** "Oswald" (kondensiert, sportlich) für Überschriften/Nav,
+  "Source Sans 3" für Fließtext – gut lesbar, wirkt nicht wie Standard-
+  Bootstrap.
+- **Wiederkehrendes Element:** gestrichelte Trennlinie (`.court-divider`)
+  erinnert an eine Feldmarkierung; Statistik-Badges (Anzahl Mannschaften,
+  Liga, Saisonstart) statt reinem Fließtext.
+- Responsive: Menü klappt unter 860px zu einem Burger-Menü zusammen.
+
+## Bilder
+
+Aktuell zeigen alle Bild-Links noch auf `tsv-eppstein-badminton.de`
+(bleibt vorerst im WordPress-Hosting bestehen, wie besprochen). Sobald du
+sie in dein GitHub-Repo hochlädst (z. B. nach `/assets/img/...`), müssen
+nur die `src`-Pfade in den jeweiligen HTML-Dateien angepasst werden.
+
+## Kontaktformular
+
+Auf `/kontakt.html` (noch zu bauen) brauchen wir einen externen Formular-
+Dienst, da GitHub Pages kein PHP/Server-Backend hat. Empfehlenswert für
+kleine Vereine: Formspree (kostenlos bis 50 Nachrichten/Monat) oder ein
+einfacher `mailto:`-Link als Fallback.
+
+## Nächste Schritte
+
+Für jede weitere Unterseite gilt dasselbe Muster wie `index.html`:
+Kopf/Fuß-Platzhalter + `<link>`/`<script>`-Einbindung übernehmen, nur den
+Inhalt zwischen `<main>...</main>` austauschen. Schick mir einfach die
+nächste URL, dann bekommst du die passende Datei.
+
+**Namensschema der Dateien** (damit die Links in der Navigation stimmen):
+
+| WordPress-URL | Neue Datei |
+|---|---|
+| `/ueber-uns/` | `ueber-uns.html` |
+| `/ueber-uns/kontakt/` | `kontakt.html` |
+| `/spielbetrieb/` | `spielbetrieb.html` |
+| `/spielbetrieb/training-erwachsene/` | `spielbetrieb-training-erwachsene.html` |
+| `/spielbetrieb/training-kinder-und-jugend/` | `spielbetrieb-training-kinder-jugend.html` |
+| `/spielbetrieb/mannschaften/` | `spielbetrieb-mannschaften.html` |
+| `/spielbetrieb/turniere/` | `spielbetrieb-turniere.html` |
+| `/spielbetrieb/unsere-halle/` | `spielbetrieb-unsere-halle.html` |
+| `/foerderverein/` | `foerderverein.html` |
+| `/gallerie/` | `gallerie.html` |
+| `/gallerie/stadtmeisterschaft/` | `gallerie-stadtmeisterschaft.html` |
+| `/gallerie/laenderspiel/` | `gallerie-laenderspiele.html` |
+| `/kinder-und-jugendturniere/` | `gallerie-kinder-jugendturniere.html` |
+| `/strohhutfest/` | `gallerie-strohhutfest.html` |
+| `/news/` | `news.html` |
+| `/sponsoren/` | `sponsoren.html` |
+| `/impressum/` | `impressum.html` |
+| `/datenschutzerklaerung/` | `datenschutz.html` |
