@@ -52,7 +52,7 @@
             <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
             <div class="gallery-grid">
               {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}" target="_blank" rel="noopener">
+              <a href="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}">
                 <img
                   src="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}"
                   alt="{{ bild.alt | default: 'Strohhutfest ' | append: eintrag.jahr }}"
