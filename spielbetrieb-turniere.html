@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -16,7 +18,7 @@
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <div id="site-header"></div>
+  {% include header.html %}
 
   <main id="main">
     <section class="hero hero-simple">
@@ -64,12 +66,12 @@
           </ul>
         </div>
 
-        <div id="sidebar-trainingszeiten"></div>
+        {% include sidebar-trainingszeiten.html %}
       </div>
     </div>
   </main>
 
-  <div id="site-footer"></div>
+  {% include footer.html %}
 
   <script src="assets/js/main.js"></script>
 </body>
