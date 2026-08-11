@@ -71,10 +71,51 @@ Doppelklick öffnen – dann bleibt Header/Footer leer).
 
 ## Bilder
 
-Aktuell zeigen alle Bild-Links noch auf `tsv-eppstein-badminton.de`
-(bleibt vorerst im WordPress-Hosting bestehen, wie besprochen). Sobald du
-sie in dein GitHub-Repo hochlädst (z. B. nach `/assets/img/...`), müssen
-nur die `src`-Pfade in den jeweiligen HTML-Dateien angepasst werden.
+### Ordnerstruktur
+
+```
+assets/img/
+├── site/                          ← normale Layout-Bilder (Vereinsfotos, Hero-Bilder, Logos, Sponsoren)
+│   └── fv-team.jpg
+└── gallery/                       ← alle Galerie-Bilder, nach Thema UND Jahr sortiert
+    ├── strohhutfest/
+    │   └── 2025/
+    │       ├── 01.jpg
+    │       └── 02.jpg
+    ├── stadtmeisterschaft/
+    │   └── 2025/
+    ├── laenderspiele/
+    │   └── 2025/
+    └── jugendturniere/
+        └── 2025/
+```
+
+- **`site/`** für alle "normalen" Bilder, die im Fließtext oder Layout einer Seite
+  vorkommen (z. B. Vorstandsfoto auf der Förderverein-Seite).
+- **`gallery/<thema>/<jahr>/`** für Galerie-Fotos. Pro Thema (Strohhutfest,
+  Stadtmeisterschaft, Länderspiele, Jugendturniere) ein Unterordner pro Jahr.
+  Kommt ein neues Jahr dazu, legst du einfach einen neuen Jahresordner an –
+  bestehende Bilder/Links bleiben unberührt. Auf der jeweiligen Gallerie-Seite
+  kannst du die Jahre z. B. als Abschnitte oder Tabs darstellen.
+- Dateinamen bewusst einfach gehalten (`01.jpg`, `02.jpg`, …) statt der
+  kryptischen WordPress-Originalnamen.
+
+### Bilder aus WordPress herunterladen
+
+Ich kann Bilder von deiner WordPress-Domain nicht automatisch herunterladen
+(die Sandbox, in der ich Dateien baue, hat keinen Zugriff auf
+`tsv-eppstein-badminton.de`). Für jedes Bild, das eine Seite braucht, gehst
+du daher so vor:
+
+1. Bild-URL öffnen (steht jeweils im HTML-Kommentar bzw. ich nenne sie dir)
+2. Rechtsklick → "Bild speichern unter" (oder im WordPress-Mediencenter
+   herunterladen)
+3. Datei in den passenden Ordner legen, z. B. `assets/img/site/fv-team.jpg`
+4. Beim Hochladen ins GitHub-Repo denselben Pfad beibehalten
+
+Für die Förderverein-Seite konkret: Lade
+`https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/fv_team-768x1024.jpg`
+herunter und speichere sie als `assets/img/site/fv-team.jpg`.
 
 ## Kontaktformular
 
