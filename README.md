@@ -7,7 +7,8 @@
 ├── index.html                  ← Startseite (fertig, als Vorlage für weitere Seiten)
 ├── partials/
 │   ├── header.html             ← Topbar + Logo + Navigation (an EINER Stelle pflegen)
-│   └── footer.html             ← Vereinsinfos + rechtliche Links
+│   ├── footer.html             ← Vereinsinfos + rechtliche Links
+│   └── sidebar-trainingszeiten.html  ← Trainingszeiten-Box (Modul für Sidebar)
 ├── assets/
 │   ├── css/style.css           ← komplettes Design (Farben, Schrift, Layout)
 │   └── js/main.js              ← bindet header.html/footer.html ein, Mobile-Menü
@@ -24,10 +25,24 @@ Jede Seite hat im HTML nur zwei leere Platzhalter:
 <script src="/assets/js/main.js"></script>
 ```
 
-`main.js` lädt beim Aufruf automatisch `partials/header.html` und
-`partials/footer.html` per `fetch()` und fügt sie ein. Ändert sich z. B.
-ein Navigationspunkt, reicht es, `partials/header.html` einmal anzupassen –
-alle Seiten sind sofort aktuell.
+`main.js` lädt beim Aufruf automatisch `partials/header.html`,
+`partials/footer.html` und, falls auf der Seite vorhanden,
+`partials/sidebar-trainingszeiten.html` per `fetch()` und fügt sie ein.
+Ändert sich z. B. ein Navigationspunkt oder eine Trainingszeit, reicht es,
+die jeweilige Partial-Datei einmal anzupassen – alle Seiten sind sofort
+aktuell.
+
+**Die Trainingszeiten-Box als Sidebar-Modul einbinden:** In jeder Seite,
+die die Box zeigen soll, einfach einen leeren Platzhalter einbauen –
+keinen Inhalt reinschreiben:
+
+```html
+<div id="sidebar-trainingszeiten"></div>
+```
+
+`main.js` füllt diesen Platzhalter automatisch. Ist auf einer Seite kein
+Element mit dieser ID vorhanden (z. B. bei einer reinen Vollbreite-Seite
+ohne Sidebar), passiert einfach nichts – kein Fehler.
 
 **Wichtig:** `fetch()` auf lokale Dateien funktioniert nur über HTTP(S).
 Auf GitHub Pages ist das automatisch der Fall. Zum lokalen Testen vor dem

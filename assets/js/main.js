@@ -51,8 +51,9 @@ function setFooterYear() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await includePartial("site-header", "/partials/header.html");
-  await includePartial("site-footer", "/partials/footer.html");
+  await includePartial("site-header", "partials/header.html");
+  await includePartial("site-footer", "partials/footer.html");
+  await includePartial("sidebar-trainingszeiten", "partials/sidebar-trainingszeiten.html");
   initNavToggle();
   setActiveNavItem();
   setFooterYear();
