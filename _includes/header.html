@@ -7,7 +7,7 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="/index.html">
+    <a class="brand" href="index.html">
       <img src="https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/cropped-image.png" alt="Logo TSV Eppstein Badminton">
       <span class="brand-text">
         <strong>TSV Eppstein</strong>
@@ -19,36 +19,31 @@
 
     <nav class="main-nav" id="mainNav">
       <ul>
-        <li><a href="/index.html">Startseite</a></li>
+        {% for item in site.data.nav %}
         <li>
-          <a href="/ueber-uns.html">Über uns</a>
+          {% if item.button %}
+          <a
+            class="btn btn-outline"
+            href="{{ item.url }}"
+            {% if item.external %}target="_blank" rel="noopener"{% endif %}
+            style="margin-top:0.3rem;"
+          >{{ item.label }}</a>
+          {% else %}
+          <a
+            href="{{ item.url }}"
+            {% if item.external %}target="_blank" rel="noopener"{% endif %}
+          >{{ item.label }}</a>
+          {% endif %}
+
+          {% if item.submenu %}
           <ul class="submenu">
-            <li><a href="/kontakt.html">Kontakt</a></li>
+            {% for sub in item.submenu %}
+            <li><a href="{{ sub.url }}">{{ sub.label }}</a></li>
+            {% endfor %}
           </ul>
+          {% endif %}
         </li>
-        <li>
-          <a href="/spielbetrieb.html">Spielbetrieb</a>
-          <ul class="submenu">
-            <li><a href="/spielbetrieb-training-erwachsene.html">Training Erwachsene</a></li>
-            <li><a href="/spielbetrieb-training-kinder-jugend.html">Training Kinder und Jugend</a></li>
-            <li><a href="/spielbetrieb-mannschaften.html">Mannschaften</a></li>
-            <li><a href="/spielbetrieb-turniere.html">Turniere</a></li>
-            <li><a href="/spielbetrieb-unsere-halle.html">Unsere Halle</a></li>
-          </ul>
-        </li>
-        <li><a href="/foerderverein.html">Förderverein</a></li>
-        <li>
-          <a href="/gallerie.html">Gallerie</a>
-          <ul class="submenu">
-            <li><a href="/gallerie-stadtmeisterschaft.html">Stadtmeisterschaft</a></li>
-            <li><a href="/gallerie-laenderspiele.html">Länderspiele</a></li>
-            <li><a href="/gallerie-kinder-jugendturniere.html">Kinder- und Jugendturniere</a></li>
-            <li><a href="/gallerie-strohhutfest.html">Strohhutfest</a></li>
-          </ul>
-        </li>
-        <li><a href="/news.html">News</a></li>
-        <li><a href="/sponsoren.html">Sponsoren</a></li>
-        <li><a class="btn btn-outline" href="http://www.tsv-eppstein.de/html/downloads/mitgliedsantrag.pdf" target="_blank" rel="noopener" style="margin-top:0.3rem;">Mitgliedsantrag</a></li>
+        {% endfor %}
       </ul>
     </nav>
   </div>

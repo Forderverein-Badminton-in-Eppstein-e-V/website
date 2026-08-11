@@ -1,0 +1,65 @@
+# Zentrale Navigationsstruktur, genutzt von _includes/header.html.
+#
+# Ein Menüpunkt ändern/hinzufügen/entfernen = nur hier anpassen, header.html
+# muss dafür nicht angefasst werden.
+#
+# Felder pro Eintrag:
+#   label     - sichtbarer Text
+#   url       - Linkziel. Innerhalb der Seite: Dateiname ohne führenden
+#               Slash (z. B. "index.html"), NICHT "/index.html" - das
+#               würde bei GitHub Project Pages (URL mit /website/-Unterpfad)
+#               auf die falsche Adresse zeigen.
+#   submenu   - optional: Liste weiterer {label, url}-Einträge (Dropdown)
+#   button    - optional (true/false): als Button statt normalem Link
+#               darstellen (aktuell für "Mitgliedsantrag" genutzt)
+#   external  - optional (true/false): öffnet in neuem Tab
+#               (target="_blank" rel="noopener")
+
+- label: "Startseite"
+  url: "index.html"
+
+- label: "Über uns"
+  url: "ueber-uns.html"
+  submenu:
+    - label: "Kontakt"
+      url: "kontakt.html"
+
+- label: "Spielbetrieb"
+  url: "spielbetrieb.html"
+  submenu:
+    - label: "Training Erwachsene"
+      url: "spielbetrieb-training-erwachsene.html"
+    - label: "Training Kinder und Jugend"
+      url: "spielbetrieb-training-kinder-jugend.html"
+    - label: "Mannschaften"
+      url: "spielbetrieb-mannschaften.html"
+    - label: "Turniere"
+      url: "spielbetrieb-turniere.html"
+    - label: "Unsere Halle"
+      url: "spielbetrieb-unsere-halle.html"
+
+- label: "Förderverein"
+  url: "foerderverein.html"
+
+- label: "Gallerie"
+  url: "gallerie.html"
+  submenu:
+    - label: "Stadtmeisterschaft"
+      url: "gallerie-stadtmeisterschaft.html"
+    - label: "Länderspiele"
+      url: "gallerie-laenderspiele.html"
+    - label: "Kinder- und Jugendturniere"
+      url: "gallerie-kinder-jugendturniere.html"
+    - label: "Strohhutfest"
+      url: "gallerie-strohhutfest.html"
+
+- label: "News"
+  url: "news.html"
+
+- label: "Sponsoren"
+  url: "sponsoren.html"
+
+- label: "Mitgliedsantrag"
+  url: "http://www.tsv-eppstein.de/html/downloads/mitgliedsantrag.pdf"
+  button: true
+  external: true

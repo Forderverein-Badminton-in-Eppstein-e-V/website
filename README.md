@@ -4,57 +4,68 @@
 
 ```
 /
-├── index.html                  ← Startseite (fertig, als Vorlage für weitere Seiten)
-├── partials/
-│   ├── header.html             ← Topbar + Logo + Navigation (an EINER Stelle pflegen)
+├── index.html                  ← Startseite
+├── impressum.html, datenschutz.html, ueber-uns.html, foerderverein.html, ...
+├── spielbetrieb*.html          ← Übersicht + 5 Unterseiten
+├── gallerie*.html              ← Übersicht + 4 Themen-Seiten (Jekyll)
+├── news.html                   ← Newsliste (Jekyll)
+├── kontakt.html                ← Kontaktformular (Formspree)
+├── _includes/
+│   ├── header.html             ← Topbar + Logo + Navigation (Liquid-Schleife über _data/nav.yml)
 │   ├── footer.html             ← Vereinsinfos + rechtliche Links
 │   └── sidebar-trainingszeiten.html  ← Trainingszeiten-Box (Modul für Sidebar)
+├── _data/
+│   ├── nav.yml                 ← Navigationsstruktur (an EINER Stelle pflegen)
+│   └── gallery.yml             ← Bild-Daten für die Galerie-Seiten
+├── _posts/
+│   └── YYYY-MM-DD-titel.md     ← News-Beiträge
 ├── assets/
 │   ├── css/style.css           ← komplettes Design (Farben, Schrift, Layout)
-│   └── js/main.js              ← bindet header.html/footer.html ein, Mobile-Menü
+│   ├── js/main.js              ← Mobile-Menü, Galerie-Paginierung, Lightbox
+│   ├── img/site/               ← normale Layout-Bilder
+│   ├── img/gallery/<thema>/<jahr>/  ← Galerie-Fotos
+│   └── docs/                   ← PDFs (Satzung, Mitgliedsanträge)
 ```
 
-## Funktionsprinzip
+## Funktionsprinzip (Jekyll)
 
-Jede Seite hat im HTML nur zwei leere Platzhalter:
+GitHub Pages baut die Seite automatisch mit **Jekyll**, sobald eine Datei
+oben mit einem Front-Matter-Block beginnt (zwei Zeilen `---`). Kein
+`_config.yml` oder Gemfile nötig, das ist bei GitHub Pages eingebaut.
+
+Header, Footer und die Trainingszeiten-Sidebar werden dadurch schon
+**beim Build** eingesetzt:
 
 ```html
-<div id="site-header"></div>
+---
+---
+<!DOCTYPE html>
+...
+{% include header.html %}
 ...Seiteninhalt...
-<div id="site-footer"></div>
-<script src="/assets/js/main.js"></script>
+{% include sidebar-trainingszeiten.html %}   (nur auf Seiten mit Sidebar)
+...
+{% include footer.html %}
+<script src="assets/js/main.js"></script>
 ```
 
-`main.js` lädt beim Aufruf automatisch `partials/header.html`,
-`partials/footer.html` und, falls auf der Seite vorhanden,
-`partials/sidebar-trainingszeiten.html` per `fetch()` und fügt sie ein.
-Ändert sich z. B. ein Navigationspunkt oder eine Trainingszeit, reicht es,
-die jeweilige Partial-Datei einmal anzupassen – alle Seiten sind sofort
-aktuell.
+**Navigation ändern:** nur `_data/nav.yml` anpassen (Menüpunkt
+hinzufügen/umbenennen/Reihenfolge ändern) – `_includes/header.html` muss
+dafür nicht angefasst werden. Format und Beispiele stehen als Kommentar
+in der Datei selbst.
 
-**Die Trainingszeiten-Box als Sidebar-Modul einbinden:** In jeder Seite,
-die die Box zeigen soll, einfach einen leeren Platzhalter einbauen –
-keinen Inhalt reinschreiben:
+**Wichtig zu allen internen Links/Pfaden:** immer relativ, ohne
+führenden Slash (`kontakt.html`, nicht `/kontakt.html`). Das Repo ist
+eine GitHub *Project Page* (URL mit `/website/`-Unterpfad) – ein
+führender Slash würde auf die Domain-Wurzel statt auf den Unterpfad
+zeigen und die Navigation kaputt machen. Das ist uns am Anfang einmal
+passiert, seitdem bewusst vermieden.
 
-```html
-<div id="sidebar-trainingszeiten"></div>
-```
-
-`main.js` füllt diesen Platzhalter automatisch. Ist auf einer Seite kein
-Element mit dieser ID vorhanden (z. B. bei einer reinen Vollbreite-Seite
-ohne Sidebar), passiert einfach nichts – kein Fehler.
-
-**Wichtig:** `fetch()` auf lokale Dateien funktioniert nur über HTTP(S).
-Auf GitHub Pages ist das automatisch der Fall. Zum lokalen Testen vor dem
-Hochladen brauchst du einen kleinen lokalen Server, z. B.:
-
-```bash
-cd site-ordner
-python -m http.server 8000
-```
-
-und dann `http://localhost:8000` im Browser öffnen (nicht die Datei per
-Doppelklick öffnen – dann bleibt Header/Footer leer).
+**Lokal testen** (optional): Jekyll lokal laufen lassen, z. B. mit
+`bundle exec jekyll serve` (Ruby + Jekyll-Gem nötig), oder direkt auf
+GitHub Pages testen. Ein einfacher `python -m http.server` reicht
+**nicht**, um `{% include %}`/`{% for %}` darzustellen – das brauchht
+echtes Jekyll.
 
 ## Design-Entscheidungen
 
@@ -62,20 +73,11 @@ Doppelklick öffnen – dann bleibt Header/Footer leer).
   Grün-Gelb (Filzball-Farbe) als Akzent für Buttons/Links, statt der
   generischen Creme/Terracotta- oder Dunkel-mit-Neongrün-Templates.
 - **Schrift:** "Oswald" (kondensiert, sportlich) für Überschriften/Nav,
-  "Source Sans 3" für Fließtext – gut lesbar, wirkt nicht wie Standard-
-  Bootstrap.
+  "Source Sans 3" für Fließtext.
 - **Wiederkehrendes Element:** gestrichelte Trennlinie (`.court-divider`)
   erinnert an eine Feldmarkierung; Statistik-Badges (Anzahl Mannschaften,
   Liga, Saisonstart) statt reinem Fließtext.
 - Responsive: Menü klappt unter 860px zu einem Burger-Menü zusammen.
-
-## PDFs / Downloads
-
-Dokumente wie Satzung oder Mitgliedsanträge liegen unter `assets/docs/`,
-z. B. `assets/docs/satzung-2025.pdf` oder
-`assets/docs/mitgliedsantrag-foerderverein.pdf`. Die Links in den HTML-Seiten
-zeigen bereits lokal dorthin – du musst die PDFs nur noch in genau diesen
-Pfad hochladen (Dateiname beachten, muss exakt passen).
 
 ## Bilder
 
@@ -84,139 +86,74 @@ Pfad hochladen (Dateiname beachten, muss exakt passen).
 ```
 assets/img/
 ├── site/                          ← normale Layout-Bilder (Vereinsfotos, Hero-Bilder, Logos, Sponsoren)
-│   └── fv-team.jpg
 └── gallery/                       ← alle Galerie-Bilder, nach Thema UND Jahr sortiert
-    ├── strohhutfest/
-    │   └── 2025/
-    │       ├── 01.jpg
-    │       └── 02.jpg
     ├── stadtmeisterschaft/
-    │   └── 2025/
+    │   ├── 2025/
+    │   └── 2026/
     ├── laenderspiele/
-    │   └── 2025/
     └── jugendturniere/
-        └── 2025/
 ```
 
-- **`site/`** für alle "normalen" Bilder, die im Fließtext oder Layout einer Seite
-  vorkommen (z. B. Vorstandsfoto auf der Förderverein-Seite).
-- **`gallery/<thema>/<jahr>/`** für Galerie-Fotos. Pro Thema (Strohhutfest,
-  Stadtmeisterschaft, Länderspiele, Jugendturniere) ein Unterordner pro Jahr.
-  Kommt ein neues Jahr dazu, legst du einfach einen neuen Jahresordner an –
-  bestehende Bilder/Links bleiben unberührt. Auf der jeweiligen Gallerie-Seite
-  kannst du die Jahre z. B. als Abschnitte oder Tabs darstellen.
-- Dateinamen bewusst einfach gehalten (`01.jpg`, `02.jpg`, …) statt der
-  kryptischen WordPress-Originalnamen.
+- **`site/`** für alle "normalen" Bilder im Fließtext/Layout einer Seite.
+- **`gallery/<thema>/<jahr>/`** für Galerie-Fotos, siehe Abschnitt Galerie
+  unten für Details zum Dateinamen-Schema.
+- Kein separates Thumbnail-Bild nötig – die Galerie zeigt die Originale
+  in einem CSS-Grid mit `loading="lazy"`. Fotos vor dem Hochladen grob
+  auf ca. 1600–2000px verkleinern (z. B. squoosh.app), damit die Seite
+  nicht unnötig langsam lädt.
 
-### Bilder aus WordPress herunterladen
+## Galerie (`gallerie.html` + `gallerie-*.html`)
 
-Ich kann Bilder von deiner WordPress-Domain nicht automatisch herunterladen
-(die Sandbox, in der ich Dateien baue, hat keinen Zugriff auf
-`tsv-eppstein-badminton.de`). Für jedes Bild, das eine Seite braucht, gehst
-du daher so vor:
+- Datenquelle: `_data/gallery.yml` – pro Thema (`stadtmeisterschaft`,
+  `laenderspiele`, `kinder_jugendturniere`, `strohhutfest`) eine Liste
+  von Jahren, pro Jahr eine Liste von Bild-Dateinamen. Neuestes Jahr
+  steht in der Liste zuerst (wird dann auch zuerst angezeigt).
+- Dateinamen-Schema: `<thema>-<jahr>-<nummer>.jpg`, dreistellig
+  durchnummeriert, z. B. `stadtmeisterschaft-2025-001.jpg`.
+- Bilddateien liegen unter `assets/img/gallery/<thema>/<jahr>/<dateiname>`.
+- **Paginierung:** jedes Jahres-Grid zeigt anfangs nur 12 Bilder, Rest
+  per "Weitere Bilder laden"-Button (clientseitig in `main.js`,
+  `initGalleryPagination()`). Portionsgröße pro Grid überschreibbar via
+  `data-page-size="N"` am `.gallery-grid`-Element.
+- **Lightbox:** Klick auf ein Bild öffnet es groß im selben Fenster statt
+  in neuem Tab, mit Vor/Zurück-Navigation und Escape zum Schließen
+  (`main.js`, `initLightbox()`).
+- Neues Jahr = neuer Eintrag in `_data/gallery.yml` + neuer Bilderordner,
+  kein HTML anfassen nötig.
+- **Offen:** `laenderspiele` und `kinder_jugendturniere` sind in
+  `_data/gallery.yml` noch leer (`[]`), bis Bilder dafür hochgeladen sind.
 
-1. Bild-URL öffnen (steht jeweils im HTML-Kommentar bzw. ich nenne sie dir)
-2. Rechtsklick → "Bild speichern unter" (oder im WordPress-Mediencenter
-   herunterladen)
-3. Datei in den passenden Ordner legen, z. B. `assets/img/site/fv-team.jpg`
-4. Beim Hochladen ins GitHub-Repo denselben Pfad beibehalten
-
-Für die Förderverein-Seite konkret: Lade
-`https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/fv_team-768x1024.jpg`
-herunter und speichere sie als `assets/img/site/fv-team.jpg`.
-
-### Alle aktuell benötigten Bilder
-
-| Seite | Original-URL | Lokaler Zielpfad |
-|---|---|---|
-| Förderverein | `.../uploads/2025/11/fv_team-768x1024.jpg` | `assets/img/site/fv-team.jpg` |
-| Training Kinder/Jugend | `.../uploads/2025/11/renate.jpg` | `assets/img/site/renate.jpg` |
-| Training Kinder/Jugend | `.../uploads/2025/11/arthur.jpg` | `assets/img/site/arthur.jpg` |
-| Unsere Halle | `.../uploads/2025/11/isenachhalle-1024x768.jpg` | `assets/img/site/isenachhalle.jpg` |
-| Sponsoren | `.../uploads/2025/11/spiegel.jpg` | `assets/img/site/spiegel.jpg` |
-| Sponsoren | `.../uploads/2025/11/SPK-Logo_nCi-rot-tr-RGB-768x1024.png` | `assets/img/site/spk-logo.png` |
-
-(`...` = `https://tsv-eppstein-badminton.de/wp-content`). Alle Bilder kommen
-nach `assets/img/site/`, da es Layout-/Inhaltsbilder sind, keine
-Galerie-Fotos.
-
-## Kontaktformular
-
-Auf `/kontakt.html` (noch zu bauen) brauchen wir einen externen Formular-
-Dienst, da GitHub Pages kein PHP/Server-Backend hat. Empfehlenswert für
-kleine Vereine: Formspree (kostenlos bis 50 Nachrichten/Monat) oder ein
-einfacher `mailto:`-Link als Fallback.
-
-## Nächste Schritte
-
-Für jede weitere Unterseite gilt dasselbe Muster wie `index.html`:
-Kopf/Fuß-Platzhalter + `<link>`/`<script>`-Einbindung übernehmen, nur den
-Inhalt zwischen `<main>...</main>` austauschen. Schick mir einfach die
-nächste URL, dann bekommst du die passende Datei.
-
-## Fertige Seiten
-
-| WordPress-URL | Neue Datei | Status |
-|---|---|---|
-| `/` (Startseite) | `index.html` | ✅ fertig |
-| `/impressum/` | `impressum.html` | ✅ fertig |
-| `/foerderverein/` | `foerderverein.html` | ✅ fertig |
-| `/ueber-uns/` | `ueber-uns.html` | ✅ fertig |
-| `/ueber-uns/kontakt/` | `kontakt.html` | ✅ fertig (Formspree) |
-| `/spielbetrieb/` | `spielbetrieb.html` | ✅ fertig |
-| `/spielbetrieb/training-erwachsene/` | `spielbetrieb-training-erwachsene.html` | ✅ fertig |
-| `/spielbetrieb/training-kinder-und-jugend/` | `spielbetrieb-training-kinder-jugend.html` | ✅ fertig |
-| `/spielbetrieb/mannschaften/` | `spielbetrieb-mannschaften.html` | ✅ fertig |
-| `/spielbetrieb/turniere/` | `spielbetrieb-turniere.html` | ✅ fertig |
-| `/spielbetrieb/unsere-halle/` | `spielbetrieb-unsere-halle.html` | ✅ fertig |
-| `/gallerie/` + Unterseiten | `gallerie*.html` | ✅ fertig (Jekyll-basiert, siehe unten) |
-| `/news/` | `news.html` | ✅ fertig (aktuell leer, Muster für neue Einträge im Kommentar) |
-| `/sponsoren/` | `sponsoren.html` | ✅ fertig |
-| `/datenschutzerklaerung/` | `datenschutz.html` | ✅ fertig – **vor Veröffentlichung Hinweis-Box oben auf der Seite lesen!** |
-
-**Namensschema für die noch offenen Seiten:**
-
-Aktuell keine mehr offen (außer eigenen Ergänzungen an News/Galerie).
-
-## News & Galerie (Jekyll)
-
-GitHub Pages baut Seiten automatisch mit **Jekyll**, wenn sie mit einem
-Front-Matter-Block (zwei Zeilen `---` ganz oben in der Datei) beginnen –
-das haben `news.html` und alle `gallerie*.html` jetzt. Kein `_config.yml`
-oder Gemfile nötig, das ist bei GitHub Pages eingebaut.
-
-### News (`news.html`)
+## News (`news.html`)
 
 - Neue Beiträge kommen als einzelne Dateien in den Ordner `_posts/`.
 - Dateiname **muss** mit dem Datum beginnen: `YYYY-MM-DD-titel.md`
   (z. B. `2026-09-03-saisonstart.md`).
-- Inhalt der Datei: oben ein Front-Matter-Block mit `title:` und `date:`,
-  darunter ganz normaler Text (auch Markdown-Formatierung wie `**fett**`
-  funktioniert). Ein Beispiel-Post liegt schon unter
-  `_posts/2026-08-11-beispiel-news.md` – zum Ausprobieren, danach löschen
-  oder durch echte News ersetzen.
-- Posts erscheinen automatisch neuste zuerst, keine manuelle Sortierung
-  nötig.
+- Inhalt: oben Front-Matter mit `title:` und `date:`, darunter normaler
+  Text (Markdown-Formatierung wie `**fett**` funktioniert).
+- Posts erscheinen automatisch neueste zuerst.
+- Leerzustand ("noch keine News") ist eingebaut, falls `_posts/` leer ist.
 
-### Galerie (`gallerie.html` + `gallerie-*.html`)
+## PDFs / Downloads
 
-- Datenquelle ist `_data/gallery.yml` – dort trägst du pro Thema
-  (`stadtmeisterschaft`, `laenderspiele`, `kinder_jugendturniere`,
-  `strohhutfest`) eine Liste von Jahren ein, pro Jahr eine Liste von
-  Bild-Dateinamen. Genaues Format und ein Beispiel stehen als Kommentar
-  in der Datei selbst.
-- Die Bilddateien müssen dann unter
-  `assets/img/gallery/<thema>/<jahr>/<dateiname>` liegen (Ordnerstruktur
-  siehe oben im Abschnitt "Bilder").
-- **Wichtig:** `stadtmeisterschaft` in `_data/gallery.yml` ist aktuell
-  noch leer (`[]`), weil ich die genauen Dateinamen deiner bereits
-  hochgeladenen 2025er-Bilder nicht auslesen konnte (GitHub-API war in
-  meiner Sandbox rate-limited). Bitte einmal die Dateinamen prüfen und
-  entweder so in die YAML eintragen, wie sie heißen, oder auf das Schema
-  `01.jpg`, `02.jpg`, … umbenennen und dann eintragen.
-- Kein separates Thumbnail-Bild nötig – die Galerie zeigt die Originale in
-  einem CSS-Grid mit `loading="lazy"`. Bitte Fotos vor dem Hochladen grob
-  auf ca. 1600–2000px verkleinern (z. B. mit squoosh.app), damit die Seite
-  nicht unnötig langsam lädt.
-- Neues Jahr = neuer Eintrag in `_data/gallery.yml` + neuer Bilderordner.
-  Kein HTML muss angefasst werden.
+Liegen unter `assets/docs/`, z. B. `assets/docs/satzung-2025.pdf` oder
+`assets/docs/mitgliedsantrag-foerderverein.pdf`. Dateiname muss exakt
+passen, die HTML-Links zeigen schon lokal dorthin.
+
+## Kontaktformular
+
+`kontakt.html` nutzt Formspree (Form-ID `mwleoorw`) für den Versand, da
+GitHub Pages kein PHP/Server-Backend hat.
+
+## Fertige Seiten
+
+Alle statischen Seiten sind fertig: Startseite, Impressum, Förderverein,
+Über uns, Kontakt, alle 5 Spielbetrieb-Seiten, alle Galerie-Seiten, News,
+Sponsoren, Datenschutzerklärung.
+
+**Noch offen:**
+- Bilder für `laenderspiele` und `kinder_jugendturniere` in der Galerie
+- Datenschutzerklärung: Abschnitt "Hosting" nennt noch IONOS, muss vor
+  Veröffentlichung an GitHub Pages angepasst werden (Hinweis-Box steht
+  bereits oben auf der Seite)
+- Strohhutfest-Vorschaubilder auf der Startseite zeigen noch auf die
+  alte WordPress-Domain
