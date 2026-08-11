@@ -39,15 +39,18 @@
             Ohne die Unterstützung dieser Partner wäre vieles nicht möglich – vielen Dank!
           </p>
 
-          <h2>Spiegel Metallbau</h2>
+          {% for sponsor in site.data.sponsoren %}
+          <h2>
+            {% if sponsor.website %}
+            <a href="{{ sponsor.website }}" target="_blank" rel="noopener">{{ sponsor.name }}</a>
+            {% else %}
+            {{ sponsor.name }}
+            {% endif %}
+          </h2>
           <div class="sponsor-block">
-            <img src="assets/img/site/spiegel.jpg" alt="Logo Spiegel Metallbau">
+            <img src="assets/img/site/{{ sponsor.logo }}" alt="Logo {{ sponsor.name }}">
           </div>
-
-          <h2>Sparkasse Rhein-Haardt</h2>
-          <div class="sponsor-block">
-            <img src="assets/img/site/spk-logo.png" alt="Logo Sparkasse Rhein-Haardt">
-          </div>
+          {% endfor %}
         </div>
 
         {% include sidebar-trainingszeiten.html %}

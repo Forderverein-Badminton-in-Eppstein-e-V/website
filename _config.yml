@@ -1,0 +1,21 @@
+# Minimal-Konfiguration für Jekyll auf GitHub Pages.
+# Kein Gemfile nötig - die hier gelisteten Plugins sind Teil der von
+# GitHub Pages bereitgestellten "github-pages"-Gem-Sammlung und müssen
+# nur hier aktiviert werden.
+
+title: "Förderverein Badminton in Eppstein e.V."
+description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
+
+# Für korrekte absolute URLs in der generierten sitemap.xml. Falls sich
+# die GitHub-Pages-Adresse mal ändert (z. B. eigene Domain), hier
+# anpassen.
+url: "https://new.tsv-eppstein-badminton.de"
+baseurl: "/"
+
+plugins:
+  - jekyll-sitemap
+
+# Dateien/Ordner, die Jekyll beim Build ignorieren soll (Dev-Kram, keine
+# Website-Inhalte).
+exclude:
+  - README.md

@@ -1,0 +1,14 @@
+# Sponsoren-Liste, genutzt von sponsoren.html.
+#
+# Neuen Sponsor hinzufügen: einfach einen weiteren Eintrag ergänzen und
+# das Logo nach assets/img/site/ hochladen. sponsoren.html muss dafür
+# nicht angefasst werden. "website" ist optional (verlinkt den Namen,
+# falls der Sponsor eine eigene Seite hat).
+
+- name: "Spiegel Metallbau"
+  logo: "spiegel.jpg"
+  # website: "https://www.spiegel-metallbau-beispiel.de/"
+
+- name: "Sparkasse Rhein-Haardt"
+  logo: "spk-logo.png"
+  # website: "https://www.sparkasse-rhein-haardt.de/"

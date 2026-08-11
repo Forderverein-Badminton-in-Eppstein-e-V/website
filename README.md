@@ -16,7 +16,9 @@
 │   └── sidebar-trainingszeiten.html  ← Trainingszeiten-Box (Modul für Sidebar)
 ├── _data/
 │   ├── nav.yml                 ← Navigationsstruktur (an EINER Stelle pflegen)
+│   ├── sponsoren.yml           ← Sponsoren-Liste
 │   └── gallery.yml             ← Bild-Daten für die Galerie-Seiten
+├── _config.yml                 ← Jekyll-Konfiguration (Plugins, URL für Sitemap)
 ├── _posts/
 │   └── YYYY-MM-DD-titel.md     ← News-Beiträge
 ├── assets/
@@ -132,6 +134,22 @@ assets/img/
   Text (Markdown-Formatierung wie `**fett**` funktioniert).
 - Posts erscheinen automatisch neueste zuerst.
 - Leerzustand ("noch keine News") ist eingebaut, falls `_posts/` leer ist.
+
+## Sponsoren (`sponsoren.html`)
+
+Datenquelle: `_data/sponsoren.yml` – ein Eintrag pro Sponsor (`name`,
+`logo`-Dateiname, optional `website` für einen Link). Logo-Datei nach
+`assets/img/site/` hochladen, dann in `sponsoren.yml` eintragen. Kein
+HTML anfassen nötig.
+
+## Sitemap & Jekyll-Konfiguration (`_config.yml`)
+
+Aktiviert das `jekyll-sitemap`-Plugin (auf GitHub Pages ohne Gemfile
+nutzbar, da Teil der bereitgestellten Plugin-Sammlung). Erzeugt beim
+Build automatisch eine `sitemap.xml` mit allen Seiten – gut fürs SEO,
+keine manuelle Pflege nötig. `url` + `baseurl` sind auf die aktuelle
+GitHub-Pages-Adresse (`https://fv-badminton-eppstein.github.io/website`)
+gesetzt; falls ihr mal auf eine eigene Domain wechselt, hier anpassen.
 
 ## PDFs / Downloads
 
