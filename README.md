@@ -69,6 +69,14 @@ Doppelklick öffnen – dann bleibt Header/Footer leer).
   Liga, Saisonstart) statt reinem Fließtext.
 - Responsive: Menü klappt unter 860px zu einem Burger-Menü zusammen.
 
+## PDFs / Downloads
+
+Dokumente wie Satzung oder Mitgliedsanträge liegen unter `assets/docs/`,
+z. B. `assets/docs/satzung-2025.pdf` oder
+`assets/docs/mitgliedsantrag-foerderverein.pdf`. Die Links in den HTML-Seiten
+zeigen bereits lokal dorthin – du musst die PDFs nur noch in genau diesen
+Pfad hochladen (Dateiname beachten, muss exakt passen).
+
 ## Bilder
 
 ### Ordnerstruktur
