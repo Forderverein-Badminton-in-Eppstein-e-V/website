@@ -6,11 +6,13 @@
 title: "Förderverein Badminton in Eppstein e.V."
 description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
 
-# Für korrekte absolute URLs in der generierten sitemap.xml. Falls sich
-# die GitHub-Pages-Adresse mal ändert (z. B. eigene Domain), hier
-# anpassen.
+# Für korrekte absolute URLs in der generierten sitemap.xml. Läuft die
+# Seite an der Domain-Wurzel (eigene/custom Domain via CNAME-Datei), muss
+# baseurl ein LEERER String sein - nicht "/". Nur bei einer GitHub
+# Project Page mit Unterpfad (z. B. .../website/) wäre baseurl: "/website"
+# korrekt.
 url: "https://new.tsv-eppstein-badminton.de"
-baseurl: "/"
+baseurl: ""
 
 plugins:
   - jekyll-sitemap
