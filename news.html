@@ -38,9 +38,9 @@
           <div class="news-liste">
             {% for post in site.posts %}
             <div class="news-karte">
-              <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+              <h2>{{ post.title }}</h2>
               <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
-              <p>{{ post.excerpt }}</p>
+              <p>{{ post.content }}</p>
             </div>
             {% endfor %}
           </div>
