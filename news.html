@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +10,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
@@ -28,29 +32,25 @@
     <div class="container page-body">
       <div class="layout">
         <div>
-          <!--
-            Diese Seite hatte auf WordPress keine eigenen Beiträge (leeres
-            Archiv). Sobald ihr News schreiben wollt, könnt ihr hier einfach
-            neue <article>-Blöcke ergänzen, z. B.:
 
-            <article class="card" style="margin-bottom:1rem;">
-              <h3 style="text-transform:none; font-family:var(--font-body);">Titel der News</h3>
-              <p style="font-size:0.85rem; color:var(--ink-soft);">01.09.2026</p>
-              <p>Text der Neuigkeit ...</p>
-            </article>
-          -->
-          <div class="empty-state">
-            <p style="margin:0;">Aktuell gibt es noch keine News-Einträge. Schaut bald wieder vorbei!</p>
+          <div class="news-liste">
+            {% for post in site.posts %}
+            <div class="news-karte">
+              <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+              <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
+              <p>{{ post.excerpt }}</p>
+            </div>
+            {% endfor %}
           </div>
-        </div>
 
-        <div id="sidebar-trainingszeiten"></div>
+          <div id="sidebar-trainingszeiten"></div>
+        </div>
       </div>
-    </div>
   </main>
 
   <div id="site-footer"></div>
 
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
