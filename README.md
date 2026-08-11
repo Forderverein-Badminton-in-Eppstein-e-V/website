@@ -125,6 +125,21 @@ Für die Förderverein-Seite konkret: Lade
 `https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/fv_team-768x1024.jpg`
 herunter und speichere sie als `assets/img/site/fv-team.jpg`.
 
+### Alle aktuell benötigten Bilder
+
+| Seite | Original-URL | Lokaler Zielpfad |
+|---|---|---|
+| Förderverein | `.../uploads/2025/11/fv_team-768x1024.jpg` | `assets/img/site/fv-team.jpg` |
+| Training Kinder/Jugend | `.../uploads/2025/11/renate.jpg` | `assets/img/site/renate.jpg` |
+| Training Kinder/Jugend | `.../uploads/2025/11/arthur.jpg` | `assets/img/site/arthur.jpg` |
+| Unsere Halle | `.../uploads/2025/11/isenachhalle-1024x768.jpg` | `assets/img/site/isenachhalle.jpg` |
+| Sponsoren | `.../uploads/2025/11/spiegel.jpg` | `assets/img/site/spiegel.jpg` |
+| Sponsoren | `.../uploads/2025/11/SPK-Logo_nCi-rot-tr-RGB-768x1024.png` | `assets/img/site/spk-logo.png` |
+
+(`...` = `https://tsv-eppstein-badminton.de/wp-content`). Alle Bilder kommen
+nach `assets/img/site/`, da es Layout-/Inhaltsbilder sind, keine
+Galerie-Fotos.
+
 ## Kontaktformular
 
 Auf `/kontakt.html` (noch zu bauen) brauchen wir einen externen Formular-
@@ -139,25 +154,37 @@ Kopf/Fuß-Platzhalter + `<link>`/`<script>`-Einbindung übernehmen, nur den
 Inhalt zwischen `<main>...</main>` austauschen. Schick mir einfach die
 nächste URL, dann bekommst du die passende Datei.
 
-**Namensschema der Dateien** (damit die Links in der Navigation stimmen):
+## Fertige Seiten
+
+| WordPress-URL | Neue Datei | Status |
+|---|---|---|
+| `/` (Startseite) | `index.html` | ✅ fertig |
+| `/impressum/` | `impressum.html` | ✅ fertig |
+| `/foerderverein/` | `foerderverein.html` | ✅ fertig |
+| `/ueber-uns/` | `ueber-uns.html` | ✅ fertig |
+| `/ueber-uns/kontakt/` | `kontakt.html` | ⏳ noch offen (Kontaktformular-Dienst nötig) |
+| `/spielbetrieb/` | `spielbetrieb.html` | ✅ fertig |
+| `/spielbetrieb/training-erwachsene/` | `spielbetrieb-training-erwachsene.html` | ✅ fertig |
+| `/spielbetrieb/training-kinder-und-jugend/` | `spielbetrieb-training-kinder-jugend.html` | ✅ fertig |
+| `/spielbetrieb/mannschaften/` | `spielbetrieb-mannschaften.html` | ✅ fertig |
+| `/spielbetrieb/turniere/` | `spielbetrieb-turniere.html` | ✅ fertig |
+| `/spielbetrieb/unsere-halle/` | `spielbetrieb-unsere-halle.html` | ✅ fertig |
+| `/gallerie/` + Unterseiten | `gallerie*.html` | ⏳ noch offen (eigenes Konzept mit Jahren) |
+| `/news/` | `news.html` | ✅ fertig (aktuell leer, Muster für neue Einträge im Kommentar) |
+| `/sponsoren/` | `sponsoren.html` | ✅ fertig |
+| `/datenschutzerklaerung/` | `datenschutz.html` | ✅ fertig – **vor Veröffentlichung Hinweis-Box oben auf der Seite lesen!** |
+
+**Namensschema für die noch offenen Seiten:**
 
 | WordPress-URL | Neue Datei |
 |---|---|
-| `/ueber-uns/` | `ueber-uns.html` |
 | `/ueber-uns/kontakt/` | `kontakt.html` |
-| `/spielbetrieb/` | `spielbetrieb.html` |
-| `/spielbetrieb/training-erwachsene/` | `spielbetrieb-training-erwachsene.html` |
-| `/spielbetrieb/training-kinder-und-jugend/` | `spielbetrieb-training-kinder-jugend.html` |
-| `/spielbetrieb/mannschaften/` | `spielbetrieb-mannschaften.html` |
-| `/spielbetrieb/turniere/` | `spielbetrieb-turniere.html` |
-| `/spielbetrieb/unsere-halle/` | `spielbetrieb-unsere-halle.html` |
-| `/foerderverein/` | `foerderverein.html` |
 | `/gallerie/` | `gallerie.html` |
 | `/gallerie/stadtmeisterschaft/` | `gallerie-stadtmeisterschaft.html` |
 | `/gallerie/laenderspiel/` | `gallerie-laenderspiele.html` |
 | `/kinder-und-jugendturniere/` | `gallerie-kinder-jugendturniere.html` |
 | `/strohhutfest/` | `gallerie-strohhutfest.html` |
-| `/news/` | `news.html` |
-| `/sponsoren/` | `sponsoren.html` |
-| `/impressum/` | `impressum.html` |
-| `/datenschutzerklaerung/` | `datenschutz.html` |
+
+Für diese Seiten braucht es noch eigene Konzepte (Kontaktformular-Dienst
+bzw. Jahres-Struktur für die Galerien) – die bauen wir, sobald du bereit
+bist.
