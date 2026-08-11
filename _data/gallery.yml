@@ -1,0 +1,87 @@
+# Datenquelle für alle Galerie-Seiten (gallerie-*.html).
+#
+# Struktur: pro Thema eine Liste von Jahren, pro Jahr eine Liste von Bildern.
+# Bild-Dateien liegen unter: assets/img/gallery/<thema>/<jahr>/<datei>
+#
+# "alt" ist optional (Bildbeschreibung für Screenreader/SEO). Wenn du sie
+# weglässt, wird automatisch ein generischer Text verwendet.
+#
+# Neues Jahr hinzufügen: einfach einen neuen "- jahr: ..."-Block ergänzen
+# und die zugehörigen Bilder in einen neuen Ordner
+# assets/img/gallery/<thema>/<jahr>/ hochladen. Kein HTML anfassen nötig.
+#
+# Dateinamen-Schema (von Kai so hochgeladen, dreistellig durchnummeriert):
+# <thema>-<jahr>-<nummer>.jpg, z. B. stadtmeisterschaft-2025-001.jpg
+
+stadtmeisterschaft:
+  - jahr: 2025
+    bilder:
+      - datei: stadtmeisterschaft-2025-001.jpg
+      - datei: stadtmeisterschaft-2025-002.jpg
+      - datei: stadtmeisterschaft-2025-003.jpg
+      - datei: stadtmeisterschaft-2025-004.jpg
+      - datei: stadtmeisterschaft-2025-005.jpg
+      - datei: stadtmeisterschaft-2025-006.jpg
+      - datei: stadtmeisterschaft-2025-007.jpg
+      - datei: stadtmeisterschaft-2025-008.jpg
+      - datei: stadtmeisterschaft-2025-009.jpg
+      - datei: stadtmeisterschaft-2025-010.jpg
+      - datei: stadtmeisterschaft-2025-011.jpg
+      - datei: stadtmeisterschaft-2025-012.jpg
+      - datei: stadtmeisterschaft-2025-013.jpg
+      - datei: stadtmeisterschaft-2025-014.jpg
+      - datei: stadtmeisterschaft-2025-015.jpg
+      - datei: stadtmeisterschaft-2025-016.jpg
+      - datei: stadtmeisterschaft-2025-017.jpg
+      - datei: stadtmeisterschaft-2025-018.jpg
+      - datei: stadtmeisterschaft-2025-019.jpg
+      - datei: stadtmeisterschaft-2025-020.jpg
+      - datei: stadtmeisterschaft-2025-021.jpg
+      - datei: stadtmeisterschaft-2025-022.jpg
+      - datei: stadtmeisterschaft-2025-023.jpg
+      - datei: stadtmeisterschaft-2025-024.jpg
+      - datei: stadtmeisterschaft-2025-025.jpg
+      - datei: stadtmeisterschaft-2025-026.jpg
+      - datei: stadtmeisterschaft-2025-027.jpg
+      - datei: stadtmeisterschaft-2025-028.jpg
+      - datei: stadtmeisterschaft-2025-029.jpg
+      - datei: stadtmeisterschaft-2025-030.jpg
+      - datei: stadtmeisterschaft-2025-031.jpg
+      - datei: stadtmeisterschaft-2025-032.jpg
+      - datei: stadtmeisterschaft-2025-033.jpg
+      - datei: stadtmeisterschaft-2025-034.jpg
+      - datei: stadtmeisterschaft-2025-035.jpg
+      - datei: stadtmeisterschaft-2025-036.jpg
+      - datei: stadtmeisterschaft-2025-037.jpg
+      - datei: stadtmeisterschaft-2025-038.jpg
+      - datei: stadtmeisterschaft-2025-039.jpg
+      - datei: stadtmeisterschaft-2025-040.jpg
+      - datei: stadtmeisterschaft-2025-041.jpg
+      - datei: stadtmeisterschaft-2025-042.jpg
+      - datei: stadtmeisterschaft-2025-043.jpg
+      - datei: stadtmeisterschaft-2025-044.jpg
+      - datei: stadtmeisterschaft-2025-045.jpg
+      - datei: stadtmeisterschaft-2025-046.jpg
+      - datei: stadtmeisterschaft-2025-047.jpg
+      - datei: stadtmeisterschaft-2025-048.jpg
+
+laenderspiele: []
+# ^ TODO Kai: sobald Bilder hochgeladen sind, analog zu stadtmeisterschaft
+#   oben eintragen, z. B.:
+# laenderspiele:
+#   - jahr: 2025
+#     bilder:
+#       - datei: laenderspiele-2025-001.jpg
+
+kinder_jugendturniere: []
+# ^ TODO Kai: Bilder liegen im Ordner assets/img/gallery/jugendturniere/,
+#   der YAML-Schlüssel heißt hier kinder_jugendturniere (Vorsicht: Schlüssel
+#   und Ordnername sind bewusst nicht identisch, das ist so beabsichtigt und
+#   passt zur bestehenden gallerie-kinder-jugendturniere.html). Beispiel:
+# kinder_jugendturniere:
+#   - jahr: 2025
+#     bilder:
+#       - datei: jugendturnier-2025-001.jpg
+
+strohhutfest: []
+# ^ TODO Kai: sobald Bilder hochgeladen sind, analog eintragen.

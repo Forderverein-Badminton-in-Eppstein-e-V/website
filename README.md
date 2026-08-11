@@ -162,29 +162,61 @@ nächste URL, dann bekommst du die passende Datei.
 | `/impressum/` | `impressum.html` | ✅ fertig |
 | `/foerderverein/` | `foerderverein.html` | ✅ fertig |
 | `/ueber-uns/` | `ueber-uns.html` | ✅ fertig |
-| `/ueber-uns/kontakt/` | `kontakt.html` | ⏳ noch offen (Kontaktformular-Dienst nötig) |
+| `/ueber-uns/kontakt/` | `kontakt.html` | ✅ fertig (Formspree) |
 | `/spielbetrieb/` | `spielbetrieb.html` | ✅ fertig |
 | `/spielbetrieb/training-erwachsene/` | `spielbetrieb-training-erwachsene.html` | ✅ fertig |
 | `/spielbetrieb/training-kinder-und-jugend/` | `spielbetrieb-training-kinder-jugend.html` | ✅ fertig |
 | `/spielbetrieb/mannschaften/` | `spielbetrieb-mannschaften.html` | ✅ fertig |
 | `/spielbetrieb/turniere/` | `spielbetrieb-turniere.html` | ✅ fertig |
 | `/spielbetrieb/unsere-halle/` | `spielbetrieb-unsere-halle.html` | ✅ fertig |
-| `/gallerie/` + Unterseiten | `gallerie*.html` | ⏳ noch offen (eigenes Konzept mit Jahren) |
+| `/gallerie/` + Unterseiten | `gallerie*.html` | ✅ fertig (Jekyll-basiert, siehe unten) |
 | `/news/` | `news.html` | ✅ fertig (aktuell leer, Muster für neue Einträge im Kommentar) |
 | `/sponsoren/` | `sponsoren.html` | ✅ fertig |
 | `/datenschutzerklaerung/` | `datenschutz.html` | ✅ fertig – **vor Veröffentlichung Hinweis-Box oben auf der Seite lesen!** |
 
 **Namensschema für die noch offenen Seiten:**
 
-| WordPress-URL | Neue Datei |
-|---|---|
-| `/ueber-uns/kontakt/` | `kontakt.html` |
-| `/gallerie/` | `gallerie.html` |
-| `/gallerie/stadtmeisterschaft/` | `gallerie-stadtmeisterschaft.html` |
-| `/gallerie/laenderspiel/` | `gallerie-laenderspiele.html` |
-| `/kinder-und-jugendturniere/` | `gallerie-kinder-jugendturniere.html` |
-| `/strohhutfest/` | `gallerie-strohhutfest.html` |
+Aktuell keine mehr offen (außer eigenen Ergänzungen an News/Galerie).
 
-Für diese Seiten braucht es noch eigene Konzepte (Kontaktformular-Dienst
-bzw. Jahres-Struktur für die Galerien) – die bauen wir, sobald du bereit
-bist.
+## News & Galerie (Jekyll)
+
+GitHub Pages baut Seiten automatisch mit **Jekyll**, wenn sie mit einem
+Front-Matter-Block (zwei Zeilen `---` ganz oben in der Datei) beginnen –
+das haben `news.html` und alle `gallerie*.html` jetzt. Kein `_config.yml`
+oder Gemfile nötig, das ist bei GitHub Pages eingebaut.
+
+### News (`news.html`)
+
+- Neue Beiträge kommen als einzelne Dateien in den Ordner `_posts/`.
+- Dateiname **muss** mit dem Datum beginnen: `YYYY-MM-DD-titel.md`
+  (z. B. `2026-09-03-saisonstart.md`).
+- Inhalt der Datei: oben ein Front-Matter-Block mit `title:` und `date:`,
+  darunter ganz normaler Text (auch Markdown-Formatierung wie `**fett**`
+  funktioniert). Ein Beispiel-Post liegt schon unter
+  `_posts/2026-08-11-beispiel-news.md` – zum Ausprobieren, danach löschen
+  oder durch echte News ersetzen.
+- Posts erscheinen automatisch neuste zuerst, keine manuelle Sortierung
+  nötig.
+
+### Galerie (`gallerie.html` + `gallerie-*.html`)
+
+- Datenquelle ist `_data/gallery.yml` – dort trägst du pro Thema
+  (`stadtmeisterschaft`, `laenderspiele`, `kinder_jugendturniere`,
+  `strohhutfest`) eine Liste von Jahren ein, pro Jahr eine Liste von
+  Bild-Dateinamen. Genaues Format und ein Beispiel stehen als Kommentar
+  in der Datei selbst.
+- Die Bilddateien müssen dann unter
+  `assets/img/gallery/<thema>/<jahr>/<dateiname>` liegen (Ordnerstruktur
+  siehe oben im Abschnitt "Bilder").
+- **Wichtig:** `stadtmeisterschaft` in `_data/gallery.yml` ist aktuell
+  noch leer (`[]`), weil ich die genauen Dateinamen deiner bereits
+  hochgeladenen 2025er-Bilder nicht auslesen konnte (GitHub-API war in
+  meiner Sandbox rate-limited). Bitte einmal die Dateinamen prüfen und
+  entweder so in die YAML eintragen, wie sie heißen, oder auf das Schema
+  `01.jpg`, `02.jpg`, … umbenennen und dann eintragen.
+- Kein separates Thumbnail-Bild nötig – die Galerie zeigt die Originale in
+  einem CSS-Grid mit `loading="lazy"`. Bitte Fotos vor dem Hochladen grob
+  auf ca. 1600–2000px verkleinern (z. B. mit squoosh.app), damit die Seite
+  nicht unnötig langsam lädt.
+- Neues Jahr = neuer Eintrag in `_data/gallery.yml` + neuer Bilderordner.
+  Kein HTML muss angefasst werden.

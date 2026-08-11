@@ -2,7 +2,6 @@
 ---
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,16 +34,21 @@
       <div class="layout">
         <div>
 
+          {% if site.posts.size == 0 %}
+          <div class="empty-state">
+            <p style="margin:0;">Aktuell gibt es noch keine News-Einträge. Schaut bald wieder vorbei!</p>
+          </div>
+          {% else %}
           <div class="news-liste">
             {% for post in site.posts %}
-            <div class="news-karte">
+            <article class="news-karte">
               <h2>{{ post.title }}</h2>
               <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
               <p>{{ post.content }}</p>
-            </div>
+            </article>
             {% endfor %}
           </div>
-
+          {% endif %}
 
         </div>
         <div id="sidebar-trainingszeiten"></div>

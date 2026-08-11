@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kontakt – Förderverein Badminton in Eppstein e.V.</title>
-    <meta name="description" content="Kontaktinformationen des Fördervereins Badminton in Eppstein e.V.">
+    <meta name="description" content="Kontaktiert die Badminton-Abteilung des TSV Eppstein per Formular oder E-Mail.">
     <link rel="icon" href="https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/cropped-image-270x270.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,21 +32,50 @@
         <div class="container page-body">
             <div class="layout">
                 <div>
+                    <p>
+                        Füllt bitte das folgende Formular aus, oder sendet einfach eine Mail an
+                        <a
+                            href="mailto:foerderverein@tsv-eppstein-badminton.de">foerderverein@tsv-eppstein-badminton.de</a>.
+                        Wir werden uns zeitnah bei euch melden!
+                    </p>
 
-                    <!-- modify this form HTML and place wherever you want your form -->
-                    <div data-fs-success>Thanks for your submission!</div>
-                    <div data-fs-error>Oops! There was a problem submitting your form.</div>
-                    <form id="my-form">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" data-fs-field />
-                        <span data-fs-error="email"></span>
-                        <label for="message">Message:</label>
-                        <input type="text" id="message" name="message" data-fs-field />
-                        <span data-fs-error="message"></span>
-                        <button type="submit" data-fs-submit-btn>Submit</button>
+                    <div data-fs-success class="form-status success" role="status">
+                        Vielen Dank für eure Nachricht! Wir melden uns zeitnah bei euch.
+                    </div>
+                    <div data-fs-error class="form-status error" role="alert">
+                        Leider ist beim Senden etwas schiefgelaufen. Bitte versucht es erneut oder schreibt
+                        uns direkt eine E-Mail.
+                    </div>
+
+                    <form id="contact-form" class="form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vorname">Vorname <span class="required">*</span></label>
+                                <input type="text" id="vorname" name="Vorname" data-fs-field required>
+                                <span data-fs-error="Vorname"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="nachname">Nachname <span class="required">*</span></label>
+                                <input type="text" id="nachname" name="Nachname" data-fs-field required>
+                                <span data-fs-error="Nachname"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-Mail-Adresse <span class="required">*</span></label>
+                            <input type="email" id="email" name="Email" data-fs-field required>
+                            <span data-fs-error="Email"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nachricht">Nachricht <span class="required">*</span></label>
+                            <textarea id="nachricht" name="Nachricht" data-fs-field required></textarea>
+                            <span data-fs-error="Nachricht"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-accent" data-fs-submit-btn>Absenden</button>
                     </form>
 
-                    <!-- Place these scripts at the end of the body tag -->
                     <script>
                         window.formspree =
                             window.formspree ||
@@ -54,12 +83,11 @@
                                 (formspree.q = formspree.q || []).push(arguments);
                             };
                         formspree("initForm", {
-                            formElement: "#my-form",
+                            formElement: "#contact-form",
                             formId: "mwleoorw",
                         });
                     </script>
                     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-
                 </div>
 
                 <div id="sidebar-trainingszeiten"></div>
