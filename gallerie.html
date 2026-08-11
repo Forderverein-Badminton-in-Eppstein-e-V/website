@@ -2,6 +2,7 @@
 ---
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,10 +12,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
@@ -39,28 +43,28 @@
               <strong>Stadtmeisterschaft</strong>
               <span>
                 {% assign j = site.data.gallery.stadtmeisterschaft %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.last.jahr }}{% else %}Bilder folgen{% endif %}
+                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
               </span>
             </a>
             <a class="nav-card" href="gallerie-laenderspiele.html">
               <strong>Länderspiele</strong>
               <span>
                 {% assign j = site.data.gallery.laenderspiele %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.last.jahr }}{% else %}Bilder folgen{% endif %}
+                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
               </span>
             </a>
             <a class="nav-card" href="gallerie-kinder-jugendturniere.html">
               <strong>Kinder- und Jugendturniere</strong>
               <span>
                 {% assign j = site.data.gallery.kinder_jugendturniere %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.last.jahr }}{% else %}Bilder folgen{% endif %}
+                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
               </span>
             </a>
             <a class="nav-card" href="gallerie-strohhutfest.html">
               <strong>Strohhutfest</strong>
               <span>
                 {% assign j = site.data.gallery.strohhutfest %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.last.jahr }}{% else %}Bilder folgen{% endif %}
+                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
               </span>
             </a>
           </div>
@@ -75,4 +79,5 @@
 
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
