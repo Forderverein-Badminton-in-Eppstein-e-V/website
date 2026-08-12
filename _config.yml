@@ -3,7 +3,7 @@
 # GitHub Pages bereitgestellten "github-pages"-Gem-Sammlung und müssen
 # nur hier aktiviert werden.
 
-title: "Förderverein Badminton in Eppstein e.V."
+title: "TSV Eppstein Badminton"
 description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
 
 # Logo fürs Social-Media-Vorschaubild (Open Graph), ebenfalls vom
@@ -34,11 +34,12 @@ verein:
   mitglieder_gesamt: 70
   mitglieder_kinder: 20
   mitglieder_erwachsene: 50
-  mannschaften_aktuell: 2
-  liga_erste_mannschaft: "Verbandsliga Nordost O19"
+  mannschaften_aktuell: 3
+  liga_erste_mannschaft: "Bezirksoberliga Mitte"
   liga_zweite_mannschaft: "Bezirksliga Mitte"
+  liga_dritte_mannschaft: "Bezirksliga Mitte"
   saison_start_monat: "September"
-  saison_aktuell: "2025/26"
+  saison_aktuell: "2026/27"
 
 # Dateien/Ordner, die Jekyll beim Build ignorieren soll (Dev-Kram, keine
 # Website-Inhalte).
