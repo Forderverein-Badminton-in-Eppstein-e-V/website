@@ -16,14 +16,15 @@ description: "Unsere Mannschaften im Liga-Spielbetrieb der Badminton-Abteilung d
       <div class="team-cards">
         {% for team in site.data.mannschaften %}
         <div class="team-card">
-          {% if team.bild %}
-          <img class="figure-float links" src="assets/img/site/{{ team.bild }}" alt="{{ team.name }}">
-          {% endif %}
           <h3>{{ team.name }}</h3>
           <span class="team-liga">{{ team.liga }}</span>
 
           {% if team.mannschaftsfuehrer %}
           <p><strong>Mannschaftsführer:</strong> {{ team.mannschaftsfuehrer }}</p>
+          {% endif %}
+
+          {% if team.bild %}
+          <img class="team-bild" src="assets/img/site/{{ team.bild }}" alt="{{ team.name }}">
           {% endif %}
 
           {% if team.spieler.size > 0 %}

@@ -582,11 +582,8 @@ button:focus-visible {
   margin-top: 0.9rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.6rem;
-}
-
-.team-card .team-links .btn {
-  text-align: center;
 }
 
 /* -------------------- Stat Badges -------------------- */
