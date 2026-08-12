@@ -44,11 +44,11 @@ verein:
   mitglieder_kinder: 20
   mitglieder_erwachsene: 50
   mannschaften_aktuell: 3
-  liga_erste_mannschaft: "Bezirksoberliga Mitte"
-  liga_zweite_mannschaft: "Bezirksliga Mitte"
-  liga_dritte_mannschaft: "Bezirksliga Mitte"
   saison_start_monat: "September"
   saison_aktuell: "2026/27"
+  # Liga-Infos pro Mannschaft (früher hier als liga_erste_mannschaft etc.)
+  # stehen jetzt strukturiert in _data/mannschaften.yml, zusammen mit
+  # Tabellen-/Spielplan-Links pro Team.
 
 # Dateien/Ordner, die Jekyll beim Build ignorieren soll (Dev-Kram, keine
 # Website-Inhalte).
