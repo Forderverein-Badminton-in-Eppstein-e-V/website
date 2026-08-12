@@ -8,7 +8,7 @@ description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
 
 # Logo fürs Social-Media-Vorschaubild (Open Graph), ebenfalls vom
 # jekyll-seo-tag-Plugin genutzt.
-logo: "https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/cropped-image.png"
+logo: "assets/img/site/logo.png"
 
 # Für korrekte absolute URLs in der generierten sitemap.xml. Läuft die
 # Seite an der Domain-Wurzel (eigene/custom Domain via CNAME-Datei), muss
