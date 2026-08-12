@@ -6,6 +6,15 @@
 title: "Förderverein Badminton in Eppstein e.V."
 description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
 
+# Genutzt vom jekyll-seo-tag-Plugin: erzeugt Seitentitel im Format
+# "Seitentitel – Förderverein Badminton in Eppstein e.V." (wie bisher
+# von Hand gepflegt), statt des Standard-Trennzeichens "|".
+title_separator: " – "
+
+# Logo fürs Social-Media-Vorschaubild (Open Graph), ebenfalls vom
+# jekyll-seo-tag-Plugin genutzt.
+logo: "https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/cropped-image.png"
+
 # Für korrekte absolute URLs in der generierten sitemap.xml. Läuft die
 # Seite an der Domain-Wurzel (eigene/custom Domain via CNAME-Datei), muss
 # baseurl ein LEERER String sein - nicht "/". Nur bei einer GitHub
@@ -16,6 +25,7 @@ baseurl: ""
 
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Dateien/Ordner, die Jekyll beim Build ignorieren soll (Dev-Kram, keine
 # Website-Inhalte).

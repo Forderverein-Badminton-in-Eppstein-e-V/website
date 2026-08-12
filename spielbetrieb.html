@@ -11,27 +11,15 @@ description: "Training, Mannschaften, Turniere und unsere Halle – der Spielbet
             über unsere Mannschaften bis hin zu Turnieren und unserer Trainingshalle.
           </p>
 
+          {% assign spielbetrieb_nav = site.data.nav | where: "url", "spielbetrieb.html" | first %}
+
           <div class="nav-cards">
-            <a class="nav-card" href="spielbetrieb-training-erwachsene.html">
-              <strong>Training Erwachsene</strong>
-              <span>Regelmäßiges Training und freies Spiel für alle Leistungsniveaus.</span>
+            {% for eintrag in spielbetrieb_nav.submenu %}
+            <a class="nav-card" href="{{ eintrag.url }}">
+              <strong>{{ eintrag.label }}</strong>
+              <span>{{ eintrag.description }}</span>
             </a>
-            <a class="nav-card" href="spielbetrieb-training-kinder-jugend.html">
-              <strong>Training Kinder und Jugend</strong>
-              <span>Nachwuchstraining in Zusammenarbeit mit der TSG Grünstadt.</span>
-            </a>
-            <a class="nav-card" href="spielbetrieb-mannschaften.html">
-              <strong>Mannschaften</strong>
-              <span>Unsere Teams im Liga-Spielbetrieb.</span>
-            </a>
-            <a class="nav-card" href="spielbetrieb-turniere.html">
-              <strong>Turniere</strong>
-              <span>Eigene und externe Turniere, an denen wir teilnehmen.</span>
-            </a>
-            <a class="nav-card" href="spielbetrieb-unsere-halle.html">
-              <strong>Unsere Halle</strong>
-              <span>Die Isenachsporthalle – unsere sportliche Heimat.</span>
-            </a>
+            {% endfor %}
           </div>
         </div>
 

@@ -10,35 +10,18 @@ description: "Bilder von Turnieren und Vereinsevents der Badminton-Abteilung des
             Impressionen von unseren Turnieren und Vereinsevents – nach Thema sortiert.
           </p>
 
+          {% assign gallerie_nav = site.data.nav | where: "url", "gallerie.html" | first %}
+
           <div class="nav-cards">
-            <a class="nav-card" href="gallerie-stadtmeisterschaft.html">
-              <strong>Stadtmeisterschaft</strong>
+            {% for eintrag in gallerie_nav.submenu %}
+            {% assign jahre = site.data.gallery[eintrag.data_key] %}
+            <a class="nav-card" href="{{ eintrag.url }}">
+              <strong>{{ eintrag.label }}</strong>
               <span>
-                {% assign j = site.data.gallery.stadtmeisterschaft %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
+                {% if jahre.size > 0 %}Neueste Bilder: {{ jahre.first.jahr }}{% else %}Bilder folgen{% endif %}
               </span>
             </a>
-            <a class="nav-card" href="gallerie-laenderspiele.html">
-              <strong>Länderspiele</strong>
-              <span>
-                {% assign j = site.data.gallery.laenderspiele %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
-              </span>
-            </a>
-            <a class="nav-card" href="gallerie-kinder-jugendturniere.html">
-              <strong>Kinder- und Jugendturniere</strong>
-              <span>
-                {% assign j = site.data.gallery.kinder_jugendturniere %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
-              </span>
-            </a>
-            <a class="nav-card" href="gallerie-strohhutfest.html">
-              <strong>Strohhutfest</strong>
-              <span>
-                {% assign j = site.data.gallery.strohhutfest %}
-                {% if j.size > 0 %}Neueste Bilder: {{ j.first.jahr }}{% else %}Bilder folgen{% endif %}
-              </span>
-            </a>
+            {% endfor %}
           </div>
         </div>
 

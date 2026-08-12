@@ -61,9 +61,8 @@ Hero-Sektion mehr pro Seite nötig, das übernimmt `layout: default`.
 | Feld | Pflicht? | Zweck |
 |---|---|---|
 | `layout` | ja, immer `default` | aktiviert das gemeinsame Grundgerüst |
-| `title` | ja | `<title>`-Tag-Text (bekommt automatisch " – Förderverein Badminton in Eppstein e.V." angehängt) sowie Standard-Überschrift in der Hero-Sektion |
-| `description` | ja | Meta-Description für Suchmaschinen |
-| `full_title` | nein | überschreibt `title` im `<title>`-Tag komplett, ohne Suffix (aktuell nur bei `index.html` genutzt) |
+| `title` | ja | Seitentitel. Wird über das `jekyll-seo-tag`-Plugin automatisch zu `<title>Titel – Förderverein Badminton in Eppstein e.V.</title>` (Startseite ist Sonderfall: zeigt nur den Titel ohne Dopplung, weil er exakt dem Site-Titel entspricht); außerdem Standard-Überschrift in der Hero-Sektion |
+| `description` | ja | Meta-Description für Suchmaschinen (ebenfalls über `jekyll-seo-tag`, inkl. Open-Graph-/Twitter-Card-Tags fürs Teilen auf Social Media) |
 | `hero_title` | nein | überschreibt die H1-Überschrift in der Hero-Sektion, falls sie vom `title` abweichen soll (z. B. bei den Gallerie-Seiten) |
 | `hero_image` | nein | schaltet auf die große Foto-Hero-Variante um (aktuell nur `index.html`) statt der schlichten Balken-Hero |
 | `hero_image_alt`, `hero_subtitle`, `hero_cta_text`, `hero_cta_url` | nein | nur relevant zusammen mit `hero_image` |
@@ -165,14 +164,47 @@ Datenquelle: `_data/sponsoren.yml` – ein Eintrag pro Sponsor (`name`,
 `assets/img/site/` hochladen, dann in `sponsoren.yml` eintragen. Kein
 HTML anfassen nötig.
 
-## Sitemap & Jekyll-Konfiguration (`_config.yml`)
+## SEO, Sitemap & Jekyll-Konfiguration (`_config.yml`)
 
-Aktiviert das `jekyll-sitemap`-Plugin (auf GitHub Pages ohne Gemfile
-nutzbar, da Teil der bereitgestellten Plugin-Sammlung). Erzeugt beim
-Build automatisch eine `sitemap.xml` mit allen Seiten – gut fürs SEO,
-keine manuelle Pflege nötig. `url` + `baseurl` sind auf die aktuelle
-GitHub-Pages-Adresse (`https://fv-badminton-eppstein.github.io/website`)
-gesetzt; falls ihr mal auf eine eigene Domain wechselt, hier anpassen.
+Zwei Plugins aktiviert (auf GitHub Pages ohne Gemfile nutzbar, Teil der
+bereitgestellten Plugin-Sammlung):
+
+- **`jekyll-sitemap`** – erzeugt beim Build automatisch eine
+  `sitemap.xml` mit allen Seiten, keine manuelle Pflege nötig.
+- **`jekyll-seo-tag`** – der `{% seo %}`-Tag im `<head>` von
+  `_layouts/default.html` generiert daraus automatisch `<title>`,
+  Meta-Description, kanonische URL sowie Open-Graph-/Twitter-Card-Tags
+  (für Vorschaubilder beim Teilen auf Social Media). Nutzt `page.title`
+  und `page.description` aus dem Front Matter jeder Seite sowie `title`,
+  `description`, `title_separator` und `logo` aus `_config.yml`.
+
+`url` + `baseurl` sind auf die aktuelle Domain
+(`https://new.tsv-eppstein-badminton.de`) gesetzt; falls ihr nochmal die
+Domain wechselt, hier anpassen (bei eigener Domain an der Wurzel immer
+`baseurl: ""`, nicht `"/"`).
+
+## Duplikation vermieden: Karten-Übersichten aus `_data/nav.yml`
+
+`spielbetrieb.html` und `gallerie.html` zeigen Karten zu ihren
+Unterseiten. Statt das doppelt zu pflegen (einmal in `_data/nav.yml`
+fürs Dropdown-Menü, einmal hart codiert auf der jeweiligen
+Übersichtsseite), generieren beide Seiten ihre Karten per Liquid direkt
+aus dem `submenu` des passenden `nav.yml`-Eintrags:
+
+- Neuer Menüpunkt mit Untermenü hinzufügen/ändern → nur `nav.yml`
+  anfassen, taucht automatisch in Dropdown UND Karten-Übersicht auf.
+- `description` (auf Submenu-Ebene) liefert den Kartentext für
+  `spielbetrieb.html`.
+- `data_key` (auf Submenu-Ebene) verknüpft einen Gallerie-Menüpunkt mit
+  dem passenden Schlüssel in `_data/gallery.yml`, damit
+  `gallerie.html` weiterhin dynamisch "Neueste Bilder: <Jahr>" anzeigen
+  kann.
+
+## 404-Seite (`404.html`)
+
+Eigene, im Vereinsdesign gehaltene Seite für ungültige/alte Links, statt
+GitHub Pages' Standard-Fehlerseite. Liegt im Repo-Root, wird von GitHub
+Pages automatisch für alle nicht existierenden URLs ausgeliefert.
 
 ## PDFs / Downloads
 
