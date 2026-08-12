@@ -267,8 +267,19 @@ GitHub Pages kein PHP/Server-Backend hat.
 ## Fertige Seiten
 
 Alle statischen Seiten sind fertig: Startseite, Impressum, Förderverein,
-Über uns, Kontakt, alle 5 Spielbetrieb-Seiten, alle Galerie-Seiten, News,
+Kontakt, alle 5 Spielbetrieb-Seiten, alle Galerie-Seiten, News,
 Sponsoren, Datenschutzerklärung.
+
+**Über uns** ist wie Spielbetrieb/Gallerie eine reine Kachel-Übersicht
+(`ueber-uns.html`, generiert die Karten wie beschrieben aus
+`_data/nav.yml`) mit vier Unterseiten:
+- `ueber-uns-meilensteine.html` – Vereinsgeschichte/wichtigste Stationen
+- `ueber-uns-was-ist-badminton.html` – kurze Einführung in den Sport für
+  Neueinsteiger:innen (Regeln, Zählweise, kurzer geschichtlicher Abriss
+  des Sports selbst, nicht der Abteilung)
+- `ueber-uns-faq.html` – häufige Fragen (Reinschnuppern, Ausrüstung,
+  Alter, Mitgliedschaft, Unterschied Abteilung/Förderverein)
+- `kontakt.html` – bestehende Kontaktseite, unverändert
 
 **Noch offen:**
 - Bilder für `laenderspiele` und `kinder_jugendturniere` in der Galerie

@@ -28,8 +28,18 @@
 - label: "Über uns"
   url: "ueber-uns.html"
   submenu:
+    - label: "Meilensteine"
+      url: "ueber-uns-meilensteine.html"
+      description: "Von der Gründung 1997 bis heute – die wichtigsten Stationen unserer Abteilung."
+    - label: "Was ist Badminton?"
+      url: "ueber-uns-was-ist-badminton.html"
+      description: "Kurz erklärt: Ursprung, Regeln und Zählweise des Sports."
+    - label: "Häufige Fragen"
+      url: "ueber-uns-faq.html"
+      description: "Antworten auf die häufigsten Fragen von Neueinsteiger:innen."
     - label: "Kontakt"
       url: "kontakt.html"
+      description: "Formular oder E-Mail – wir freuen uns, von dir zu hören."
 
 - label: "Spielbetrieb"
   url: "spielbetrieb.html"

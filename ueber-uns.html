@@ -1,38 +1,34 @@
 ---
 layout: default
 title: "Über uns"
-description: "Die Geschichte der Badminton-Abteilung des TSV Eppstein seit 1997."
+description: "Die Badminton-Abteilung des TSV Eppstein – Meilensteine, was Badminton ausmacht, häufige Fragen und Kontakt."
 ---
     <div class="container page-body">
       <div class="layout">
         <div>
           <p>
-            Unsere Badminton-Abteilung beim TSV Eppstein wurde 1997 durch Peter Koch, Michael
-            Schneider, Udo Haas und Werner Pfannebecker gegründet. Nicht nur, dass diese vier
-            selbst die Felder in der Isenachsporthalle klebten, sie prägten über Jahre die
-            Abteilung und legten den Grundstein für die heutige Abteilung.
+            Alles Wissenswerte rund um unsere Abteilung – von der Vereinsgeschichte über eine
+            kurze Einführung in den Sport bis zu den häufigsten Fragen von Neueinsteiger:innen.
           </p>
-          <p>
-            1998 begannen wir mit der ersten aktiven Mannschaft am Spielbetrieb teilzunehmen und
-            diese wurde auf Anhieb Zweiter in der C-Klasse. In den Jahren danach folgten nicht
-            nur immer mehr Mitglieder in die Abteilung, sondern es konnten auch diverse
-            Meisterschaften und Aufstiege gefeiert werden.
-          </p>
-          <p>
-            Die Abteilung hatte teilweise über 120 Mitglieder und es nahmen bis zu fünf
-            Mannschaften am aktiven Spielbetrieb teil. Das Aushängeschild der Abteilung war
-            unsere erste Mannschaft, die 2017/18 in die Rheinhessen-Pfalz-Liga aufgestiegen ist.
-          </p>
-          <p>
-            Nach den vielen Abgängen nach der Saison 2022/2023 ist derzeit nur noch eine
-            Mannschaft gemeldet (Saison 2023/2024). Dies soll sich aber bald wieder ändern …
-          </p>
-          <p>
-            Derzeit hat unsere Abteilung ca. 70 Mitglieder: 20 Kinder und 50 Erwachsene.
-          </p>
+
+          <div class="stat-row">
+            <div class="stat"><strong>1997</strong><span>Gegründet</span></div>
+            <div class="stat"><strong>~70</strong><span>Mitglieder</span></div>
+            <div class="stat"><strong>2</strong><span>Mannschaften 2025/26</span></div>
+          </div>
+
+          {% assign ueber_uns_nav = site.data.nav | where: "url", "ueber-uns.html" | first %}
+
+          <div class="nav-cards">
+            {% for eintrag in ueber_uns_nav.submenu %}
+            <a class="nav-card" href="{{ eintrag.url }}">
+              <strong>{{ eintrag.label }}</strong>
+              <span>{{ eintrag.description }}</span>
+            </a>
+            {% endfor %}
+          </div>
         </div>
 
         {% include sidebar-trainingszeiten.html %}
       </div>
     </div>
-  
