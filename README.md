@@ -10,6 +10,8 @@
 ├── gallerie*.html              ← Übersicht + 4 Themen-Seiten (Jekyll)
 ├── news.html                   ← Newsliste (Jekyll)
 ├── kontakt.html                ← Kontaktformular (Formspree)
+├── _layouts/
+│   └── default.html            ← gemeinsames HTML-Grundgerüst (Kopf, Header, Hero, Footer, Script)
 ├── _includes/
 │   ├── header.html             ← Topbar + Logo + Navigation (Liquid-Schleife über _data/nav.yml)
 │   ├── footer.html             ← Vereinsinfos + rechtliche Links
@@ -32,42 +34,63 @@
 ## Funktionsprinzip (Jekyll)
 
 GitHub Pages baut die Seite automatisch mit **Jekyll**, sobald eine Datei
-oben mit einem Front-Matter-Block beginnt (zwei Zeilen `---`). Kein
-`_config.yml` oder Gemfile nötig, das ist bei GitHub Pages eingebaut.
+oben mit einem Front-Matter-Block beginnt. Kein `Gemfile` nötig, das ist
+bei GitHub Pages eingebaut.
 
-Header, Footer und die Trainingszeiten-Sidebar werden dadurch schon
-**beim Build** eingesetzt:
+**Jede Seite besteht nur noch aus Front Matter + eigentlichem Inhalt.**
+Das komplette `<html>`-Grundgerüst (Kopf, Header, Footer, Hero-Sektion,
+Script-Einbindung) steckt zentral in `_layouts/default.html` und wird
+automatisch drumherum gebaut:
 
 ```html
 ---
+layout: default
+title: "Seitentitel"
+description: "Meta-Beschreibung für Suchmaschinen"
 ---
-<!DOCTYPE html>
-...
-{% include header.html %}
-...Seiteninhalt...
-{% include sidebar-trainingszeiten.html %}   (nur auf Seiten mit Sidebar)
-...
-{% include footer.html %}
-<script src="assets/js/main.js"></script>
+<div class="container page-body">
+  ...eigentlicher Seiteninhalt...
+</div>
 ```
 
-**Navigation ändern:** nur `_data/nav.yml` anpassen (Menüpunkt
-hinzufügen/umbenennen/Reihenfolge ändern) – `_includes/header.html` muss
-dafür nicht angefasst werden. Format und Beispiele stehen als Kommentar
-in der Datei selbst.
+Das war's – kein `<head>`, kein `{% include header.html %}`, keine
+Hero-Sektion mehr pro Seite nötig, das übernimmt `layout: default`.
+
+### Front-Matter-Felder
+
+| Feld | Pflicht? | Zweck |
+|---|---|---|
+| `layout` | ja, immer `default` | aktiviert das gemeinsame Grundgerüst |
+| `title` | ja | `<title>`-Tag-Text (bekommt automatisch " – Förderverein Badminton in Eppstein e.V." angehängt) sowie Standard-Überschrift in der Hero-Sektion |
+| `description` | ja | Meta-Description für Suchmaschinen |
+| `full_title` | nein | überschreibt `title` im `<title>`-Tag komplett, ohne Suffix (aktuell nur bei `index.html` genutzt) |
+| `hero_title` | nein | überschreibt die H1-Überschrift in der Hero-Sektion, falls sie vom `title` abweichen soll (z. B. bei den Gallerie-Seiten) |
+| `hero_image` | nein | schaltet auf die große Foto-Hero-Variante um (aktuell nur `index.html`) statt der schlichten Balken-Hero |
+| `hero_image_alt`, `hero_subtitle`, `hero_cta_text`, `hero_cta_url` | nein | nur relevant zusammen mit `hero_image` |
+
+### Was weiterhin pro Seite im Inhalt steht
+
+Bewusst NICHT ins Layout gewandert, weil es sich von Seite zu Seite
+unterscheidet:
+
+- Die `.layout`-Grid-Struktur mit Hauptinhalt + Sidebar
+- `{% include sidebar-trainingszeiten.html %}` – nur auf Seiten, die die
+  Box zeigen sollen (weglassen, wenn nicht gewünscht)
+- Sonderfälle wie die Förderverein-Seite (eigene Bild-Sidebar statt
+  Trainingszeiten) oder die Datenschutzerklärung (keine Sidebar, volle
+  Breite) – jede Seite bringt ihre eigene Inhalts-Struktur mit
+
+**Navigation ändern:** nur `_data/nav.yml` anpassen – `_includes/header.html`
+muss dafür nicht angefasst werden.
 
 **Wichtig zu allen internen Links/Pfaden:** immer relativ, ohne
-führenden Slash (`kontakt.html`, nicht `/kontakt.html`). Das Repo ist
-eine GitHub *Project Page* (URL mit `/website/`-Unterpfad) – ein
-führender Slash würde auf die Domain-Wurzel statt auf den Unterpfad
-zeigen und die Navigation kaputt machen. Das ist uns am Anfang einmal
-passiert, seitdem bewusst vermieden.
+führenden Slash (`kontakt.html`, nicht `/kontakt.html`).
 
 **Lokal testen** (optional): Jekyll lokal laufen lassen, z. B. mit
 `bundle exec jekyll serve` (Ruby + Jekyll-Gem nötig), oder direkt auf
 GitHub Pages testen. Ein einfacher `python -m http.server` reicht
-**nicht**, um `{% include %}`/`{% for %}` darzustellen – das brauchht
-echtes Jekyll.
+**nicht**, da `{% include %}`/`{% for %}`/Layouts nur von echtem Jekyll
+verarbeitet werden.
 
 ## Design-Entscheidungen
 
