@@ -1,0 +1,30 @@
+/* ============================================================
+   ALTERNATIVE FARBPALETTE - "Hauptverein-Webfarben"
+   ============================================================
+   Nicht die Logo-Farben, sondern die tatsächlich auf
+   tsv-eppstein.de eingesetzten Web-Farben (per Pixel-Analyse aus
+   einem Screenshot ermittelt): #000080 ("Navy", klassische HTML-
+   Standardfarbe) und #daa520 ("Goldenrod", ebenfalls ein HTML-
+   Standardname). Diese Version bildet also exakt das Erscheinungsbild
+   des Hauptvereins nach, nicht das Wappen.
+
+   AKTIVIERUNG: siehe theme-switcher.js (temporäres Testwerkzeug)
+   oder manuell in _layouts/default.html verlinken.
+   ============================================================ */
+
+:root {
+    --court: #000080;
+    --court-dark: #00004c;
+
+    --accent: #daa520;
+    --accent-dark: #b2871a;
+
+    --line: #f9f6ea;
+
+    --ink: #16201b;
+    --ink-soft: #52604f;
+}
+
+.form-group .required {
+    color: #b40b1a;
+}

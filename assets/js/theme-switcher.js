@@ -27,6 +27,7 @@
     gedaempft: "assets/css/theme-vereinsfarben.css",
     kraeftig: "assets/css/theme-vereinsfarben-kraeftig.css",
     rotakzent: "assets/css/theme-vereinsfarben-rotakzent.css",
+    hauptverein: "assets/css/theme-hauptverein-webfarben.css",
   };
 
   var LABELS = {
@@ -35,6 +36,7 @@
     gedaempft: "Vereinsfarben, gedämpft",
     kraeftig: "Vereinsfarben, kräftiger",
     rotakzent: "Vereinsfarben, Rot-Akzent",
+    hauptverein: "Hauptverein-Webfarben (exakt)",
   };
 
   function applyTheme(key) {
