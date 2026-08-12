@@ -582,11 +582,14 @@ button:focus-visible {
   margin-top: 0.9rem;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.6rem;
 }
 
 .team-card .team-links .btn {
-  flex: 1;
+  flex: none;
+  width: auto;
+  min-width: 9rem;
   text-align: center;
 }
 
