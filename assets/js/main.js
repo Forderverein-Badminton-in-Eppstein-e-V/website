@@ -10,10 +10,24 @@
 
 function setActiveNavItem() {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".main-nav > ul > li > a").forEach((link) => {
-    const linkPath = link.getAttribute("href")?.split("/").pop();
-    if (linkPath === currentPath) {
-      link.closest("li").classList.add("active");
+
+  document.querySelectorAll(".main-nav > ul > li").forEach((item) => {
+    const topLink = item.querySelector(":scope > a");
+    const topPath = topLink?.getAttribute("href")?.split("/").pop();
+
+    // Direkter Treffer (man ist genau auf dieser Hauptseite, z. B. gallerie.html)
+    const isDirectMatch = topPath === currentPath;
+
+    // Treffer in einer Unterseite (z. B. gallerie-stadtmeisterschaft.html
+    // gehört zu "Gallerie") - Hauptpunkt bleibt dann auch markiert, damit
+    // erkennbar ist, in welchem Bereich man sich gerade befindet.
+    const submenuLinks = item.querySelectorAll(".submenu a");
+    const isSubmenuMatch = Array.from(submenuLinks).some(
+      (link) => link.getAttribute("href")?.split("/").pop() === currentPath
+    );
+
+    if (isDirectMatch || isSubmenuMatch) {
+      item.classList.add("active");
     }
   });
 }
