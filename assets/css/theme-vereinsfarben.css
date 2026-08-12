@@ -1,11 +1,12 @@
 /* ============================================================
-   ALTERNATIVE FARBPALETTE - "Vereinsfarben, gedämpft" (Test v2)
+   ALTERNATIVE FARBPALETTE - "Vereinsfarben, gedämpft" (Test v3)
    ============================================================
-   Erste Version (v1) nutzte die Wappenfarben 1:1 - Feedback war,
-   dass das Gold zu knallig/aufdringlich wirkte. Diese Version
-   dämpft alle vier Farben (weniger Sättigung, angepasste
-   Helligkeit) - erinnert an Navy/Gold/Rot/Creme aus dem Wappen,
-   ohne die exakten, sehr kräftigen Farbcodes zu übernehmen.
+   v1: Wappenfarben 1:1 - Gold zu knallig.
+   v2: gedämpft, aber das Navy wirkte zu lila (Entsättigung von
+       Blau kippt bei mittlerer Helligkeit leicht Richtung Lila).
+   v3 (diese Version): Blauton Richtung "reines Blau" gedreht und
+       aufgehellt (Vergleich mit der echten Farbe des Hauptvereins
+       tsv-eppstein.de bestätigt: kräftiges, klares Blau, kein Lila).
 
    NUR ZUM TESTEN: Diese Datei überschreibt lediglich die Farb-
    Variablen aus style.css - dank CSS-Variablen wirkt sich das
@@ -22,10 +23,11 @@
    ============================================================ */
 
 :root {
-    /* Gedämpftes Navy-Blau (Wappen-Navy #273e8f, entsättigt und
-     etwas aufgehellt) - ersetzt das bisherige dunkle Grün */
-    --court: #3b4772;
-    --court-dark: #2c3555;
+    /* Helles, klares Blau (Hue Richtung "reines Blau" gedreht, damit es
+     nicht wie in einer früheren Testversion ins Lila kippt) - ersetzt
+     das bisherige dunkle Grün */
+    --court: #37659e;
+    --court-dark: #274871;
 
     /* Gedämpftes Gold/Messing (Wappen-Gold #edc006, deutlich
      entsättigt und abgedunkelt - kein reines Gelb mehr) */
@@ -35,10 +37,10 @@
     /* Warmes, gedecktes Creme statt des grau-grünen Tons */
     --line: #f5f1e6;
 
-    /* Fließtext dezent Richtung Navy getönt statt neutral-schwarz,
+    /* Fließtext dezent Richtung Blau getönt statt neutral-schwarz,
      für mehr Zusammenhang mit der neuen Kernfarbe */
-    --ink: #1a1f33;
-    --ink-soft: #565c73;
+    --ink: #1a2333;
+    --ink-soft: #56606f;
 }
 
 /* Wappen-Rot als zusätzlicher, sehr sparsam genutzter Akzent -
