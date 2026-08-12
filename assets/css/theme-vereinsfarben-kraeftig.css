@@ -1,0 +1,23 @@
+/* ============================================================
+   ALTERNATIVE FARBPALETTE - "Vereinsfarben, kräftiger"
+   ============================================================
+   Zwischen den reinen Wappenfarben (v1, zu knallig) und der stark
+   gedämpften Version (theme-vereinsfarben.css) - satteres Blau,
+   kräftigeres Gold, aber immer noch nicht grell.
+
+   AKTIVIERUNG: siehe theme-switcher.js (temporäres Testwerkzeug)
+   oder manuell in _layouts/default.html verlinken.
+   ============================================================ */
+
+:root {
+  --court: #24549c;
+  --court-dark: #193c70;
+
+  --accent: #deb539;
+  --accent-dark: #bc9930;
+
+  --line: #f5f1e6;
+
+  --ink: #1a2333;
+  --ink-soft: #56606f;
+}
