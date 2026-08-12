@@ -168,10 +168,93 @@ function initLightbox() {
   });
 }
 
+/**
+ * Schlanker Cookie-Consent-Hinweis: schmale Leiste unten, blockiert die
+ * Seite nicht, mit echter Ablehnen-Option (Pflicht für eine rechtsgültige
+ * Einwilligung - ein reiner "OK"-Button oder vorausgewählte Zustimmung
+ * wäre nicht ausreichend). Speichert die Entscheidung in localStorage
+ * (kein Cookie nötig für die Speicherung der Entscheidung selbst, das
+ * gilt als technisch notwendig).
+ *
+ * Aktuell wird nichts Einwilligungspflichtiges eingesetzt - die Funktion
+ * ist Vorbereitung für Google Analytics, sobald es eingerichtet wird.
+ * Dafür einfach GA_MEASUREMENT_ID unten eintragen; ohne ID passiert bei
+ * "Akzeptieren" schlicht nichts.
+ */
+const COOKIE_CONSENT_KEY = "cookie-consent"; // "accepted" | "declined"
+const GA_MEASUREMENT_ID = ""; // z. B. "G-XXXXXXXXXX", sobald Analytics eingerichtet ist
+
+function loadAnalytics() {
+  if (!GA_MEASUREMENT_ID) return; // noch nicht eingerichtet, nichts zu tun
+
+  const script = document.createElement("script");
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
+}
+
+function showCookieBanner() {
+  const bar = document.createElement("div");
+  bar.className = "cookie-consent";
+  bar.setAttribute("role", "region");
+  bar.setAttribute("aria-label", "Cookie-Hinweis");
+  bar.innerHTML = `
+    <p>
+      Wir nutzen nur technisch notwendige Funktionen. Optional möchten wir
+      anonymisierte Besuchsstatistiken erfassen, um die Seite zu
+      verbessern. <a href="datenschutz.html">Mehr dazu</a>.
+    </p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="cookie-decline">Ablehnen</button>
+      <button type="button" class="cookie-accept">Akzeptieren</button>
+    </div>
+  `;
+  document.body.appendChild(bar);
+
+  bar.querySelector(".cookie-accept").addEventListener("click", () => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+    loadAnalytics();
+    bar.remove();
+  });
+  bar.querySelector(".cookie-decline").addEventListener("click", () => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, "declined");
+    bar.remove();
+  });
+}
+
+function initCookieConsent() {
+  const existing = localStorage.getItem(COOKIE_CONSENT_KEY);
+  if (existing === "accepted") {
+    loadAnalytics();
+    return;
+  }
+  if (existing === "declined") {
+    return; // Entscheidung liegt vor, Banner nicht nochmal zeigen
+  }
+  showCookieBanner();
+}
+
+// Erlaubt es, die Cookie-Entscheidung später zu ändern (Link im Footer)
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.id === "cookieSettingsLink") {
+    e.preventDefault();
+    localStorage.removeItem(COOKIE_CONSENT_KEY);
+    location.reload();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavToggle();
   setActiveNavItem();
   setFooterYear();
   initGalleryPagination();
   initLightbox();
+  initCookieConsent();
 });

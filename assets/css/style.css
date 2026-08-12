@@ -616,6 +616,87 @@ button:focus-visible {
   }
 }
 
+/* -------------------- Cookie-Consent (schmale Leiste, nicht blockierend) -------------------- */
+.cookie-consent {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--court-dark);
+  color: #eef4ec;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 150;
+  font-size: 0.85rem;
+}
+.cookie-consent p {
+  margin: 0;
+  flex: 1 1 260px;
+}
+.cookie-consent a {
+  color: var(--accent);
+}
+.cookie-consent-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.cookie-consent-actions button {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  padding: 0.5em 1em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+}
+.cookie-consent .cookie-decline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.cookie-consent .cookie-accept {
+  background: var(--accent);
+  color: var(--court-dark);
+  border-color: var(--accent);
+}
+.cookie-consent .cookie-accept:hover {
+  background: var(--accent-dark);
+}
+@media (max-width: 480px) {
+  .cookie-consent {
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Cookie-Einstellungen-Link im Footer (sieht aus wie die anderen Links,
+   ist aber ein <button>, damit kein echter Link-Klick/Seitenwechsel nötig ist) */
+.footer-inner .link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #cfe0d3;
+  cursor: pointer;
+  text-align: left;
+}
+.footer-inner .link-button:hover {
+  color: var(--accent);
+}
+
 /* -------------------- Nav Cards (Übersichtsseiten wie Spielbetrieb) -------------------- */
 .nav-cards {
   display: grid;

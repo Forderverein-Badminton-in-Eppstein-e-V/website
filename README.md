@@ -206,6 +206,53 @@ Eigene, im Vereinsdesign gehaltene Seite für ungültige/alte Links, statt
 GitHub Pages' Standard-Fehlerseite. Liegt im Repo-Root, wird von GitHub
 Pages automatisch für alle nicht existierenden URLs ausgeliefert.
 
+## Schriften (selbst gehostet)
+
+`assets/fonts/fonts.css` + `assets/fonts/files/*.woff2` statt Nachladen
+von `fonts.googleapis.com`/`fonts.gstatic.com`. Grund: Google Fonts vom
+CDN einzubinden überträgt die Besucher-IP an Google-Server, was
+datenschutzrechtlich in Deutschland seit einem Urteil des LG München I
+(2022) als heikel gilt. Selbst gehostet entfällt das Thema komplett.
+
+Dateien stammen von [Fontsource](https://fontsource.org) (npm-Pakete
+`@fontsource/oswald`, `@fontsource/source-sans-3`), nur Latin-Subset
+(deckt deutsche Umlaute ä/ö/ü/ß ab) und nur die tatsächlich genutzten
+Schriftschnitte (Oswald 500/600/700, Source Sans 3 400/600/700) – macht
+zusammen nur ca. 100 KB.
+
+**Neuen Schriftschnitt ergänzen** (z. B. Oswald 400 für Fließtext in
+Überschriften-Optik): im gleichen npm-Paket die passende
+`latin-<gewicht>.css`-Datei in `node_modules/@fontsource/<schrift>/`
+suchen, die referenzierte `.woff2`-Datei nach `assets/fonts/files/`
+kopieren, `@font-face`-Regel in `assets/fonts/fonts.css` ergänzen.
+
+## Cookie-Consent
+
+Schlanke, nicht blockierende Leiste unten am Bildschirmrand
+(`initCookieConsent()` in `main.js`, Styles unter `.cookie-consent` in
+`style.css`). Erscheint nur, wenn noch keine Entscheidung gespeichert
+ist (`localStorage`, Key `cookie-consent`). Zwei echte Optionen
+("Akzeptieren"/"Ablehnen") – wichtig für eine rechtsgültige Einwilligung,
+ein reiner "OK"-Button oder vorausgewählte Zustimmung reicht nicht.
+
+**Aktuell wird noch nichts Einwilligungspflichtiges eingesetzt** – die
+Leiste ist Vorbereitung für Google Analytics. Google Analytics
+einrichten:
+
+1. In Google Analytics eine Property für die Domain anlegen, Mess-ID
+   (`G-XXXXXXXXXX`) kopieren.
+2. In `assets/js/main.js` die Konstante `GA_MEASUREMENT_ID` oben in der
+   Datei setzen (aktuell leerer String – ohne ID passiert bei
+   "Akzeptieren" nichts).
+3. **Datenschutzerklärung aktualisieren** (`datenschutz.html`, Abschnitt
+   5) – dort steht bislang nur die alte IONOS-WebAnalytics-Beschreibung,
+   die durch einen Google-Analytics-Absatz ersetzt werden muss (siehe
+   Warnbox oben auf der Seite).
+
+**Entscheidung später ändern:** Link "Cookie-Einstellungen" im Footer
+(`{% include footer.html %}`) setzt die gespeicherte Entscheidung zurück
+und lädt die Seite neu, Banner erscheint erneut.
+
 ## PDFs / Downloads
 
 Liegen unter `assets/docs/`, z. B. `assets/docs/satzung-2025.pdf` oder
