@@ -1,0 +1,51 @@
+/* ============================================================
+   ALTERNATIVE FARBPALETTE - "Vereinsfarben, gedämpft" (Test v2)
+   ============================================================
+   Erste Version (v1) nutzte die Wappenfarben 1:1 - Feedback war,
+   dass das Gold zu knallig/aufdringlich wirkte. Diese Version
+   dämpft alle vier Farben (weniger Sättigung, angepasste
+   Helligkeit) - erinnert an Navy/Gold/Rot/Creme aus dem Wappen,
+   ohne die exakten, sehr kräftigen Farbcodes zu übernehmen.
+
+   NUR ZUM TESTEN: Diese Datei überschreibt lediglich die Farb-
+   Variablen aus style.css - dank CSS-Variablen wirkt sich das
+   automatisch auf Header, Footer, Buttons, Kacheln, Links,
+   Statistik-Boxen etc. aus, ohne dass style.css selbst verändert
+   werden muss.
+
+   AKTIVIEREN: In _layouts/default.html DIESE Zeile direkt NACH
+   dem <link> auf style.css ergänzen:
+
+     <link rel="stylesheet" href="assets/css/theme-vereinsfarben.css">
+
+   Gefällt's nicht → die eine Zeile wieder entfernen, fertig.
+   ============================================================ */
+
+:root {
+    /* Gedämpftes Navy-Blau (Wappen-Navy #273e8f, entsättigt und
+     etwas aufgehellt) - ersetzt das bisherige dunkle Grün */
+    --court: #3b4772;
+    --court-dark: #2c3555;
+
+    /* Gedämpftes Gold/Messing (Wappen-Gold #edc006, deutlich
+     entsättigt und abgedunkelt - kein reines Gelb mehr) */
+    --accent: #cab457;
+    --accent-dark: #ab9949;
+
+    /* Warmes, gedecktes Creme statt des grau-grünen Tons */
+    --line: #f5f1e6;
+
+    /* Fließtext dezent Richtung Navy getönt statt neutral-schwarz,
+     für mehr Zusammenhang mit der neuen Kernfarbe */
+    --ink: #1a1f33;
+    --ink-soft: #565c73;
+}
+
+/* Wappen-Rot als zusätzlicher, sehr sparsam genutzter Akzent -
+   ebenfalls gedämpft (Terrakotta-Ton statt reinem Wappen-Rot).
+   Aktuell nur für die rote Hinweis-Box (z. B. Datenschutzseite)
+   und Pflichtfeld-Sternchen im Kontaktformular. Bewusst NICHT
+   breit im Layout verteilt. */
+.form-group .required {
+    color: #a03d46;
+}
