@@ -22,6 +22,15 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Alle Seiten (auch News-Posts) nutzen überall relative Pfade ohne
+# führenden Slash (siehe Abschnitt "Funktionsprinzip" im README). Das
+# funktioniert nur, wenn jede Seite direkt im Root der Website liegt -
+# Jekylls Standard-Permalink für Posts wäre aber verschachtelt
+# (/YYYY/MM/DD/titel.html), was alle relativen Pfade auf so einer Seite
+# brechen würde (CSS, Bilder, Navigation - alles). Deshalb hier auf eine
+# flache Struktur umgestellt, passend zum Rest der Seite.
+permalink: /:title.html
+
 # Globale Vereins-Kennzahlen, damit Zahlen wie Mitgliederzahl oder Anzahl
 # Mannschaften nur an EINER Stelle gepflegt werden, auch wenn sie auf
 # mehreren Seiten angezeigt werden (Startseite, Über uns, Mannschaften, ...).

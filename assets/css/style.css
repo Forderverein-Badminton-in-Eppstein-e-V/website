@@ -957,6 +957,13 @@ button:focus-visible {
 }
 
 /* -------------------- News -------------------- */
+/* Meta-Zeile (Datum/Autor) auf einzelnen News-Post-Seiten (_layouts/post.html) */
+.post-meta {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin: -0.5rem 0 1.5rem;
+}
+
 .news-liste {
   display: flex;
   flex-direction: column;

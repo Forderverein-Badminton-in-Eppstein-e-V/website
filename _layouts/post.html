@@ -1,10 +1,15 @@
 ---
 layout: default
 ---
-<article class="news-article">
-    <h1>{{ page.title }}</h1>
-    <p class="date">Veröffentlicht am {{ page.date | date: "%d.%m.%Y" }} von {{ page.author }}</p>
-    <div class="content">
+<div class="container page-body">
+    <div style="max-width: 74ch;">
+        <p class="post-meta">
+            Veröffentlicht am {{ page.date | date: "%d.%m.%Y" }}{% if page.author %} von {{ page.author }}{% endif %}
+        </p>
+
         {{ content }}
+
+        <hr class="court-divider">
+        <p><a href="news.html">&larr; Zurück zur News-Übersicht</a></p>
     </div>
-</article>
+</div>
