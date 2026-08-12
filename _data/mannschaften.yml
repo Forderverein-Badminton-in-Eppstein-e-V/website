@@ -19,7 +19,7 @@
 - name: "1. Mannschaft"
   liga: "Bezirksoberliga Südwest"
   bild: "team1.png"
-  mannschaftsfuehrer: "Beatrice"
+  mannschaftsfuehrer: "Hayley Wilkinson"
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
@@ -29,7 +29,7 @@
 - name: "2. Mannschaft"
   liga: "Bezirksliga Mitte"
   bild: "team2.png"
-  mannschaftsfuehrer: "Beatrice Sohn"
+  mannschaftsfuehrer: "Heet Vora"
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
@@ -39,7 +39,7 @@
 - name: "3. Mannschaft"
   liga: "Bezirksliga Mitte"
   bild: "team3.png"
-  mannschaftsfuehrer: "Julian"
+  mannschaftsfuehrer: "	Julian Kaiser"
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"

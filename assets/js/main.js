@@ -196,7 +196,7 @@ function initLightbox() {
  * "Akzeptieren" schlicht nichts.
  */
 const COOKIE_CONSENT_KEY = "cookie-consent"; // "accepted" | "declined"
-const GA_MEASUREMENT_ID = ""; // z. B. "G-XXXXXXXXXX", sobald Analytics eingerichtet ist
+const GA_MEASUREMENT_ID = "G-DR7C2S58EV";
 
 function loadAnalytics() {
   if (!GA_MEASUREMENT_ID) return; // noch nicht eingerichtet, nichts zu tun
@@ -211,7 +211,9 @@ function loadAnalytics() {
     window.dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
+  // Kein anonymize_ip-Parameter nötig: das war ein Universal-Analytics-
+  // Konzept, GA4 speichert IP-Adressen grundsätzlich nicht dauerhaft.
+  gtag("config", GA_MEASUREMENT_ID);
 }
 
 function showCookieBanner() {
