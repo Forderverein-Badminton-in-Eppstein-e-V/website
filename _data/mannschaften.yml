@@ -18,7 +18,7 @@
 
 - name: "1. Mannschaft"
   liga: "Bezirksoberliga Südwest"
-  bild: "team1.png"
+  bild: "team1.webp"
   mannschaftsfuehrer: "Hayley Wilkinson"
   spieler:
     - "Max Mustermann"
@@ -28,7 +28,7 @@
 
 - name: "2. Mannschaft"
   liga: "Bezirksliga Mitte"
-  bild: "team2.png"
+  bild: "team2.webp"
   mannschaftsfuehrer: "Heet Vora"
   spieler:
     - "Max Mustermann"
@@ -38,7 +38,7 @@
 
 - name: "3. Mannschaft"
   liga: "Bezirksliga Mitte"
-  bild: "team3.png"
+  bild: "team3.webp"
   mannschaftsfuehrer: "	Julian Kaiser"
   spieler:
     - "Max Mustermann"
