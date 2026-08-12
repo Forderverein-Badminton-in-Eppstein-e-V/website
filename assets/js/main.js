@@ -57,7 +57,7 @@ function setFooterYear() {
  * .gallery-grid-Element im HTML, sonst Standardwert PAGE_SIZE_DEFAULT.
  */
 function initGalleryPagination() {
-  const PAGE_SIZE_DEFAULT = 12;
+  const PAGE_SIZE_DEFAULT = 9;
 
   document.querySelectorAll(".gallery-grid").forEach((grid) => {
     const items = Array.from(grid.children);
