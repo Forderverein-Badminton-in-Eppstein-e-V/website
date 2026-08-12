@@ -515,6 +515,7 @@ button:focus-visible {
   text-align: center;
   margin: -0.5rem 0 2rem;
 }
+
 .gallery-more-btn {
   font-family: var(--font-display);
   text-transform: uppercase;
@@ -527,6 +528,7 @@ button:focus-visible {
   padding: 0.7em 1.4em;
   cursor: pointer;
 }
+
 .gallery-more-btn:hover {
   background: var(--accent);
 }
@@ -541,9 +543,11 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
 }
+
 .lightbox.open {
   display: flex;
 }
+
 .lightbox-img {
   max-width: 90vw;
   max-height: 85vh;
@@ -551,6 +555,7 @@ button:focus-visible {
   border-radius: var(--radius);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
+
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
@@ -568,6 +573,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
 }
+
 .lightbox-close:hover,
 .lightbox-prev:hover,
 .lightbox-next:hover {
@@ -575,21 +581,25 @@ button:focus-visible {
   color: var(--court-dark);
   border-color: var(--accent);
 }
+
 .lightbox-close {
   top: 1.2rem;
   right: 1.2rem;
   font-size: 1.8rem;
 }
+
 .lightbox-prev {
   left: 1.2rem;
   top: 50%;
   transform: translateY(-50%);
 }
+
 .lightbox-next {
   right: 1.2rem;
   top: 50%;
   transform: translateY(-50%);
 }
+
 .lightbox-counter {
   position: absolute;
   bottom: 1.2rem;
@@ -603,12 +613,16 @@ button:focus-visible {
   padding: 0.3em 0.9em;
   border-radius: 999px;
 }
+
 @media (max-width: 640px) {
-  .lightbox-prev, .lightbox-next {
+
+  .lightbox-prev,
+  .lightbox-next {
     width: 38px;
     height: 38px;
     font-size: 1.2rem;
   }
+
   .lightbox-close {
     width: 38px;
     height: 38px;
@@ -636,19 +650,23 @@ button:focus-visible {
   z-index: 150;
   font-size: 0.85rem;
 }
+
 .cookie-consent p {
   margin: 0;
   flex: 1 1 260px;
 }
+
 .cookie-consent a {
   color: var(--accent);
 }
+
 .cookie-consent-actions {
   display: flex;
   gap: 0.5rem;
   flex-shrink: 0;
   margin-left: auto;
 }
+
 .cookie-consent-actions button {
   font-family: var(--font-display);
   text-transform: uppercase;
@@ -661,17 +679,21 @@ button:focus-visible {
   background: transparent;
   color: #fff;
 }
+
 .cookie-consent .cookie-decline:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
 .cookie-consent .cookie-accept {
   background: var(--accent);
   color: var(--court-dark);
   border-color: var(--accent);
 }
+
 .cookie-consent .cookie-accept:hover {
   background: var(--accent-dark);
 }
+
 @media (max-width: 480px) {
   .cookie-consent {
     left: 0.6rem;
@@ -693,6 +715,7 @@ button:focus-visible {
   cursor: pointer;
   text-align: left;
 }
+
 .footer-inner .link-button:hover {
   color: var(--accent);
 }
@@ -764,17 +787,23 @@ button:focus-visible {
 .form {
   max-width: 520px;
 }
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
 @media (max-width: 480px) {
-  .form-row { grid-template-columns: 1fr; }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }
+
 .form-group {
   margin-bottom: 1.1rem;
 }
+
 .form-group label {
   display: block;
   font-weight: 600;
@@ -782,9 +811,11 @@ button:focus-visible {
   margin-bottom: 0.35rem;
   color: var(--ink);
 }
+
 .form-group .required {
   color: #c0392b;
 }
+
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -796,16 +827,19 @@ button:focus-visible {
   background: #fff;
   color: var(--ink);
 }
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--court);
   box-shadow: 0 0 0 2px rgba(22, 64, 47, 0.15);
 }
+
 .form-group textarea {
   min-height: 140px;
   resize: vertical;
 }
+
 .form-status {
   padding: 0.8em 1em;
   border-radius: var(--radius);
@@ -813,11 +847,13 @@ button:focus-visible {
   font-size: 0.92rem;
   display: none;
 }
+
 .form-status.success {
   background: #e5f3e0;
   color: #2f5d2a;
   border: 1px solid #b6d9ab;
 }
+
 .form-status.error {
   background: #fbe8e6;
   color: #8a2c22;
@@ -831,6 +867,7 @@ button:focus-visible {
   flex-wrap: wrap;
   margin: 0 0 1.5rem;
 }
+
 .year-nav a {
   display: inline-block;
   font-family: var(--font-display);
@@ -841,7 +878,11 @@ button:focus-visible {
   background: var(--line);
   color: var(--court);
 }
-.year-nav a:hover { background: var(--accent); color: var(--court-dark); }
+
+.year-nav a:hover {
+  background: var(--accent);
+  color: var(--court-dark);
+}
 
 /* -------------------- News -------------------- */
 .news-liste {
@@ -849,16 +890,19 @@ button:focus-visible {
   flex-direction: column;
   gap: 1rem;
 }
+
 .news-karte {
   background: var(--line);
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
   padding: 1.2rem 1.4rem;
 }
+
 .news-karte h2 {
   font-size: 1.1rem;
   margin-bottom: 0.3rem;
 }
+
 .news-karte .datum {
   display: block;
   font-size: 0.82rem;
@@ -914,4 +958,19 @@ button:focus-visible {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+/* -------------------- Mehr Luft an den Seiten auf schmalen Screens -------------------- */
+/* .container/.header-inner/.footer-bottom haben nur 1.25rem (20px)
+   Innenabstand - auf schmalen Handy-Screens wirkt das zu knapp
+   ("klebt" an den Rändern). Hier gezielt etwas mehr Luft für kleine
+   Screens, ohne das Desktop-Layout zu verändern. */
+@media (max-width: 600px) {
+
+  .container,
+  .header-inner,
+  .footer-bottom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }

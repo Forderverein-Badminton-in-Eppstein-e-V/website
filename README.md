@@ -164,6 +164,23 @@ Datenquelle: `_data/sponsoren.yml` – ein Eintrag pro Sponsor (`name`,
 `assets/img/site/` hochladen, dann in `sponsoren.yml` eintragen. Kein
 HTML anfassen nötig.
 
+## Globale Vereins-Kennzahlen (`_config.yml`)
+
+Zahlen wie Mitgliederzahl, Gründungsjahr oder Anzahl Mannschaften stehen
+zentral unter `verein:` in `_config.yml` und werden auf mehreren Seiten
+per Liquid eingebunden (`{{ site.verein.mitglieder_gesamt }}` usw.) –
+Startseite, Über uns, Meilensteine, Mannschaften. Ändert sich z. B. die
+Mitgliederzahl, reicht eine Änderung in `_config.yml`, alle Stellen sind
+beim nächsten Build automatisch aktuell.
+
+Verfügbare Werte: `gegruendet`, `mitglieder_gesamt`, `mitglieder_kinder`,
+`mitglieder_erwachsene`, `mannschaften_aktuell`, `liga_erste_mannschaft`,
+`liga_zweite_mannschaft`, `saison_start_monat`, `saison_aktuell`.
+
+**Wichtig:** Änderungen an `_config.yml` wirken sich erst nach dem
+nächsten Build aus – auf GitHub Pages passiert das automatisch bei jedem
+Push/Upload, hier also kein zusätzlicher Schritt nötig.
+
 ## SEO, Sitemap & Jekyll-Konfiguration (`_config.yml`)
 
 Zwei Plugins aktiviert (auf GitHub Pages ohne Gemfile nutzbar, Teil der

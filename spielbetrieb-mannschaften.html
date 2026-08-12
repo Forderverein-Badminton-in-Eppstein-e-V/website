@@ -7,20 +7,20 @@ description: "Unsere Mannschaften im Liga-Spielbetrieb der Badminton-Abteilung d
       <div class="layout">
         <div>
           <div class="stat-row">
-            <div class="stat"><strong>2</strong><span>Mannschaften 2025/26</span></div>
-            <div class="stat"><strong>O19</strong><span>Verbandsliga Nordost</span></div>
-            <div class="stat"><strong>Sept.</strong><span>Saisonstart</span></div>
+            <div class="stat"><strong>{{ site.verein.mannschaften_aktuell }}</strong><span>Mannschaften {{ site.verein.saison_aktuell }}</span></div>
+            <div class="stat"><strong>O19</strong><span>{{ site.verein.liga_erste_mannschaft }}</span></div>
+            <div class="stat"><strong>{{ site.verein.saison_start_monat | slice: 0, 4 }}.</strong><span>Saisonstart</span></div>
           </div>
           <p>
-            In der Verbandsliga Nordost O19 hatten wir in der Saison 2023/2024 unseren
+            In der {{ site.verein.liga_erste_mannschaft }} hatten wir in der Saison 2023/2024 unseren
             Neustart. Wir haben die Saison 2024/2025 erfolgreich beendet und unsere Mannschaft
             konnte einen sicheren Klassenerhalt feiern.
           </p>
           <p>
-            In der kommenden Saison (2025/2026) starten wir mit 2 Mannschaften. Die erste
-            Mannschaft wird wieder in der Verbandsliga Nordost O19 antreten. Die zweite
-            Mannschaft wird in der Bezirksliga Mitte starten. Die Saison startet Anfang
-            September.
+            In der kommenden Saison (2025/2026) starten wir mit {{ site.verein.mannschaften_aktuell }} Mannschaften. Die erste
+            Mannschaft wird wieder in der {{ site.verein.liga_erste_mannschaft }} antreten. Die zweite
+            Mannschaft wird in der {{ site.verein.liga_zweite_mannschaft }} starten. Die Saison startet Anfang
+            {{ site.verein.saison_start_monat }}.
           </p>
           <p>
             Mehr zu unseren Turnieren und dem Spielbetrieb findet ihr auf der

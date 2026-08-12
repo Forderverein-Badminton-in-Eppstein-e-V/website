@@ -27,6 +27,24 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Globale Vereins-Kennzahlen, damit Zahlen wie Mitgliederzahl oder Anzahl
+# Mannschaften nur an EINER Stelle gepflegt werden, auch wenn sie auf
+# mehreren Seiten angezeigt werden (Startseite, Über uns, Mannschaften, ...).
+# In Seiten per Liquid nutzen, z. B.: {{ site.verein.mitglieder_gesamt }}
+#
+# Wichtig: Änderungen hier wirken sich erst nach dem nächsten Build aus
+# (auf GitHub Pages: nach dem nächsten Push/Upload - passiert automatisch).
+verein:
+  gegruendet: 1997
+  mitglieder_gesamt: 70
+  mitglieder_kinder: 20
+  mitglieder_erwachsene: 50
+  mannschaften_aktuell: 2
+  liga_erste_mannschaft: "Verbandsliga Nordost O19"
+  liga_zweite_mannschaft: "Bezirksliga Mitte"
+  saison_start_monat: "September"
+  saison_aktuell: "2025/26"
+
 # Dateien/Ordner, die Jekyll beim Build ignorieren soll (Dev-Kram, keine
 # Website-Inhalte).
 exclude:

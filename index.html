@@ -12,49 +12,61 @@ hero_cta_text: "Jetzt Kontakt aufnehmen"
     <div class="container page-body">
       <div class="layout">
         <div>
-          <h2>Startseite</h2>
-          <p>Herzlich willkommen bei unserer Badminton-Abteilung!</p>
           <p>
-            Wir sind eine Gruppe von Badminton-Begeisterten jeden Alters und Leistungsniveaus.
-            Bei uns steht der Spaß am Spiel und das Miteinander im Vordergrund. Ob du gerade erst
-            mit Badminton beginnst oder schon Erfahrung hast – bei uns findest du genau das Richtige.
+            Seit {{ site.verein.gegruendet }} spielen wir in der Isenachsporthalle in Frankenthal
+            Badminton – mittlerweile sind wir rund {{ site.verein.mitglieder_gesamt }}
+            Mitglieder, vom Grundschulkind bis zum langjährigen Vereinsmitglied. Trainiert wird
+            getrennt für <a href="spielbetrieb-training-kinder-jugend.html">Kinder und
+            Jugendliche</a> sowie für <a href="spielbetrieb-training-erwachsene.html">Erwachsene</a>,
+            dazu kommen <a href="spielbetrieb-mannschaften.html">Mannschaften</a> im
+            Liga-Spielbetrieb und eigene <a href="spielbetrieb-turniere.html">Turniere</a>.
           </p>
           <p>
-            Unser Angebot reicht von regelmäßigem Spiel &amp; Training für
-            <a href="spielbetrieb-training-kinder-jugend.html">Kinder, Jugendliche</a> und
-            <a href="spielbetrieb-training-erwachsene.html">Erwachsene</a> über die Teilnahme an
-            spannenden <a href="spielbetrieb-turniere.html">Turnieren</a> bis hin zu
-            <a href="spielbetrieb-mannschaften.html">Ligaspielen</a>, bei denen wir unsere
-            Fähigkeiten unter Beweis stellen. Dabei legen wir großen Wert auf eine freundliche und
-            unterstützende Atmosphäre, in der sich jeder wohlfühlen kann.
-          </p>
-          <p>
-            Wir freuen uns immer sehr, neue Mitspielerinnen und Mitspieler aus Frankenthal und
-            Umgebung in unserer Runde willkommen zu heißen. Komm vorbei, schnuppere rein und werde
-            Teil unserer Badminton-Familie! WE WANT YOU 🙂 !
-          </p>
-          <p>
-            Für die Teilnahme am <a href="spielbetrieb-training-kinder-jugend.html">Kinder- und
-            Jugendtraining</a> bitten wir euch, uns vorab zu <a href="kontakt.html">kontaktieren</a>,
-            da die Plätze begrenzt sind!
+            Du musst nicht perfekt spielen können, um mitzumachen – schnupper einfach mal bei
+            einem Training vorbei, wir freuen uns auf neue Gesichter! Für das Kinder- und
+            Jugendtraining bitten wir euch nur, uns vorab kurz zu
+            <a href="kontakt.html">kontaktieren</a>, da die Plätze begrenzt sind.
           </p>
 
           <hr class="court-divider">
 
-          <h2>Rückblick Saison 2024/2025 &ndash; Vorschau Saison 2025/2026</h2>
-          <div class="stat-row">
-            <div class="stat"><strong>2</strong><span>Mannschaften 2025/26</span></div>
-            <div class="stat"><strong>O19</strong><span>Verbandsliga Nordost</span></div>
-            <div class="stat"><strong>Sept.</strong><span>Saisonstart</span></div>
+          <h2>Neu hier?</h2>
+          <p>Die wichtigsten Anlaufstellen auf einen Blick:</p>
+          <div class="nav-cards">
+            <a class="nav-card" href="ueber-uns-faq.html">
+              <strong>Training ausprobieren</strong>
+              <span>Wie ein Einstieg abläuft, was du brauchst und ab welchem Alter Kinder mitmachen können.</span>
+            </a>
+            <a class="nav-card" href="ueber-uns.html">
+              <strong>Über uns</strong>
+              <span>Wer wir sind, wie alles begann, und was Badminton als Sport ausmacht.</span>
+            </a>
+            <a class="nav-card" href="gallerie.html">
+              <strong>Turniere &amp; Bilder</strong>
+              <span>Impressionen von Stadtmeisterschaft, Länderspielen und mehr.</span>
+            </a>
+            <a class="nav-card" href="kontakt.html">
+              <strong>Kontakt</strong>
+              <span>Formular oder E-Mail – wir melden uns zeitnah zurück.</span>
+            </a>
           </div>
-          <p>
-            In der Verbandsliga Nordost O19 hatten wir in der Saison 2023/2024 unseren Neustart.
-            Wir haben die Saison 2024/2025 erfolgreich beendet und unsere Mannschaft konnte einen
-            sicheren Klassenerhalt feiern. In der kommenden Saison (2025/2026) starten wir mit
-            2 Mannschaften. Die erste Mannschaft wird wieder in der Verbandsliga Nordost O19
-            antreten. Die zweite Mannschaft wird in der Bezirksliga Mitte starten. Die Saison
-            startet Anfang September.
-          </p>
+
+          {% assign neueste_news = site.posts | first: 2 %}
+          {% if neueste_news.size > 0 %}
+          <hr class="court-divider">
+
+          <h2>Neuigkeiten</h2>
+          <div class="news-liste">
+            {% for post in neueste_news %}
+            <article class="news-karte">
+              <h2>{{ post.title }}</h2>
+              <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
+              <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+            </article>
+            {% endfor %}
+          </div>
+          <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);" href="news.html">Alle News ansehen</a></p>
+          {% endif %}
 
           <hr class="court-divider">
 
@@ -74,4 +86,3 @@ hero_cta_text: "Jetzt Kontakt aufnehmen"
         {% include sidebar-trainingszeiten.html %}
       </div>
     </div>
-  

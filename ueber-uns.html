@@ -12,9 +12,9 @@ description: "Die Badminton-Abteilung des TSV Eppstein – Meilensteine, was Bad
           </p>
 
           <div class="stat-row">
-            <div class="stat"><strong>1997</strong><span>Gegründet</span></div>
-            <div class="stat"><strong>~70</strong><span>Mitglieder</span></div>
-            <div class="stat"><strong>2</strong><span>Mannschaften 2025/26</span></div>
+            <div class="stat"><strong>{{ site.verein.gegruendet }}</strong><span>Gegründet</span></div>
+            <div class="stat"><strong>~{{ site.verein.mitglieder_gesamt }}</strong><span>Mitglieder</span></div>
+            <div class="stat"><strong>{{ site.verein.mannschaften_aktuell }}</strong><span>Mannschaften</span></div>
           </div>
 
           {% assign ueber_uns_nav = site.data.nav | where: "url", "ueber-uns.html" | first %}
