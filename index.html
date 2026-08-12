@@ -14,20 +14,26 @@ hero_cta_text: "Jetzt Kontakt aufnehmen"
 <div class="container page-body">
   <div class="layout">
     <div>
+      <h2>Willkommen bei uns!</h2>
       <p>
-        Seit {{ site.verein.gegruendet }} spielen wir in der Isenachsporthalle in Frankenthal
-        Badminton – mittlerweile sind wir rund {{ site.verein.mitglieder_gesamt }}
-        Mitglieder, vom Grundschulkind bis zum langjährigen Vereinsmitglied. Trainiert wird
-        getrennt für <a href="spielbetrieb-training-kinder-jugend.html">Kinder und
-          Jugendliche</a> sowie für <a href="spielbetrieb-training-erwachsene.html">Erwachsene</a>,
-        dazu kommen <a href="spielbetrieb-mannschaften.html">Mannschaften</a> im
-        Liga-Spielbetrieb und eigene <a href="spielbetrieb-turniere.html">Turniere</a>.
+        Seit {{ site.verein.gegruendet }} schlagen wir in der Isenachsporthalle in
+        Frankenthal den Federball übers Netz – mittlerweile sind wir rund
+        {{ site.verein.mitglieder_gesamt }} Mitglieder, vom Grundschulkind bis zum
+        Vereins-Urgestein. Ob du gerade erst anfängst oder schon lange spielst: Bei uns
+        steht der Spaß am Spiel und das Miteinander im Vordergrund, und für jedes Level ist
+        was dabei.
       </p>
       <p>
-        Du musst nicht perfekt spielen können, um mitzumachen – schnupper einfach mal bei
-        einem Training vorbei, wir freuen uns auf neue Gesichter! Für das Kinder- und
-        Jugendtraining bitten wir euch nur, uns vorab kurz zu
-        <a href="kontakt.html">kontaktieren</a>, da die Plätze begrenzt sind.
+        Trainiert wird getrennt für <a href="spielbetrieb-training-kinder-jugend.html">Kinder
+          und Jugendliche</a> und <a href="spielbetrieb-training-erwachsene.html">Erwachsene</a>,
+        dazu kommen <a href="spielbetrieb-mannschaften.html">Mannschaften</a> im
+        Liga-Spielbetrieb und eigene <a href="spielbetrieb-turniere.html">Turniere</a>. Am
+        wichtigsten: Du musst nicht perfekt spielen können, um mitzumachen. Komm einfach
+        vorbei, schnuppere rein und werde Teil unserer Badminton-Familie – WE WANT YOU 🙂
+      </p>
+      <p>
+        Fürs Kinder- und Jugendtraining meldet euch vorab kurz über den
+        <a href="kontakt.html">Kontakt</a>, da die Plätze begrenzt sind.
       </p>
 
       <hr class="court-divider">
@@ -53,20 +59,19 @@ hero_cta_text: "Jetzt Kontakt aufnehmen"
         </a>
       </div>
 
-      {% assign neueste_news = site.posts | slice: 0, 2 %}
+      {% assign neueste_news = site.posts | slice: 0, 4 %}
       {% if neueste_news.size > 0 %}
       <hr class="court-divider">
 
       <h2>Neuigkeiten</h2>
-      <div class="news-liste">
+      <ul class="news-mini-liste">
         {% for post in neueste_news %}
-        <article class="news-karte">
-          <h2>{{ post.title }}</h2>
-          <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
-          <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-        </article>
+        <li class="news-mini-item">
+          <span class="news-mini-datum">{{ post.date | date: "%d.%m.%Y" }}</span>
+          <a href="news.html">{{ post.title }}</a>
+        </li>
         {% endfor %}
-      </div>
+      </ul>
       <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);" href="news.html">Alle News
           ansehen</a></p>
       {% endif %}

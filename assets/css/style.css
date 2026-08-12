@@ -910,6 +910,58 @@ button:focus-visible {
   margin-bottom: 0.7rem;
 }
 
+/* Kompakte Mini-Liste für den News-Teaser auf der Startseite:
+   nur Datum + Titel pro Zeile, Datum links. */
+.news-mini-liste {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.news-mini-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  border-bottom: 1px dashed #d9e2d6;
+  padding-bottom: 0.6rem;
+}
+
+.news-mini-item:last-child {
+  border-bottom: none;
+}
+
+.news-mini-datum {
+  flex: 0 0 auto;
+  min-width: 5.4rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+
+.news-mini-liste a {
+  color: var(--court);
+  font-weight: 600;
+}
+
+.news-mini-liste a:hover {
+  color: var(--accent-dark);
+}
+
+@media (max-width: 420px) {
+  .news-mini-item {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .news-mini-datum {
+    min-width: 0;
+  }
+}
+
 .site-footer {
   background: var(--court-dark);
   color: #cfe0d3;
