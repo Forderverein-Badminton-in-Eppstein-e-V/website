@@ -453,6 +453,48 @@ button:focus-visible {
   border: none;
   border-top: var(--border-line);
   margin: 2.5rem 0;
+  clear: both;
+  /* falls davor ein .figure-float schwebt, sauber abschließen */
+}
+
+/* Bild mit Textumfluss (z. B. Trainer-Foto auf der Kinder-Trainingsseite).
+   Auf schmalen Screens wird der Umfluss deaktiviert (Bild dann volle
+   Breite, Text darunter) - bei wenig Platz wirkt Umfluss sonst gequetscht. */
+.figure-float {
+  max-width: 260px;
+  margin: 0.3rem 0 1rem 1.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #d9e2d6;
+  background: #fff;
+}
+
+.figure-float.links {
+  float: left;
+  margin: 0.3rem 1.5rem 1rem 0;
+}
+
+.figure-float.rechts {
+  float: right;
+}
+
+.figure-float img {
+  width: 100%;
+  display: block;
+}
+
+.figure-float figcaption {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.7rem;
+}
+
+@media (max-width: 600px) {
+  .figure-float {
+    float: none;
+    max-width: 100%;
+    margin: 1rem 0;
+  }
 }
 
 /* -------------------- Buttons -------------------- */
