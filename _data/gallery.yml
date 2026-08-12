@@ -1,4 +1,4 @@
-# Datenquelle für alle Galerie-Seiten (gallerie-*.html).
+# Datenquelle für alle Galerie-Seiten (galerie-*.html).
 #
 # Struktur: pro Thema eine Liste von Jahren, pro Jahr eine Liste von Bildern.
 # Bild-Dateien liegen unter: assets/img/gallery/<thema>/<jahr>/<datei>

@@ -11,7 +11,7 @@
 #                 auf die falsche Adresse zeigen.
 #   submenu     - optional: Liste weiterer Einträge (Dropdown UND
 #                 gleichzeitig Datenquelle für die Karten-Übersichten auf
-#                 spielbetrieb.html/gallerie.html - Duplikation vermeiden)
+#                 spielbetrieb.html/galerie.html - Duplikation vermeiden)
 #   description - optional, nur auf Submenu-Ebene: Kurzbeschreibung für die
 #                 Karten-Übersicht (wird im reinen Dropdown-Menü ignoriert)
 #   data_key    - optional, nur auf Submenu-Ebene: Schlüssel in
@@ -63,20 +63,20 @@
 - label: "Förderverein"
   url: "foerderverein.html"
 
-- label: "Gallerie"
-  url: "gallerie.html"
+- label: "Galerie"
+  url: "galerie.html"
   submenu:
     - label: "Stadtmeisterschaft"
-      url: "gallerie-stadtmeisterschaft.html"
+      url: "galerie-stadtmeisterschaft.html"
       data_key: "stadtmeisterschaft"
     - label: "Länderspiele"
-      url: "gallerie-laenderspiele.html"
+      url: "galerie-laenderspiele.html"
       data_key: "laenderspiele"
     - label: "Kinder- und Jugendturniere"
-      url: "gallerie-kinder-jugendturniere.html"
+      url: "galerie-kinder-jugendturniere.html"
       data_key: "kinder_jugendturniere"
     - label: "Strohhutfest"
-      url: "gallerie-strohhutfest.html"
+      url: "galerie-strohhutfest.html"
       data_key: "strohhutfest"
 
 - label: "News"

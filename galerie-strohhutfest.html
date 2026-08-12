@@ -1,18 +1,15 @@
 ---
 layout: default
-title: "Gallerie: Stadtmeisterschaft"
-description: "Bilder der Frankenthaler Stadtmeisterschaft im Badminton."
-hero_title: "Stadtmeisterschaft"
+title: "Galerie: Strohhutfest"
+description: "Bilder vom Strohhutfest in Frankenthal."
+hero_title: "Strohhutfest"
 ---
     <div class="container page-body">
       <div class="layout">
         <div>
-          <p>
-            Impressionen von der Frankenthaler Stadtmeisterschaft – unserem Turnier
-            insbesondere für Hobbyspieler aus der Region.
-          </p>
+          <p>Jedes Jahr ein tolles Event in Frankenthal – hier ein paar Eindrücke.</p>
 
-          {% assign jahre = site.data.gallery.stadtmeisterschaft %}
+          {% assign jahre = site.data.gallery.strohhutfest %}
 
           {% if jahre.size == 0 %}
             <div class="empty-state">
@@ -32,10 +29,10 @@ hero_title: "Stadtmeisterschaft"
             <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
             <div class="gallery-grid">
               {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}">
+              <a href="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}">
                 <img
-                  src="assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}"
-                  alt="{{ bild.alt | default: 'Stadtmeisterschaft ' | append: eintrag.jahr }}"
+                  src="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  alt="{{ bild.alt | default: 'Strohhutfest ' | append: eintrag.jahr }}"
                   loading="lazy">
               </a>
               {% endfor %}

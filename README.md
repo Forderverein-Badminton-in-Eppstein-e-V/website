@@ -7,7 +7,7 @@
 ├── index.html                  ← Startseite
 ├── impressum.html, datenschutz.html, ueber-uns.html, foerderverein.html, ...
 ├── spielbetrieb*.html          ← Übersicht + 5 Unterseiten
-├── gallerie*.html              ← Übersicht + 4 Themen-Seiten (Jekyll)
+├── galerie*.html              ← Übersicht + 4 Themen-Seiten (Jekyll)
 ├── news.html                   ← Newsliste (Jekyll)
 ├── kontakt.html                ← Kontaktformular (Formspree)
 ├── _layouts/
@@ -63,7 +63,7 @@ Hero-Sektion mehr pro Seite nötig, das übernimmt `layout: default`.
 | `layout` | ja, immer `default` | aktiviert das gemeinsame Grundgerüst |
 | `title` | ja | Seitentitel. Wird über das `jekyll-seo-tag`-Plugin automatisch zu `<title>Titel – Förderverein Badminton in Eppstein e.V.</title>` (Startseite ist Sonderfall: zeigt nur den Titel ohne Dopplung, weil er exakt dem Site-Titel entspricht); außerdem Standard-Überschrift in der Hero-Sektion |
 | `description` | ja | Meta-Description für Suchmaschinen (ebenfalls über `jekyll-seo-tag`, inkl. Open-Graph-/Twitter-Card-Tags fürs Teilen auf Social Media) |
-| `hero_title` | nein | überschreibt die H1-Überschrift in der Hero-Sektion, falls sie vom `title` abweichen soll (z. B. bei den Gallerie-Seiten) |
+| `hero_title` | nein | überschreibt die H1-Überschrift in der Hero-Sektion, falls sie vom `title` abweichen soll (z. B. bei den Galerie-Seiten) |
 | `hero_image` | nein | schaltet auf die große Foto-Hero-Variante um (aktuell nur `index.html`) statt der schlichten Balken-Hero |
 | `hero_image_alt`, `hero_subtitle`, `hero_cta_text`, `hero_cta_url` | nein | nur relevant zusammen mit `hero_image` |
 
@@ -126,7 +126,7 @@ assets/img/
   auf ca. 1600–2000px verkleinern (z. B. squoosh.app), damit die Seite
   nicht unnötig langsam lädt.
 
-## Galerie (`gallerie.html` + `gallerie-*.html`)
+## Galerie (`galerie.html` + `galerie-*.html`)
 
 - Datenquelle: `_data/gallery.yml` – pro Thema (`stadtmeisterschaft`,
   `laenderspiele`, `kinder_jugendturniere`, `strohhutfest`) eine Liste
@@ -202,7 +202,7 @@ Domain wechselt, hier anpassen (bei eigener Domain an der Wurzel immer
 
 ## Duplikation vermieden: Karten-Übersichten aus `_data/nav.yml`
 
-`spielbetrieb.html` und `gallerie.html` zeigen Karten zu ihren
+`spielbetrieb.html` und `galerie.html` zeigen Karten zu ihren
 Unterseiten. Statt das doppelt zu pflegen (einmal in `_data/nav.yml`
 fürs Dropdown-Menü, einmal hart codiert auf der jeweiligen
 Übersichtsseite), generieren beide Seiten ihre Karten per Liquid direkt
@@ -212,9 +212,9 @@ aus dem `submenu` des passenden `nav.yml`-Eintrags:
   anfassen, taucht automatisch in Dropdown UND Karten-Übersicht auf.
 - `description` (auf Submenu-Ebene) liefert den Kartentext für
   `spielbetrieb.html`.
-- `data_key` (auf Submenu-Ebene) verknüpft einen Gallerie-Menüpunkt mit
+- `data_key` (auf Submenu-Ebene) verknüpft einen Galerie-Menüpunkt mit
   dem passenden Schlüssel in `_data/gallery.yml`, damit
-  `gallerie.html` weiterhin dynamisch "Neueste Bilder: <Jahr>" anzeigen
+  `galerie.html` weiterhin dynamisch "Neueste Bilder: <Jahr>" anzeigen
   kann.
 
 ## 404-Seite (`404.html`)
@@ -287,7 +287,7 @@ Alle statischen Seiten sind fertig: Startseite, Impressum, Förderverein,
 Kontakt, alle 5 Spielbetrieb-Seiten, alle Galerie-Seiten, News,
 Sponsoren, Datenschutzerklärung.
 
-**Über uns** ist wie Spielbetrieb/Gallerie eine reine Kachel-Übersicht
+**Über uns** ist wie Spielbetrieb/Galerie eine reine Kachel-Übersicht
 (`ueber-uns.html`, generiert die Karten wie beschrieben aus
 `_data/nav.yml`) mit vier Unterseiten:
 - `ueber-uns-meilensteine.html` – Vereinsgeschichte/wichtigste Stationen

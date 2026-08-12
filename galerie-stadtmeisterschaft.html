@@ -1,18 +1,18 @@
 ---
 layout: default
-title: "Gallerie: Kinder- und Jugendturniere"
-description: "Bilder von Kinder- und Jugendturnieren der Badminton-Abteilung des TSV Eppstein."
-hero_title: "Kinder- und Jugendturniere"
+title: "Galerie: Stadtmeisterschaft"
+description: "Bilder der Frankenthaler Stadtmeisterschaft im Badminton."
+hero_title: "Stadtmeisterschaft"
 ---
     <div class="container page-body">
       <div class="layout">
         <div>
           <p>
-            Impressionen von unseren BVRP-Jugendturnieren, bei denen wir in der Regel einmal
-            pro Jahr als Ausrichter für den Badmintonverband antreten.
+            Impressionen von der Frankenthaler Stadtmeisterschaft – unserem Turnier
+            insbesondere für Hobbyspieler aus der Region.
           </p>
 
-          {% assign jahre = site.data.gallery.kinder_jugendturniere %}
+          {% assign jahre = site.data.gallery.stadtmeisterschaft %}
 
           {% if jahre.size == 0 %}
             <div class="empty-state">
@@ -32,10 +32,10 @@ hero_title: "Kinder- und Jugendturniere"
             <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
             <div class="gallery-grid">
               {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}">
+              <a href="assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}">
                 <img
-                  src="assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}"
-                  alt="{{ bild.alt | default: 'Jugendturnier ' | append: eintrag.jahr }}"
+                  src="assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  alt="{{ bild.alt | default: 'Stadtmeisterschaft ' | append: eintrag.jahr }}"
                   loading="lazy">
               </a>
               {% endfor %}

@@ -1,15 +1,18 @@
 ---
 layout: default
-title: "Gallerie: Strohhutfest"
-description: "Bilder vom Strohhutfest in Frankenthal."
-hero_title: "Strohhutfest"
+title: "Galerie: Kinder- und Jugendturniere"
+description: "Bilder von Kinder- und Jugendturnieren der Badminton-Abteilung des TSV Eppstein."
+hero_title: "Kinder- und Jugendturniere"
 ---
     <div class="container page-body">
       <div class="layout">
         <div>
-          <p>Jedes Jahr ein tolles Event in Frankenthal – hier ein paar Eindrücke.</p>
+          <p>
+            Impressionen von unseren BVRP-Jugendturnieren, bei denen wir in der Regel einmal
+            pro Jahr als Ausrichter für den Badmintonverband antreten.
+          </p>
 
-          {% assign jahre = site.data.gallery.strohhutfest %}
+          {% assign jahre = site.data.gallery.kinder_jugendturniere %}
 
           {% if jahre.size == 0 %}
             <div class="empty-state">
@@ -29,10 +32,10 @@ hero_title: "Strohhutfest"
             <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
             <div class="gallery-grid">
               {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}">
+              <a href="assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}">
                 <img
-                  src="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}"
-                  alt="{{ bild.alt | default: 'Strohhutfest ' | append: eintrag.jahr }}"
+                  src="assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  alt="{{ bild.alt | default: 'Jugendturnier ' | append: eintrag.jahr }}"
                   loading="lazy">
               </a>
               {% endfor %}
