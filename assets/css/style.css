@@ -65,6 +65,36 @@ a:hover {
   color: var(--accent-dark);
 }
 
+/* Links im eigentlichen Seiteninhalt (Fließtext, Listen, Sponsoren-Namen
+   etc.) bekommen eine dezente Unterstreichung. Link-Farbe (--court) ist
+   sonst zu ähnlich zum normalen Fließtext (--ink), um allein über Farbe
+   als Link erkennbar zu sein. Navigation, Buttons und die großen
+   Karten-Links (.nav-card) sind bewusst ausgenommen - die sind über ihr
+   eigenes Styling schon eindeutig als klickbar erkennbar, eine
+   zusätzliche Unterstreichung würde dort nur unruhig wirken. */
+.page-body a:not(.btn):not(.nav-card) {
+  text-decoration: underline;
+  text-decoration-color: rgba(22, 64, 47, 0.35);
+  text-underline-offset: 2px;
+}
+
+.page-body a:not(.btn):not(.nav-card):hover {
+  text-decoration-color: currentColor;
+}
+
+/* Kleines Pfeil-Icon bei Links, die in einem neuen Tab öffnen (externe
+   Seiten, PDFs) - Nutzer sehen vorab, dass sie die Seite verlassen.
+   Buttons ausgenommen, da dort der Kontext meist schon im Text steht
+   (z. B. "Mitgliedsantrag (PDF)"). */
+a[target="_blank"]:not(.btn)::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.2em;
+  font-size: 0.75em;
+  text-decoration: none;
+  vertical-align: 1px;
+}
+
 h1,
 h2,
 h3,

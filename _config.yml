@@ -3,13 +3,8 @@
 # GitHub Pages bereitgestellten "github-pages"-Gem-Sammlung und müssen
 # nur hier aktiviert werden.
 
-title: "TSV Eppstein Badminton"
+title: "Förderverein Badminton in Eppstein e.V."
 description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
-
-# Genutzt vom jekyll-seo-tag-Plugin: erzeugt Seitentitel im Format
-# "Seitentitel – Förderverein Badminton in Eppstein e.V." (wie bisher
-# von Hand gepflegt), statt des Standard-Trennzeichens "|".
-title_separator: " – "
 
 # Logo fürs Social-Media-Vorschaubild (Open Graph), ebenfalls vom
 # jekyll-seo-tag-Plugin genutzt.
@@ -37,14 +32,13 @@ plugins:
 verein:
   gegruendet: 1997
   mitglieder_gesamt: 70
-  mitglieder_kinder: 25
+  mitglieder_kinder: 20
   mitglieder_erwachsene: 50
-  mannschaften_aktuell: 3
-  liga_erste_mannschaft: "Bezirksoberliga"
+  mannschaften_aktuell: 2
+  liga_erste_mannschaft: "Verbandsliga Nordost O19"
   liga_zweite_mannschaft: "Bezirksliga Mitte"
-  liga_dritte_mannschaft: "Bezirksliga Mitte"
   saison_start_monat: "September"
-  saison_aktuell: "2026/27"
+  saison_aktuell: "2025/26"
 
 # Dateien/Ordner, die Jekyll beim Build ignorieren soll (Dev-Kram, keine
 # Website-Inhalte).
