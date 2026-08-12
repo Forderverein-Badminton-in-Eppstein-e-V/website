@@ -531,8 +531,8 @@ button:focus-visible {
 
 /* -------------------- Mannschafts-Karten (Mannschaften-Seite) -------------------- */
 .team-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.2rem;
   margin: 1.5rem 0;
 }
@@ -546,6 +546,7 @@ button:focus-visible {
 
 .team-card img {
   width: 100%;
+  max-width: 280px;
   border-radius: var(--radius);
   margin-bottom: 0.9rem;
   border: 1px solid #d9e2d6;
@@ -567,11 +568,31 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 
+.team-card .team-spieler {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  font-size: 0.92rem;
+}
+
+.team-card .team-spieler li {
+  padding: 0.2rem 0;
+  border-bottom: 1px dashed #d9e2d6;
+}
+
+.team-card .team-spieler li:last-child {
+  border-bottom: none;
+}
+
 .team-card .team-links {
   margin-top: 0.9rem;
   display: flex;
+  flex-direction: column;
   gap: 0.6rem;
-  flex-wrap: wrap;
+}
+
+.team-card .team-links .btn {
+  text-align: center;
 }
 
 /* -------------------- Stat Badges -------------------- */

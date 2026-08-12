@@ -6,12 +6,6 @@ description: "Unsere Mannschaften im Liga-Spielbetrieb der Badminton-Abteilung d
 <div class="container page-body">
   <div class="layout">
     <div>
-      <div class="stat-row">
-        <div class="stat"><strong>{{ site.verein.mannschaften_aktuell }}</strong><span>Mannschaften {{
-            site.verein.saison_aktuell }}</span></div>
-        <div class="stat"><strong>{{ site.verein.saison_start_monat | slice: 0, 4 }}.</strong><span>Saisonstart</span>
-        </div>
-      </div>
       <p>
         In der Saison 2023/2024 hatten wir unseren Neustart im Liga-Spielbetrieb und konnten
         die Saison 2024/2025 mit einem sicheren Klassenerhalt erfolgreich abschließen. Für
@@ -33,7 +27,12 @@ description: "Unsere Mannschaften im Liga-Spielbetrieb der Badminton-Abteilung d
           {% endif %}
 
           {% if team.spieler.size > 0 %}
-          <p><strong>Spieler:</strong> {{ team.spieler | join: ", " }}</p>
+          <p><strong>Spieler:</strong></p>
+          <ul class="team-spieler">
+            {% for spieler in team.spieler %}
+            <li>{{ spieler }}</li>
+            {% endfor %}
+          </ul>
           {% endif %}
 
           <div class="team-links">

@@ -18,7 +18,7 @@
 
 - name: "1. Mannschaft"
   liga: "Bezirksoberliga Südwest"
-  bild: "team1.jpg"
+  bild: "team1.jpng"
   mannschaftsfuehrer: "Beatrice"
   spieler:
     - "Max Mustermann"
@@ -28,7 +28,7 @@
 
 - name: "2. Mannschaft"
   liga: "Bezirksliga Mitte"
-  bild: "team2.jpg"
+  bild: "team2.png"
   mannschaftsfuehrer: "Beatrice Sohn"
   spieler:
     - "Max Mustermann"
@@ -38,7 +38,7 @@
 
 - name: "3. Mannschaft"
   liga: "Bezirksliga Mitte"
-  bild: "team3.jpg"
+  bild: "team3.png"
   mannschaftsfuehrer: "Julian"
   spieler:
     - "Max Mustermann"
