@@ -4,45 +4,57 @@ title: "Galerie: Strohhutfest"
 description: "Bilder vom Strohhutfest in Frankenthal."
 hero_title: "Strohhutfest"
 ---
-    <div class="container page-body">
-      <div class="layout">
-        <div>
-          <p>Jedes Jahr ein tolles Event in Frankenthal – hier ein paar Eindrücke.</p>
+<div class="container page-body">
+  <div class="layout">
+    <div>
+      <p>
+        Das Frankenthaler Strohhutfest ist das größte Straßenfest der Pfalz – seit 1973
+        feiert die ganze Stadt mehrere Tage lang mit Musik auf mehreren Bühnen, über 100
+        Ständen und mehreren hunderttausend Besuchern. Viele Frankenthaler Vereine sind
+        mit einem eigenen Stand dabei und finanzieren sich darüber mit, so auch wir.
+      </p>
+      <p>
+        Unser Stand steht traditionell direkt gegenüber von
+        <a href="https://www.fahrrad-gruber.de/" target="_blank" rel="noopener">Fahrrad Gruber</a>.
+        Die Badminton-Abteilung übernimmt ihn jedes Jahr samstags ab 16&nbsp;Uhr bis zum
+        Ende des Tages – schaut gerne vorbei! Alle Termine und Infos zum Fest gibt's auf
+        der <a href="https://www.frankenthal.de/strohhutfest/" target="_blank" rel="noopener">offiziellen
+          Strohhutfest-Seite</a>
+        der Stadt Frankenthal.
+      </p>
+      <p>Hier ein paar Eindrücke aus den letzten Jahren:</p>
 
-          {% assign jahre = site.data.gallery.strohhutfest %}
+      {% assign jahre = site.data.gallery.strohhutfest %}
 
-          {% if jahre.size == 0 %}
-            <div class="empty-state">
-              <p style="margin:0;">Für dieses Thema sind noch keine Bilder hinterlegt.</p>
-            </div>
-          {% else %}
-
-            {% if jahre.size > 1 %}
-            <div class="year-nav">
-              {% for eintrag in jahre %}
-                <a href="#jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</a>
-              {% endfor %}
-            </div>
-            {% endif %}
-
-            {% for eintrag in jahre %}
-            <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
-            <div class="gallery-grid">
-              {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}">
-                <img
-                  src="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}"
-                  alt="{{ bild.alt | default: 'Strohhutfest ' | append: eintrag.jahr }}"
-                  loading="lazy">
-              </a>
-              {% endfor %}
-            </div>
-            {% endfor %}
-
-          {% endif %}
-        </div>
-
-        {% include sidebar-trainingszeiten.html %}
+      {% if jahre.size == 0 %}
+      <div class="empty-state">
+        <p style="margin:0;">Für dieses Thema sind noch keine Bilder hinterlegt.</p>
       </div>
+      {% else %}
+
+      {% if jahre.size > 1 %}
+      <div class="year-nav">
+        {% for eintrag in jahre %}
+        <a href="#jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% for eintrag in jahre %}
+      <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
+      <div class="gallery-grid">
+        {% for bild in eintrag.bilder %}
+        <a href="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}">
+          <img src="assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}"
+            alt="{{ bild.alt | default: 'Strohhutfest ' | append: eintrag.jahr }}" loading="lazy">
+        </a>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      {% endif %}
     </div>
-  
+
+    {% include sidebar-trainingszeiten.html %}
+  </div>
+</div>
