@@ -18,27 +18,30 @@
 
 - name: "1. Mannschaft"
   liga: "Bezirksoberliga Südwest"
-  # TODO: Bild ergänzen, sobald vorhanden - Datei nach assets/img/site/
-  # hochladen und Dateinamen hier eintragen, z. B.:
-  # bild: "team1.jpg"
-  # TODO: Mannschaftsführer eintragen, z. B.:
-  # mannschaftsfuehrer: "Max Mustermann"
-  # TODO: Spielernamen eintragen, z. B.:
-  # spieler:
-  #   - "Max Mustermann"
-  #   - "Erika Musterfrau"
+  bild: "team1.jpg"
+  mannschaftsfuehrer: "Beatrice"
+  spieler:
+    - "Max Mustermann"
+    - "Erika Musterfrau"
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242541&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
 
 - name: "2. Mannschaft"
   liga: "Bezirksliga Mitte"
-  # TODO: Bild, Mannschaftsführer, Spieler ergänzen (siehe 1. Mannschaft)
+  bild: "team2.jpg"
+  mannschaftsfuehrer: "Beatrice Sohn"
+  spieler:
+    - "Max Mustermann"
+    - "Erika Musterfrau"
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=241749&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
 
 - name: "3. Mannschaft"
   liga: "Bezirksliga Mitte"
-  # TODO: Bild, Mannschaftsführer, Spieler ergänzen (siehe 1. Mannschaft)
-  # Tabelle-Link ist identisch zur 2. Mannschaft, da beide in derselben Liga spielen.
+  bild: "team3.jpg"
+  mannschaftsfuehrer: "Julian"
+  spieler:
+    - "Max Mustermann"
+    - "Erika Musterfrau"
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242393&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
