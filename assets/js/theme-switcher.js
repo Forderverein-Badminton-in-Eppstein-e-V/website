@@ -23,6 +23,7 @@
 
   var THEMES = {
     original: null,
+    "vereinsfarben-original": "assets/css/theme-vereinsfarben-original.css",
     gedaempft: "assets/css/theme-vereinsfarben.css",
     kraeftig: "assets/css/theme-vereinsfarben-kraeftig.css",
     rotakzent: "assets/css/theme-vereinsfarben-rotakzent.css",
@@ -30,6 +31,7 @@
 
   var LABELS = {
     original: "Original (Grün)",
+    "vereinsfarben-original": "Vereinsfarben, exakt (Wappen)",
     gedaempft: "Vereinsfarben, gedämpft",
     kraeftig: "Vereinsfarben, kräftiger",
     rotakzent: "Vereinsfarben, Rot-Akzent",
