@@ -1,88 +1,94 @@
 ---
 layout: default
 title: "Förderverein Badminton in Eppstein e.V."
-description: "Badminton-Abteilung des TSV Eppstein in Frankenthal – Training für Kinder, Jugendliche und Erwachsene, Mannschaften, Turniere und mehr."
+description: "Badminton-Abteilung des TSV Eppstein in Frankenthal – Training für Kinder, Jugendliche und Erwachsene,
+Mannschaften, Turniere und mehr."
 hero_image: "https://tsv-eppstein-badminton.de/wp-content/uploads/2025/11/unnamed-1.jpg"
 hero_image_alt: "Badminton-Spieler in Aktion"
 hero_title: "Willkommen bei der Badminton-Abteilung des TSV&nbsp;Eppstein"
-hero_subtitle: "Spaß am Spiel, Miteinander und Teamgeist – für Einsteiger und erfahrene Spieler:innen aus Frankenthal und Umgebung."
+hero_subtitle: "Spaß am Spiel, Miteinander und Teamgeist – für Einsteiger und erfahrene Spieler:innen aus Frankenthal
+und Umgebung."
 hero_cta_url: "kontakt.html"
 hero_cta_text: "Jetzt Kontakt aufnehmen"
 ---
-    <div class="container page-body">
-      <div class="layout">
-        <div>
-          <p>
-            Seit {{ site.verein.gegruendet }} spielen wir in der Isenachsporthalle in Frankenthal
-            Badminton – mittlerweile sind wir rund {{ site.verein.mitglieder_gesamt }}
-            Mitglieder, vom Grundschulkind bis zum langjährigen Vereinsmitglied. Trainiert wird
-            getrennt für <a href="spielbetrieb-training-kinder-jugend.html">Kinder und
-            Jugendliche</a> sowie für <a href="spielbetrieb-training-erwachsene.html">Erwachsene</a>,
-            dazu kommen <a href="spielbetrieb-mannschaften.html">Mannschaften</a> im
-            Liga-Spielbetrieb und eigene <a href="spielbetrieb-turniere.html">Turniere</a>.
-          </p>
-          <p>
-            Du musst nicht perfekt spielen können, um mitzumachen – schnupper einfach mal bei
-            einem Training vorbei, wir freuen uns auf neue Gesichter! Für das Kinder- und
-            Jugendtraining bitten wir euch nur, uns vorab kurz zu
-            <a href="kontakt.html">kontaktieren</a>, da die Plätze begrenzt sind.
-          </p>
+<div class="container page-body">
+  <div class="layout">
+    <div>
+      <p>
+        Seit {{ site.verein.gegruendet }} spielen wir in der Isenachsporthalle in Frankenthal
+        Badminton – mittlerweile sind wir rund {{ site.verein.mitglieder_gesamt }}
+        Mitglieder, vom Grundschulkind bis zum langjährigen Vereinsmitglied. Trainiert wird
+        getrennt für <a href="spielbetrieb-training-kinder-jugend.html">Kinder und
+          Jugendliche</a> sowie für <a href="spielbetrieb-training-erwachsene.html">Erwachsene</a>,
+        dazu kommen <a href="spielbetrieb-mannschaften.html">Mannschaften</a> im
+        Liga-Spielbetrieb und eigene <a href="spielbetrieb-turniere.html">Turniere</a>.
+      </p>
+      <p>
+        Du musst nicht perfekt spielen können, um mitzumachen – schnupper einfach mal bei
+        einem Training vorbei, wir freuen uns auf neue Gesichter! Für das Kinder- und
+        Jugendtraining bitten wir euch nur, uns vorab kurz zu
+        <a href="kontakt.html">kontaktieren</a>, da die Plätze begrenzt sind.
+      </p>
 
-          <hr class="court-divider">
+      <hr class="court-divider">
 
-          <h2>Neu hier?</h2>
-          <p>Die wichtigsten Anlaufstellen auf einen Blick:</p>
-          <div class="nav-cards">
-            <a class="nav-card" href="ueber-uns-faq.html">
-              <strong>Training ausprobieren</strong>
-              <span>Wie ein Einstieg abläuft, was du brauchst und ab welchem Alter Kinder mitmachen können.</span>
-            </a>
-            <a class="nav-card" href="ueber-uns.html">
-              <strong>Über uns</strong>
-              <span>Wer wir sind, wie alles begann, und was Badminton als Sport ausmacht.</span>
-            </a>
-            <a class="nav-card" href="gallerie.html">
-              <strong>Turniere &amp; Bilder</strong>
-              <span>Impressionen von Stadtmeisterschaft, Länderspielen und mehr.</span>
-            </a>
-            <a class="nav-card" href="kontakt.html">
-              <strong>Kontakt</strong>
-              <span>Formular oder E-Mail – wir melden uns zeitnah zurück.</span>
-            </a>
-          </div>
-
-          {% assign neueste_news = site.posts | first: 2 %}
-          {% if neueste_news.size > 0 %}
-          <hr class="court-divider">
-
-          <h2>Neuigkeiten</h2>
-          <div class="news-liste">
-            {% for post in neueste_news %}
-            <article class="news-karte">
-              <h2>{{ post.title }}</h2>
-              <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
-              <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-            </article>
-            {% endfor %}
-          </div>
-          <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);" href="news.html">Alle News ansehen</a></p>
-          {% endif %}
-
-          <hr class="court-divider">
-
-          <h2>Strohhutfest &ndash; Frankenthal</h2>
-          <p>Jedes Jahr ein tolles Event – hier ein paar Eindrücke:</p>
-          <div class="gallery-grid">
-            <a href="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/image.jpg">
-              <img src="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/thumbs/thumbs-image.jpg" alt="Strohhutfest Eindruck 1">
-            </a>
-            <a href="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/image-1.jpg">
-              <img src="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/thumbs/thumbs-image-1.jpg" alt="Strohhutfest Eindruck 2">
-            </a>
-          </div>
-          <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);" href="gallerie-strohhutfest.html">Alle Bilder zum Strohhutfest ansehen</a></p>
-        </div>
-
-        {% include sidebar-trainingszeiten.html %}
+      <h2>Neu hier?</h2>
+      <p>Die wichtigsten Anlaufstellen auf einen Blick:</p>
+      <div class="nav-cards">
+        <a class="nav-card" href="ueber-uns-faq.html">
+          <strong>Training ausprobieren</strong>
+          <span>Wie ein Einstieg abläuft, was du brauchst und ab welchem Alter Kinder mitmachen können.</span>
+        </a>
+        <a class="nav-card" href="ueber-uns.html">
+          <strong>Über uns</strong>
+          <span>Wer wir sind, wie alles begann, und was Badminton als Sport ausmacht.</span>
+        </a>
+        <a class="nav-card" href="gallerie.html">
+          <strong>Turniere &amp; Bilder</strong>
+          <span>Impressionen von Stadtmeisterschaft, Länderspielen und mehr.</span>
+        </a>
+        <a class="nav-card" href="kontakt.html">
+          <strong>Kontakt</strong>
+          <span>Formular oder E-Mail – wir melden uns zeitnah zurück.</span>
+        </a>
       </div>
+
+      {% assign neueste_news = site.posts | slice: 0, 2 %}
+      {% if neueste_news.size > 0 %}
+      <hr class="court-divider">
+
+      <h2>Neuigkeiten</h2>
+      <div class="news-liste">
+        {% for post in neueste_news %}
+        <article class="news-karte">
+          <h2>{{ post.title }}</h2>
+          <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
+          <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        </article>
+        {% endfor %}
+      </div>
+      <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);" href="news.html">Alle News
+          ansehen</a></p>
+      {% endif %}
+
+      <hr class="court-divider">
+
+      <h2>Strohhutfest &ndash; Frankenthal</h2>
+      <p>Jedes Jahr ein tolles Event – hier ein paar Eindrücke:</p>
+      <div class="gallery-grid">
+        <a href="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/image.jpg">
+          <img src="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/thumbs/thumbs-image.jpg"
+            alt="Strohhutfest Eindruck 1">
+        </a>
+        <a href="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/image-1.jpg">
+          <img src="https://tsv-eppstein-badminton.de/wp-content/gallery/strohhutfest/thumbs/thumbs-image-1.jpg"
+            alt="Strohhutfest Eindruck 2">
+        </a>
+      </div>
+      <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);"
+          href="gallerie-strohhutfest.html">Alle Bilder zum Strohhutfest ansehen</a></p>
     </div>
+
+    {% include sidebar-trainingszeiten.html %}
+  </div>
+</div>
