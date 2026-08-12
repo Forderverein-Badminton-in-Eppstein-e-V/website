@@ -3,28 +3,29 @@ layout: default
 title: "News"
 description: "Aktuelle Neuigkeiten der Badminton-Abteilung des TSV Eppstein."
 ---
-    <div class="container page-body">
-      <div class="layout">
-        <div>
+<div class="container page-body">
+  <div class="layout">
+    <div>
 
-          {% if site.posts.size == 0 %}
-          <div class="empty-state">
-            <p style="margin:0;">Aktuell gibt es noch keine News-Einträge. Schaut bald wieder vorbei!</p>
-          </div>
-          {% else %}
-          <div class="news-liste">
-            {% for post in site.posts %}
-            <article class="news-karte">
-              <h2>{{ post.title }}</h2>
-              <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
-              <p>{{ post.content }}</p>
-            </article>
-            {% endfor %}
-          </div>
-          {% endif %}
-
-        </div>
-        {% include sidebar-trainingszeiten.html %}
+      {% if site.posts.size == 0 %}
+      <div class="empty-state">
+        <p style="margin:0;">Aktuell gibt es noch keine News-Einträge. Schaut bald wieder vorbei!</p>
       </div>
+      {% else %}
+      <div class="news-liste">
+        {% for post in site.posts %}
+        {% assign post_url = post.url | remove_first: "/" %}
+        <article class="news-karte">
+          <h2><a href="{{ post_url }}">{{ post.title }}</a></h2>
+          <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
+          <p>{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+          <p><a href="{{ post_url }}">Weiterlesen &rarr;</a></p>
+        </article>
+        {% endfor %}
+      </div>
+      {% endif %}
+
     </div>
-  
+    {% include sidebar-trainingszeiten.html %}
+  </div>
+</div>
