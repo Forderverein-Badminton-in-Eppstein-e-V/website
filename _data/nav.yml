@@ -86,6 +86,6 @@
   url: "sponsoren.html"
 
 - label: "Mitgliedsantrag"
-  url: "http://www.tsv-eppstein.de/html/downloads/mitgliedsantrag.pdf"
+  url: "https://www.tsv-eppstein.de/html/se/se-mitgliedsantrag.php"
   button: true
   external: true
