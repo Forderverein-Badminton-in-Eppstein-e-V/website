@@ -31,6 +31,17 @@ plugins:
 # flache Struktur umgestellt, passend zum Rest der Seite.
 permalink: /:title.html
 
+# Stellt sicher, dass jeder News-Post automatisch das post.html-Layout
+# bekommt, auch wenn im jeweiligen Post selbst kein "layout:" gesetzt
+# wird. Ohne das würde ein vergessenes layout: post dazu führen, dass die
+# einzelne Post-Seite komplett unformatiert (ohne Header/Footer/CSS)
+# ausgeliefert wird - ist uns schon passiert, deshalb dieser Schutz.
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: post
+
 # Globale Vereins-Kennzahlen, damit Zahlen wie Mitgliederzahl oder Anzahl
 # Mannschaften nur an EINER Stelle gepflegt werden, auch wenn sie auf
 # mehreren Seiten angezeigt werden (Startseite, Über uns, Mannschaften, ...).
