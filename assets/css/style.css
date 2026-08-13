@@ -548,8 +548,14 @@ button:focus-visible {
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
   padding: 1.2rem 1.4rem;
-  overflow: hidden;
-  /* Clearfix: enthält das schwebende .figure-float-Bild */
+}
+
+.team-card .team-bild {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid #d9e2d6;
+  margin: 0.9rem 0;
 }
 
 .team-card h3 {
