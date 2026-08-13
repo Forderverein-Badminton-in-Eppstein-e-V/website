@@ -39,7 +39,7 @@
 - name: "3. Mannschaft"
   liga: "Bezirksliga Mitte"
   bild: "team3.webp"
-  mannschaftsfuehrer: "	Julian Kaiser"
+  mannschaftsfuehrer: "Julian Kaiser"
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
