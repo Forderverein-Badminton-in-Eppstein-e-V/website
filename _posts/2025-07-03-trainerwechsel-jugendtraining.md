@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Danke Renate und Fred – Arthur übernimmt das Jugendtraining"
 date: 2025-07-03
 ---
