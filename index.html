@@ -35,6 +35,24 @@ hero_cta_text: "Jetzt Kontakt aufnehmen"
         <a href="kontakt.html">Kontakt</a>, da die Plätze begrenzt sind.
       </p>
 
+      {% assign neueste_news = site.posts | slice: 0, 4 %}
+      {% if neueste_news.size > 0 %}
+      <hr class="court-divider">
+
+      <h2>News</h2>
+      <ul class="news-mini-liste">
+        {% for post in neueste_news %}
+        {% assign post_url = post.url | remove_first: "/" %}
+        <li class="news-mini-item">
+          <span class="news-mini-datum">{{ post.date | date: "%d.%m.%Y" }}</span>
+          <a href="{{ post_url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);" href="news.html">Alle News
+          ansehen</a></p>
+      {% endif %}
+
       <hr class="court-divider">
 
       <h2>Neu hier?</h2>
@@ -58,30 +76,11 @@ hero_cta_text: "Jetzt Kontakt aufnehmen"
         </a>
       </div>
 
-      {% assign neueste_news = site.posts | slice: 0, 4 %}
-      {% if neueste_news.size > 0 %}
-      <hr class="court-divider">
-
-      <h2>Neuigkeiten</h2>
-      <ul class="news-mini-liste">
-        {% for post in neueste_news %}
-        {% assign post_url = post.url | remove_first: "/" %}
-        <li class="news-mini-item">
-          <span class="news-mini-datum">{{ post.date | date: "%d.%m.%Y" }}</span>
-          <a href="{{ post_url }}">{{ post.title }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-      <p><a class="btn btn-outline" style="color:var(--court); border-color: var(--court);" href="news.html">Alle News
-          ansehen</a></p>
-      {% endif %}
-
       <hr class="court-divider">
 
       <h2>Strohhutfest &ndash; Frankenthal</h2>
       <p>Jedes Jahr ein tolles Event – hier ein paar Eindrücke:</p>
-      <div class="gallery
-          -grid">
+      <div class="gallery-grid">
         <a href="assets/img/site/strohhutfest-vorschau-1.jpg">
           <img src="assets/img/site/strohhutfest-vorschau-1-thumb.jpg" alt="Strohhutfest Eindruck 1">
         </a>
