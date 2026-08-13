@@ -84,9 +84,8 @@ a:hover {
 
 /* Kleines Pfeil-Icon bei Links, die in einem neuen Tab öffnen (externe
    Seiten, PDFs) - Nutzer sehen vorab, dass sie die Seite verlassen.
-   Buttons ausgenommen, da dort der Kontext meist schon im Text steht
-   (z. B. "Mitgliedsantrag (PDF)"). */
-a[target="_blank"]:not(.btn)::after {
+   Gilt auch für Buttons (z. B. "Mitgliedsantrag"). */
+a[target="_blank"]::after {
   content: "";
   display: inline-block;
   width: 0.75em;
