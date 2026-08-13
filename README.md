@@ -299,9 +299,11 @@ Sponsoren, Datenschutzerklärung.
 - `kontakt.html` – bestehende Kontaktseite, unverändert
 
 **Noch offen:**
-- Bilder für `laenderspiele` und `kinder_jugendturniere` in der Galerie
-- Datenschutzerklärung: Abschnitt "Hosting" nennt noch IONOS, muss vor
-  Veröffentlichung an GitHub Pages angepasst werden (Hinweis-Box steht
-  bereits oben auf der Seite)
-- Strohhutfest-Vorschaubilder auf der Startseite zeigen noch auf die
-  alte WordPress-Domain
+- Bilder für `laenderspiele` in der Galerie (kinder_jugendturniere ist bereits befüllt)
+- Farbschema-Entscheidung: aktuell läuft testweise ein Umschalter für alternative
+  Vereinsfarben-Paletten (`assets/js/theme-switcher.js` + `assets/css/theme-*.css`,
+  siehe README-Abschnitt "Design-Entscheidungen"). Sobald final entschieden, sollte
+  das Testwerkzeug + nicht gewählte Paletten wieder raus.
+- Mobile Untermenüs (Über uns/Spielbetrieb/Galerie) öffnen sich aktuell nur per Hover,
+  auf Touch-Geräten also faktisch nicht erreichbar (führt aber direkt zur jeweiligen
+  Übersichtsseite mit denselben Unterseiten als Kacheln, kein Totalausfall)
