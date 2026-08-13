@@ -36,6 +36,14 @@
           {% endif %}
 
           {% if item.submenu %}
+          <button
+            type="button"
+            class="submenu-toggle"
+            aria-expanded="false"
+            aria-label="Untermenü {{ item.label }} ein-/ausblenden"
+          >
+            <span aria-hidden="true">&#9662;</span>
+          </button>
           <ul class="submenu">
             {% for sub in item.submenu %}
             <li><a href="{{ sub.url }}">{{ sub.label }}</a></li>
