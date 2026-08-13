@@ -4,7 +4,7 @@ date: 2026-08-13
 ---
 
 Am kommenden **Montag, den 17.08.2026,** spielen wir ein Freundschaftsspiel gegen die
-**[DJK Eintracht Ludwigshafen](https://djk-eintracht-ludwigshafen.com/)**. Start ist um
+**<a href="https://djk-eintracht-ludwigshafen.com/" target="_blank" rel="noopener">DJK Eintracht Ludwigshafen</a>**. Start ist um
 **18:00 Uhr**, gespielt wird in deren Halle:
 
 **IGS Hans-Loschky**
