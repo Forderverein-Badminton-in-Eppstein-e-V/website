@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Freundschaftsspiel gegen DJK Ludwigshafen am Montag"
 date: 2026-08-13
 ---
