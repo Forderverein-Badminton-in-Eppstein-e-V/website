@@ -6,6 +6,13 @@
 title: "TSV Eppstein Badminton"
 description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
 
+# Sprache der Seite - wird u.a. vom jekyll-seo-tag-Plugin für das
+# og:locale-Meta-Tag genutzt (Standardwert des Plugins wäre sonst
+# "en_US", auch wenn <html lang="de"> im Layout korrekt gesetzt ist -
+# das eine hat mit dem anderen nichts zu tun).
+lang: de
+locale: de_DE
+
 # Logo fürs Social-Media-Vorschaubild (Open Graph), ebenfalls vom
 # jekyll-seo-tag-Plugin genutzt.
 logo: "assets/img/site/logo.png"
