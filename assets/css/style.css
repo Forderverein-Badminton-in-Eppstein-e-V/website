@@ -457,7 +457,13 @@ button:focus-visible {
 
 /* -------------------- Layout: Content + Sidebar -------------------- */
 .page-body {
-  padding: 2.5rem 0 3rem;
+  /* Nur oben/unten setzen - NICHT als Shorthand mit links/rechts=0,
+     sonst überschreibt das (da .page-body im Stylesheet nach .container
+     kommt) den horizontalen --gutter-Abstand von .container wieder mit 0.
+     Betraf praktisch jede Content-Seite, da dort <div class="container
+     page-body"> verwendet wird. */
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
 }
 
 .layout {
