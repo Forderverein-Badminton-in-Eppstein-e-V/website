@@ -206,11 +206,6 @@ function initLightbox() {
  * wäre nicht ausreichend). Speichert die Entscheidung in localStorage
  * (kein Cookie nötig für die Speicherung der Entscheidung selbst, das
  * gilt als technisch notwendig).
- *
- * Aktuell wird nichts Einwilligungspflichtiges eingesetzt - die Funktion
- * ist Vorbereitung für Google Analytics, sobald es eingerichtet wird.
- * Dafür einfach GA_MEASUREMENT_ID unten eintragen; ohne ID passiert bei
- * "Akzeptieren" schlicht nichts.
  */
 const COOKIE_CONSENT_KEY = "cookie-consent"; // "accepted" | "declined"
 const GA_MEASUREMENT_ID = "G-DR7C2S58EV";
@@ -228,8 +223,6 @@ function loadAnalytics() {
     window.dataLayer.push(arguments);
   }
   gtag("js", new Date());
-  // Kein anonymize_ip-Parameter nötig: das war ein Universal-Analytics-
-  // Konzept, GA4 speichert IP-Adressen grundsätzlich nicht dauerhaft.
   gtag("config", GA_MEASUREMENT_ID);
 }
 
