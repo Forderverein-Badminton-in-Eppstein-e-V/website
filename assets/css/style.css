@@ -32,6 +32,11 @@
   --radius: 3px;
   --max-width: 1120px;
   --border-line: 1px dashed #C7D2C4;
+  /* Fester Innenabstand am Seitenrand (Header, Container, Footer).
+     Bewusst NICHT von einer @media-Breite abhängig, damit z.B. ein
+     quergedrehtes Handy (Viewport-Breite > 600px) genauso Luft am
+     Rand hat wie im Hochformat. */
+  --gutter: 1.5rem;
 }
 
 /* -------------------- Reset / Basics -------------------- */
@@ -132,7 +137,7 @@ p {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 var(--gutter);
 }
 
 /* Fokus-Sichtbarkeit für Tastaturnutzung */
@@ -206,7 +211,7 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.9rem 1.25rem;
+  padding: 0.9rem var(--gutter);
 }
 
 .brand {
@@ -423,7 +428,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 1.25rem;
+  padding: 0 var(--gutter);
 }
 
 .hero-text .container {
@@ -1185,7 +1190,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
-  padding: 2.6rem 1.25rem 1.4rem;
+  padding: 2.6rem var(--gutter) 1.4rem;
 }
 
 .footer-inner h4 {
@@ -1217,25 +1222,10 @@ button:focus-visible {
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 1rem 1.25rem;
+  padding: 1rem var(--gutter);
   font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-/* -------------------- Mehr Luft an den Seiten auf schmalen Screens -------------------- */
-/* .container/.header-inner/.footer-bottom haben nur 1.25rem (20px)
-   Innenabstand - auf schmalen Handy-Screens wirkt das zu knapp
-   ("klebt" an den Rändern). Hier gezielt etwas mehr Luft für kleine
-   Screens, ohne das Desktop-Layout zu verändern. */
-@media (max-width: 600px) {
-
-  .container,
-  .header-inner,
-  .footer-bottom {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
 }
