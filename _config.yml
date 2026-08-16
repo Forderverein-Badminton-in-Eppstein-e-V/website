@@ -13,7 +13,7 @@ description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
 lang: de
 locale: de_DE
 
-# Logo fürs Social-Media-Vorschaubild (Open Graph), ebenfalls vom
+# Logo fürs strukturierte Daten-Schema (JSON-LD/schema.org), vom
 # jekyll-seo-tag-Plugin genutzt.
 logo: "assets/img/site/logo.png"
 
@@ -44,6 +44,19 @@ permalink: /:title.html
 # einzelne Post-Seite komplett unformatiert (ohne Header/Footer/CSS)
 # ausgeliefert wird - ist uns schon passiert, deshalb dieser Schutz.
 defaults:
+  # Bild für die Link-Vorschau (Open Graph og:image / Twitter Card), z. B.
+  # wenn der Seitenlink bei WhatsApp, iMessage o. Ä. geteilt wird. Das
+  # jekyll-seo-tag-Plugin liest "image" NUR aus dem Front Matter der
+  # jeweiligen Seite (page.image), nicht aus einem Top-Level-Config-Wert -
+  # ein einfaches "image:" hier in _config.yml würde also ignoriert.
+  # Über "defaults" wird der Wert stattdessen wie echtes Front Matter auf
+  # jede Seite angewendet, ohne jede Datei einzeln anfassen zu müssen.
+  # Einzelne Seiten können das bei Bedarf mit eigenem "image:" im Front
+  # Matter überschreiben (z. B. für einen News-Post mit eigenem Foto).
+  - scope:
+      path: ""
+    values:
+      image: "assets/img/site/logo.png"
   - scope:
       type: posts
     values:
