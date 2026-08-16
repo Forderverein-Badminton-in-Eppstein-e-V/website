@@ -36,7 +36,7 @@
      Bewusst NICHT von einer @media-Breite abhängig, damit z.B. ein
      quergedrehtes Handy (Viewport-Breite > 600px) genauso Luft am
      Rand hat wie im Hochformat. */
-  --gutter: 1.5rem;
+  --gutter: 2rem;
 }
 
 /* -------------------- Reset / Basics -------------------- */
