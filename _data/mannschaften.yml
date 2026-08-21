@@ -13,8 +13,12 @@
 #                   Weglassen/leer lassen, wenn noch kein Bild vorhanden ist -
 #                   erscheint dann einfach nicht auf der Seite.
 #   mannschaftsfuehrer - optional, Name. Weglassen, wenn noch nicht bekannt.
-#   spieler       - optional, Liste von Namen. Weglassen/leere Liste, wenn
-#                   noch nicht bekannt.
+#   spieler       - optional, Liste von Namen der Spieler *auf dem Teambild*,
+#                   in der Reihenfolge, wie sie von links nach rechts auf dem
+#                   Bild stehen. Weglassen/leere Liste, wenn noch nicht bekannt.
+#   spieler_ohne_bild - optional, Liste von Namen weiterer Spieler, die
+#                   (noch) nicht mit auf dem Teambild sind. Weglassen/leere
+#                   Liste, wenn nicht benötigt.
 
 - name: "1. Mannschaft"
   liga: "Bezirksoberliga Südwest"
@@ -23,6 +27,10 @@
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
+  spieler_ohne_bild:
+    - "Volker Vorhand"
+    - "Schmetterball-Susi"
+    - "Aufschlag-Achim"
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242541&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
 
@@ -33,6 +41,7 @@
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
+  spieler_ohne_bild: []
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=241749&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
 
@@ -43,5 +52,6 @@
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
+  spieler_ohne_bild: []
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242393&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"

@@ -28,12 +28,13 @@ description: "Unsere Mannschaften im Liga-Spielbetrieb der Badminton-Abteilung d
           {% endif %}
 
           {% if team.spieler.size > 0 %}
-          <p><strong>Spieler:</strong></p>
-          <ul class="team-spieler">
-            {% for spieler in team.spieler %}
-            <li>{{ spieler }}</li>
-            {% endfor %}
-          </ul>
+          <p class="team-spieler">{{ team.spieler | join: ", " }}</p>
+          {% endif %}
+
+          {% if team.spieler_ohne_bild.size > 0 %}
+          <p class="team-spieler-weitere">
+            <strong>Weitere Spieler:</strong> {{ team.spieler_ohne_bild | join: ", " }}
+          </p>
           {% endif %}
 
           <div class="team-links">
