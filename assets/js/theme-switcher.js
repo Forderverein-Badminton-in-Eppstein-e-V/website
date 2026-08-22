@@ -56,7 +56,7 @@
   }
 
   function init() {
-    var saved = localStorage.getItem(STORAGE_KEY) || "original";
+    var saved = localStorage.getItem(STORAGE_KEY) || "vereinsfarben-original";
     applyTheme(saved);
 
     var box = document.createElement("div");
