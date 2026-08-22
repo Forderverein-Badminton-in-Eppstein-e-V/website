@@ -17,7 +17,7 @@ description: "Die Badminton-Abteilung des TSV Eppstein – Meilensteine, was Bad
             <div class="stat"><strong>{{ site.verein.mannschaften_aktuell }}</strong><span>Mannschaften</span></div>
           </div>
 
-          {% assign ueber_uns_nav = site.data.nav | where: "url", "ueber-uns.html" | first %}
+          {% assign ueber_uns_nav = site.data.nav | where: "url", "/ueber-uns.html" | first %}
 
           <div class="nav-cards">
             {% for eintrag in ueber_uns_nav.submenu %}

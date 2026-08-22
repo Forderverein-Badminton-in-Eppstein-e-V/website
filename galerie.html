@@ -10,7 +10,7 @@ description: "Bilder von Turnieren und Vereinsevents der Badminton-Abteilung des
             Impressionen von unseren Turnieren und Vereinsevents – nach Thema sortiert.
           </p>
 
-          {% assign gallerie_nav = site.data.nav | where: "url", "galerie.html" | first %}
+          {% assign gallerie_nav = site.data.nav | where: "url", "/galerie.html" | first %}
 
           <div class="nav-cards">
             {% for eintrag in gallerie_nav.submenu %}

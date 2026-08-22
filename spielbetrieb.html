@@ -11,7 +11,7 @@ description: "Training, Mannschaften, Turniere und unsere Halle – der Spielbet
             über unsere Mannschaften bis hin zu Turnieren und unserer Trainingshalle.
           </p>
 
-          {% assign spielbetrieb_nav = site.data.nav | where: "url", "spielbetrieb.html" | first %}
+          {% assign spielbetrieb_nav = site.data.nav | where: "url", "/spielbetrieb.html" | first %}
 
           <div class="nav-cards">
             {% for eintrag in spielbetrieb_nav.submenu %}
