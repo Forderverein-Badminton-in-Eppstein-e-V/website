@@ -5,10 +5,9 @@
 #
 # Felder pro Eintrag:
 #   label       - sichtbarer Text
-#   url         - Linkziel. Innerhalb der Seite: Dateiname ohne führenden
-#                 Slash (z. B. "index.html"), NICHT "/index.html" - das
-#                 würde bei GitHub Project Pages (URL mit /website/-Unterpfad)
-#                 auf die falsche Adresse zeigen.
+#   url         - Linkziel. Innerhalb der Seite: root-relativer Pfad mit
+#                 führendem Slash (z. B. "/index.html"), da die Seite an
+#                 der Domain-Wurzel läuft.
 #   submenu     - optional: Liste weiterer Einträge (Dropdown UND
 #                 gleichzeitig Datenquelle für die Karten-Übersichten auf
 #                 spielbetrieb.html/galerie.html - Duplikation vermeiden)
@@ -23,67 +22,67 @@
 #                 (target="_blank" rel="noopener")
 
 - label: "Startseite"
-  url: "index.html"
+  url: "/index.html"
 
 - label: "Über uns"
-  url: "ueber-uns.html"
+  url: "/ueber-uns.html"
   submenu:
     - label: "Meilensteine"
-      url: "ueber-uns-meilensteine.html"
+      url: "/ueber-uns-meilensteine.html"
       description: "Von der Gründung 1997 bis heute – die wichtigsten Stationen unserer Abteilung."
     - label: "Was ist Badminton?"
-      url: "ueber-uns-was-ist-badminton.html"
+      url: "/ueber-uns-was-ist-badminton.html"
       description: "Kurz erklärt: Ursprung, Regeln und Zählweise des Sports."
     - label: "Häufige Fragen"
-      url: "ueber-uns-faq.html"
+      url: "/ueber-uns-faq.html"
       description: "Antworten auf die häufigsten Fragen von Neueinsteiger:innen."
     - label: "Kontakt"
-      url: "kontakt.html"
+      url: "/kontakt.html"
       description: "Formular oder E-Mail – wir freuen uns, von dir zu hören."
 
 - label: "Spielbetrieb"
-  url: "spielbetrieb.html"
+  url: "/spielbetrieb.html"
   submenu:
     - label: "Training Erwachsene"
-      url: "spielbetrieb-training-erwachsene.html"
+      url: "/spielbetrieb-training-erwachsene.html"
       description: "Regelmäßiges Training und freies Spiel für alle Leistungsniveaus."
     - label: "Training Kinder und Jugend"
-      url: "spielbetrieb-training-kinder-jugend.html"
+      url: "/spielbetrieb-training-kinder-jugend.html"
       description: "Nachwuchstraining in Zusammenarbeit mit der TSG Grünstadt."
     - label: "Mannschaften"
-      url: "spielbetrieb-mannschaften.html"
+      url: "/spielbetrieb-mannschaften.html"
       description: "Unsere Teams im Liga-Spielbetrieb."
     - label: "Turniere"
-      url: "spielbetrieb-turniere.html"
+      url: "/spielbetrieb-turniere.html"
       description: "Eigene und externe Turniere, an denen wir teilnehmen."
     - label: "Unsere Halle"
-      url: "spielbetrieb-unsere-halle.html"
+      url: "/spielbetrieb-unsere-halle.html"
       description: "Die Isenachsporthalle – unsere sportliche Heimat."
 
 - label: "Förderverein"
-  url: "foerderverein.html"
+  url: "/foerderverein.html"
 
 - label: "Galerie"
-  url: "galerie.html"
+  url: "/galerie.html"
   submenu:
     - label: "Stadtmeisterschaft"
-      url: "galerie-stadtmeisterschaft.html"
+      url: "/galerie-stadtmeisterschaft.html"
       data_key: "stadtmeisterschaft"
     - label: "Länderspiele"
-      url: "galerie-laenderspiele.html"
+      url: "/galerie-laenderspiele.html"
       data_key: "laenderspiele"
     - label: "Kinder- und Jugendturniere"
-      url: "galerie-kinder-jugendturniere.html"
+      url: "/galerie-kinder-jugendturniere.html"
       data_key: "kinder_jugendturniere"
     - label: "Strohhutfest"
-      url: "galerie-strohhutfest.html"
+      url: "/galerie-strohhutfest.html"
       data_key: "strohhutfest"
 
 - label: "News"
-  url: "news.html"
+  url: "/news.html"
 
 - label: "Sponsoren"
-  url: "sponsoren.html"
+  url: "/sponsoren.html"
 
 - label: "Mitgliedsantrag"
   url: "https://www.tsv-eppstein.de/html/se/se-mitgliedsantrag.php"

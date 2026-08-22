@@ -32,9 +32,9 @@ hero_title: "Kinder- und Jugendturniere"
             <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
             <div class="gallery-grid">
               {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}">
+              <a href="/assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}">
                 <img
-                  src="assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  src="/assets/img/gallery/jugendturniere/{{ eintrag.jahr }}/{{ bild.datei }}"
                   alt="{{ bild.alt | default: 'Jugendturnier ' | append: eintrag.jahr }}"
                   loading="lazy">
               </a>

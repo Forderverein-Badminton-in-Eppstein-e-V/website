@@ -10,7 +10,7 @@ Trainingsabend vor den Sommerferien feierlich von uns verabschiedet. Ein riesige
 Renate und Fred 🙂
 
 <figure class="figure-float rechts">
-  <img src="assets/img/site/renate.jpg" alt="Renate, langjährige Jugendtrainerin">
+  <img src="/assets/img/site/renate.jpg" alt="Renate, langjährige Jugendtrainerin">
   <figcaption>Renate, langjährige Jugendtrainerin</figcaption>
 </figure>
 
@@ -21,4 +21,4 @@ glücklich darüber, dass er das Jugendtraining übernehmen möchte.
 
 Nach den Sommerferien startet das Jugendtraining wieder wie gewohnt mit Arthur. Vielen Dank
 Arthur 🙂 Wir freuen uns! Alle Infos zum Training findet ihr auf der
-[Kinder- und Jugendtraining-Seite](spielbetrieb-training-kinder-jugend.html).
+[Kinder- und Jugendtraining-Seite](/spielbetrieb-training-kinder-jugend.html).

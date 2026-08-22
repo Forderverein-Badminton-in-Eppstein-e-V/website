@@ -23,11 +23,11 @@
 
   var THEMES = {
     original: null,
-    "vereinsfarben-original": "assets/css/theme-vereinsfarben-original.css",
-    gedaempft: "assets/css/theme-vereinsfarben.css",
-    kraeftig: "assets/css/theme-vereinsfarben-kraeftig.css",
-    rotakzent: "assets/css/theme-vereinsfarben-rotakzent.css",
-    hauptverein: "assets/css/theme-hauptverein-webfarben.css",
+    "vereinsfarben-original": "/assets/css/theme-vereinsfarben-original.css",
+    gedaempft: "/assets/css/theme-vereinsfarben.css",
+    kraeftig: "/assets/css/theme-vereinsfarben-kraeftig.css",
+    rotakzent: "/assets/css/theme-vereinsfarben-rotakzent.css",
+    hauptverein: "/assets/css/theme-hauptverein-webfarben.css",
   };
 
   var LABELS = {

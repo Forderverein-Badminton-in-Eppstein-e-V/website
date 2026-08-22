@@ -32,9 +32,9 @@ hero_title: "Stadtmeisterschaft"
             <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
             <div class="gallery-grid">
               {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}">
+              <a href="/assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}">
                 <img
-                  src="assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  src="/assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}"
                   alt="{{ bild.alt | default: 'Stadtmeisterschaft ' | append: eintrag.jahr }}"
                   loading="lazy">
               </a>

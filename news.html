@@ -14,12 +14,11 @@ description: "Aktuelle Neuigkeiten der Badminton-Abteilung des TSV Eppstein."
       {% else %}
       <div class="news-liste">
         {% for post in site.posts %}
-        {% assign post_url = post.url | remove_first: "/" %}
         <article class="news-karte">
-          <h2><a href="{{ post_url }}">{{ post.title }}</a></h2>
+          <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
           <span class="datum">{{ post.date | date: "%d.%m.%Y" }}</span>
           <p>{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
-          <p><a href="{{ post_url }}">Weiterlesen &rarr;</a></p>
+          <p><a href="{{ post.url }}">Weiterlesen &rarr;</a></p>
         </article>
         {% endfor %}
       </div>

@@ -42,7 +42,7 @@ automatisch von GitHub aus den Quelldateien zu fertigem HTML gebaut (siehe
 │   └── gallery.yml             ← Bild-Daten für die Galerie-Seiten
 ├── _config.yml                 ← Jekyll-Konfiguration (Plugins, Vereins-Kennzahlen, SEO)
 ├── _posts/
-│   └── YYYY-MM-DD-titel.md     ← News-Beiträge
+│   └── YYYY-MM-DD-titel.md     ← News-Beiträge (URL verschachtelt nach Datum, s.u.)
 ├── assets/
 │   ├── css/style.css           ← komplettes Design (Farben, Schrift, Layout)
 │   ├── js/main.js              ← Mobile-Menü, Galerie-Paginierung, Lightbox, Cookie-Consent
@@ -106,15 +106,19 @@ Weil es sich von Seite zu Seite unterscheidet:
 
 ### Wichtige Konventionen
 
-- **Alle internen Links/Pfade relativ, ohne führenden Slash**
-  (`kontakt.html`, nicht `/kontakt.html`). Das war am Anfang mal ein
-  echtes Problem (Seite lief zwischenzeitlich unter einem Unterpfad),
-  seitdem strikt durchgehalten.
-- **Post-Permalinks sind flach** (`permalink: /:title.html` in
-  `_config.yml`), nicht Jekylls Standard-Schema
-  `/YYYY/MM/DD/titel.html` – ein verschachtelter Pfad würde alle
-  relativen Pfade auf der jeweiligen Post-Seite brechen (CSS, Bilder,
-  Navigation).
+- **Alle internen Links/Pfade sind root-relativ, mit führendem Slash**
+  (`/kontakt.html`, nicht `kontakt.html`). Die Seite läuft an der
+  Domain-Wurzel (eigene Custom Domain, kein Unterpfad), dadurch
+  funktioniert das unabhängig davon, unter welchem Pfad eine Seite
+  selbst liegt – wichtig vor allem für die News-Posts (siehe unten),
+  die verschachtelt nach Datum liegen.
+- **Post-Permalinks folgen Jekylls Standard-Schema**
+  (`permalink: /:year/:month/:day/:title.html` in `_config.yml`),
+  landen also verschachtelt nach Datum (z. B. `/2026/08/22/titel.html`).
+  Das funktioniert nur, weil alle Links/Pfade root-relativ sind (siehe
+  Punkt oben) – bei Pfaden ohne führenden Slash würden CSS, Bilder und
+  Navigation auf jeder Post-Seite ins Leere zeigen, weil der Browser sie
+  relativ zum verschachtelten Datums-Unterpfad auflösen würde.
 - **Navigation ändern:** nur `_data/nav.yml` anpassen –
   `_includes/header.html` muss dafür nicht angefasst werden.
 
@@ -223,12 +227,16 @@ PHP-Server voraussetzen, den GitHub Pages nicht bietet).
 - Inhalt: normaler Markdown-Text (`**fett**` etc. funktioniert). Für
   externe Links im Post-Text **kein** Markdown-`[Text](url)` verwenden,
   sondern rohes HTML mit `target="_blank" rel="noopener"` – Markdown-Links
-  unterstützen kein `target`-Attribut.
+  unterstützen kein `target`-Attribut. Interne Links/Bilder im Post-Text
+  brauchen den führenden Slash (`/kontakt.html`, `/assets/img/site/...`),
+  da jeder Post unter einem verschachtelten Datums-Pfad liegt (siehe
+  "Wichtige Konventionen" oben) – ohne Slash würden sie relativ zu
+  diesem Unterpfad aufgelöst und ins Leere zeigen.
 - Jeder Post bekommt automatisch eine eigene Seite (`_layouts/post.html`,
-  flacher Permalink) sowie einen Eintrag in der News-Liste (`news.html`,
-  zeigt nur Zusammenfassung + "Weiterlesen"-Link) und in der
-  Startseiten-Vorschau (aktuell die 4 neuesten, Datum + Titel als
-  kompakte Liste).
+  Permalink verschachtelt nach Datum, z. B. `/2026/08/22/titel.html`)
+  sowie einen Eintrag in der News-Liste (`news.html`, zeigt nur
+  Zusammenfassung + "Weiterlesen"-Link) und in der Startseiten-Vorschau
+  (aktuell die 4 neuesten, Datum + Titel als kompakte Liste).
 
 ### Sponsoren (`sponsoren.html`)
 

@@ -29,9 +29,9 @@ hero_title: "Länderspiele"
             <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
             <div class="gallery-grid">
               {% for bild in eintrag.bilder %}
-              <a href="assets/img/gallery/laenderspiele/{{ eintrag.jahr }}/{{ bild.datei }}">
+              <a href="/assets/img/gallery/laenderspiele/{{ eintrag.jahr }}/{{ bild.datei }}">
                 <img
-                  src="assets/img/gallery/laenderspiele/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  src="/assets/img/gallery/laenderspiele/{{ eintrag.jahr }}/{{ bild.datei }}"
                   alt="{{ bild.alt | default: 'Länderspiel ' | append: eintrag.jahr }}"
                   loading="lazy">
               </a>

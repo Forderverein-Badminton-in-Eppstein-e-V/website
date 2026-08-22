@@ -235,7 +235,7 @@ function showCookieBanner() {
     <p>
       Wir nutzen nur technisch notwendige Funktionen. Optional möchten wir
       anonymisierte Besuchsstatistiken erfassen, um die Seite zu
-      verbessern. <a href="datenschutz.html">Mehr dazu</a>.
+      verbessern. <a href="/datenschutz.html">Mehr dazu</a>.
     </p>
     <div class="cookie-consent-actions">
       <button type="button" class="cookie-decline">Ablehnen</button>

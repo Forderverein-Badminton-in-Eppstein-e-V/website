@@ -15,7 +15,7 @@ locale: de_DE
 
 # Logo fürs strukturierte Daten-Schema (JSON-LD/schema.org), vom
 # jekyll-seo-tag-Plugin genutzt.
-logo: "assets/img/site/logo.png"
+logo: "/assets/img/site/logo.png"
 
 # Für korrekte absolute URLs in der generierten sitemap.xml. Läuft die
 # Seite an der Domain-Wurzel (eigene/custom Domain via CNAME-Datei), muss
@@ -29,14 +29,12 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Alle Seiten (auch News-Posts) nutzen überall relative Pfade ohne
-# führenden Slash (siehe Abschnitt "Funktionsprinzip" im README). Das
-# funktioniert nur, wenn jede Seite direkt im Root der Website liegt -
-# Jekylls Standard-Permalink für Posts wäre aber verschachtelt
-# (/YYYY/MM/DD/titel.html), was alle relativen Pfade auf so einer Seite
-# brechen würde (CSS, Bilder, Navigation - alles). Deshalb hier auf eine
-# flache Struktur umgestellt, passend zum Rest der Seite.
-permalink: /:title.html
+# Alle internen Links/Pfade auf der Seite sind root-relativ (mit
+# führendem Slash, z. B. "/kontakt.html", siehe Abschnitt
+# "Funktionsprinzip" im README). Damit sind wir nicht mehr auf eine
+# flache Verzeichnisstruktur angewiesen - News-Posts landen deshalb ganz
+# normal in Jekylls Standard-Permalink-Schema, verschachtelt nach Datum.
+permalink: /:year/:month/:day/:title.html
 
 # Stellt sicher, dass jeder News-Post automatisch das post.html-Layout
 # bekommt, auch wenn im jeweiligen Post selbst kein "layout:" gesetzt
@@ -56,7 +54,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "assets/img/site/logo.png"
+      image: "/assets/img/site/logo.png"
   - scope:
       type: posts
     values:

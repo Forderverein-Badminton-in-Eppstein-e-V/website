@@ -17,7 +17,7 @@
    AKTIVIEREN: In _layouts/default.html DIESE Zeile direkt NACH
    dem <link> auf style.css ergänzen:
 
-     <link rel="stylesheet" href="assets/css/theme-vereinsfarben.css">
+     <link rel="stylesheet" href="/assets/css/theme-vereinsfarben.css">
 
    Gefällt's nicht → die eine Zeile wieder entfernen, fertig.
    ============================================================ */
