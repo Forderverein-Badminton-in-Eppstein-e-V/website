@@ -21,22 +21,22 @@
   var STORAGE_KEY = "theme-test-choice";
   var LINK_ID = "theme-override-link";
 
+  var DEFAULT_THEME = "vereinsfarben-original";
+
   var THEMES = {
-    original: null,
     "vereinsfarben-original": "/assets/css/theme-vereinsfarben-original.css",
+    hauptverein: "/assets/css/theme-hauptverein-webfarben.css",
     gedaempft: "/assets/css/theme-vereinsfarben.css",
     kraeftig: "/assets/css/theme-vereinsfarben-kraeftig.css",
     rotakzent: "/assets/css/theme-vereinsfarben-rotakzent.css",
-    hauptverein: "/assets/css/theme-hauptverein-webfarben.css",
   };
 
   var LABELS = {
-    original: "Original (Grün)",
     "vereinsfarben-original": "Vereinsfarben, exakt (Wappen)",
+    hauptverein: "Vereinsfarben, exakt (TSV Webseite)",
     gedaempft: "Vereinsfarben, gedämpft",
     kraeftig: "Vereinsfarben, kräftiger",
     rotakzent: "Vereinsfarben, Rot-Akzent",
-    hauptverein: "Hauptverein-Webfarben (exakt)",
   };
 
   function applyTheme(key) {
@@ -56,7 +56,12 @@
   }
 
   function init() {
-    var saved = localStorage.getItem(STORAGE_KEY) || "vereinsfarben-original";
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved || !THEMES.hasOwnProperty(saved)) {
+      // Fängt auch alte localStorage-Werte von Besuchern ab, die noch
+      // "original" (das jetzt entfernte grüne Schema) gespeichert haben.
+      saved = DEFAULT_THEME;
+    }
     applyTheme(saved);
 
     var box = document.createElement("div");
