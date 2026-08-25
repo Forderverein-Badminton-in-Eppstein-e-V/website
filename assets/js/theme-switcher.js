@@ -32,11 +32,11 @@
   };
 
   var LABELS = {
-    "vereinsfarben-original": "Vereinsfarben, exakt (Wappen)",
-    hauptverein: "Vereinsfarben, exakt (TSV Webseite)",
-    gedaempft: "Vereinsfarben, gedämpft",
-    kraeftig: "Vereinsfarben, kräftiger",
-    rotakzent: "Vereinsfarben, Rot-Akzent",
+    "vereinsfarben-original": "1. Vereinsfarben, exakt (Wappen)",
+    hauptverein: "2. Vereinsfarben, exakt (TSV Webseite)",
+    gedaempft: "3. Vereinsfarben, gedämpft",
+    kraeftig: "4. Vereinsfarben, kräftiger",
+    rotakzent: "5. Vereinsfarben, Rot-Akzent",
   };
 
   function applyTheme(key) {
