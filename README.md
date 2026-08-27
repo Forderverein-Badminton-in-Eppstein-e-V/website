@@ -134,10 +134,11 @@ getestet werden**, nicht blind gepusht.
 
 ## Design-System
 
-- **Farben:** dunkles "Spielfeld-Grün" (`--court`) für Header/Footer, ein
-  frisches Grün-Gelb (`--accent`, Filzball-Farbe) als Akzent für
-  Buttons/Links – alles als CSS-Variablen in `assets/css/style.css`
-  zentral definiert.
+- **Farben:** kräftiges Wappen-Blau (`--court`) für Header/Footer, ein
+  kräftiges Wappen-Gold (`--accent`) als Akzent für Buttons/Links –
+  alles als CSS-Variablen in `assets/css/style.css` zentral definiert.
+  Angelehnt an die Farben im Vereinswappen, aber abgeschwächt/verfeinert
+  gegenüber den reinen Wappenfarben.
 - **Schrift:** "Oswald" (kondensiert, sportlich) für Überschriften/Nav,
   "Source Sans 3" für Fließtext – beide selbst gehostet (siehe unten).
 - **Wiederkehrendes Element:** gestrichelte Trennlinie (`.court-divider`)
@@ -151,16 +152,6 @@ getestet werden**, nicht blind gepusht.
   Hover, auf Mobile per Klick auf einen eigenen Pfeil-Button neben dem
   Hauptlink (`initSubmenuToggles()` in `main.js`) – der Hauptlink selbst
   führt weiterhin direkt zur Übersichtsseite.
-
-### Farbschema-Test noch offen
-
-Aktuell läuft testweise ein Umschalter für alternative
-Vereinsfarben-Paletten (`assets/js/theme-switcher.js`, eingebunden in
-`_layouts/default.html`, plus mehrere `assets/css/theme-*.css`-Dateien).
-Auf der Live-Seite erscheint dadurch oben rechts eine kleine, bewusst
-auffällig gestaltete Test-Box. **Sobald final entschieden**, sollte das
-Testwerkzeug + alle nicht gewählten Paletten-Dateien entfernt werden
-(eine Zeile in `default.html` + die betroffenen Dateien löschen).
 
 ## Content-Verwaltung
 
@@ -403,8 +394,5 @@ bei Domain-Wechsel hier anpassen (bei eigener Domain an der Wurzel immer
 ## Bekannte offene Punkte
 
 - Bilder für `laenderspiele` in der Galerie (`_data/gallery.yml`)
-- Farbschema-Entscheidung noch offen, Test-Werkzeug (`theme-switcher.js`
-  + `theme-*.css`) noch aktiv auf der Live-Seite, siehe Design-System
-  oben
 - Root-Domain-Umzug (weg von der `new.`-Subdomain) wurde bisher nur an
   einer privaten Test-Domain durchgespielt, nicht am echten Repo

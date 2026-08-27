@@ -6,22 +6,22 @@
    ============================================================ */
 
 :root {
-  /* Farben */
-  --court: #16402F;
-  /* dunkles Feld-Grün, Header/Footer */
-  --court-dark: #0D2C20;
+  /* Farben (Vereinsfarben, kräftiger - Wappen-Blau/Gold, siehe README) */
+  --court: #24549C;
+  /* kräftiges Wappen-Blau, Header/Footer */
+  --court-dark: #193C70;
   /* Hover / tiefere Fläche */
-  --line: #EDF2EC;
-  /* helles "Linien"-Grau-Grün, Sektionshintergrund */
+  --line: #F5F1E6;
+  /* warmes Creme, Sektionshintergrund */
   --paper: #FFFFFF;
   /* Kartenflächen */
-  --ink: #16201B;
-  /* Fließtext */
-  --ink-soft: #52604F;
+  --ink: #1A2333;
+  /* Fließtext, dezent blau getönt */
+  --ink-soft: #56606F;
   /* Sekundärtext */
-  --accent: #C7E86A;
-  /* Filzball-Grün-Gelb, für Buttons/Links */
-  --accent-dark: #A9CC48;
+  --accent: #DEB539;
+  /* kräftiges Wappen-Gold, für Buttons/Links */
+  --accent-dark: #BC9930;
   /* Hover-Zustand des Akzents */
 
   /* Typografie */
