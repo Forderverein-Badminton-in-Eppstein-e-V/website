@@ -28,9 +28,11 @@
     - "Max Mustermann"
     - "Erika Musterfrau"
   spieler_ohne_bild:
-    - "Volker Vorhand"
-    - "Schmetterball-Susi"
-    - "Aufschlag-Achim"
+    - "Tobias Sohn"
+    - "Tobias Sperfeldt"
+    - "Matthias Formanski"
+    - "Nikhil Dandekar"
+    - "Patricia Prunkl"
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242541&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
 
@@ -41,7 +43,12 @@
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
-  spieler_ohne_bild: []
+  spieler_ohne_bild:
+    - "Thorsten Martin"
+    - "Arthur Paszek"
+    - "Simon Gräf"
+    - "Beatrice Sohn"
+    - "Monika Paszek"
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=241749&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
 
@@ -52,6 +59,15 @@
   spieler:
     - "Max Mustermann"
     - "Erika Musterfrau"
-  spieler_ohne_bild: []
+  spieler_ohne_bild:
+    - "Viral Voral"
+    - "Jan Carsten Leschke"
+    - "Dennis Honacker"
+    - "Tobias Eßwein"
+    - "Carsten Wegner"
+    - "Carsten Friedrich"
+    - "Alicja Ebert"
+    - "Astrid Stempien"
+    - "Axelle Hemmer"
   tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
   spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242393&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
