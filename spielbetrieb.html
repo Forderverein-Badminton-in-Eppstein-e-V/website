@@ -1,0 +1,29 @@
+---
+layout: default
+title: "Spielbetrieb"
+description: "Training, Mannschaften, Turniere und unsere Halle – der Spielbetrieb der Badminton-Abteilung des TSV Eppstein."
+---
+    <div class="container page-body">
+      <div class="layout">
+        <div>
+          <p>
+            Ein Überblick über unseren Spielbetrieb – vom Training für Kinder und Erwachsene
+            über unsere Mannschaften bis hin zu Turnieren und unserer Trainingshalle.
+          </p>
+
+          {% assign spielbetrieb_nav = site.data.nav | where: "url", "/spielbetrieb.html" | first %}
+
+          <div class="nav-cards">
+            {% for eintrag in spielbetrieb_nav.submenu %}
+            <a class="nav-card" href="{{ eintrag.url }}">
+              <strong>{{ eintrag.label }}</strong>
+              <span>{{ eintrag.description }}</span>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% include sidebar-trainingszeiten.html %}
+      </div>
+    </div>
+  

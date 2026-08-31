@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} – {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  {% seo title=false %}
+  {% if page.name == "index.html" %}
+  {% include schema-sportsclub.html %}
+  {% endif %}
+  {% if page.noindex %}
+  <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+  <link rel="icon" href="/assets/img/site/favicon.ico">
+
+  <!-- GoatCounter: cookieless, DSGVO-konform ohne Einwilligung nötig (siehe Datenschutzerklärung) -->
+  <script data-goatcounter="https://stats.tsv-eppstein-badminton.de/count" async src="//gc.zgo.at/count.js"></script>
+
+  <!--
+    Google Ads Conversion-Tracking (Google Ad Grants), über Google Consent
+    Mode (Datenschutzerklärung Abschnitt 5). Startzustand kommt aus
+    localStorage "ads_consent" (siehe initCookieBanner in
+    assets/js/main.js), Standard ist "denied" bis zur Zustimmung im
+    Cookie-Banner. "ad_personalization" bleibt immer "denied" –
+    nur Conversion-Tracking, kein Remarketing.
+  -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    var adsConsentState = 'denied';
+    try {
+      if (localStorage.getItem('ads_consent') === 'granted') adsConsentState = 'granted';
+    } catch (e) { /* localStorage evtl. nicht verfügbar */ }
+    gtag('consent', 'default', {
+      'ad_storage': adsConsentState,
+      'ad_user_data': adsConsentState,
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17976165950"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'AW-17976165950');
+    gtag('event', 'conversion', { 'send_to': 'AW-17976165950/LsWmCKOk4P4bEL6M2vtC' });
+  </script>
+
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%s' }}">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  {% include header.html %}
+
+  <main id="main">
+    {% if page.hero_image %}
+    <section class="hero">
+      {% comment %} Als CSS-Hintergrundbild statt <img>, da rein dekorativ. {% endcomment %}
+      <div class="hero-bg" style="background-image: url('{{ page.hero_image }}');" role="presentation" aria-hidden="true"></div>
+      <div class="hero-text">
+        <div class="container">
+          <h1>{{ page.hero_title | default: page.title }}</h1>
+          {% if page.hero_subtitle %}<p>{{ page.hero_subtitle }}</p>{% endif %}
+          {% if page.hero_cta_text %}
+          <p style="margin-top:1.2rem;">
+            <a class="btn btn-accent" href="{{ page.hero_cta_url }}">{{ page.hero_cta_text }}</a>
+          </p>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    {% else %}
+    <section class="hero hero-simple">
+      <div class="container">
+        <h1>{{ page.hero_title | default: page.title }}</h1>
+      </div>
+    </section>
+    {% endif %}
+
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  {% include cookie-banner.html %}
+
+  <script src="/assets/js/main.js?v={{ site.time | date: '%s' }}"></script>
+</body>
+
+</html>

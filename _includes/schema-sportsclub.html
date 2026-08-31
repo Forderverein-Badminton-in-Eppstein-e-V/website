@@ -1,0 +1,61 @@
+<!--
+  JSON-LD SportsClub-Schema, nur auf der Startseite eingebunden (siehe
+  _layouts/default.html). "address" = Vereinsadresse TSV Eppstein e.V.,
+  "location" = tatsächliche Trainingshalle (Isenachsporthalle).
+
+  Trainingszeiten manuell gepflegt, analog zu
+  _includes/sidebar-trainingszeiten.html – bei Änderung bitte an beiden
+  Stellen pflegen.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsClub",
+  "name": {{ site.title | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "url": "{{ site.url }}{{ site.baseurl }}/",
+  "logo": "{{ site.logo | absolute_url }}",
+  "sport": "Badminton",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ernst-Moritz-Arndt-Straße 11",
+    "postalCode": "67227",
+    "addressLocality": "Frankenthal",
+    "addressCountry": "DE"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "Isenachsporthalle",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Eppsteiner Str. 55",
+      "postalCode": "67227",
+      "addressLocality": "Frankenthal",
+      "addressCountry": "DE"
+    }
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Tuesday",
+      "opens": "18:00",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "17:30",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "19:00",
+      "closes": "22:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.tsv-eppstein.de/"
+  ]
+}
+</script>

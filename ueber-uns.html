@@ -1,0 +1,34 @@
+---
+layout: default
+title: "Über uns"
+description: "Die Badminton-Abteilung des TSV Eppstein – Abteilung & Verein, was Badminton ausmacht, häufige Fragen und Kontakt."
+---
+    <div class="container page-body">
+      <div class="layout">
+        <div>
+          <p>
+            Alles Wissenswerte rund um unsere Abteilung – von der Vereinsgeschichte über eine
+            kurze Einführung in den Sport bis zu den häufigsten Fragen von Neueinsteiger:innen.
+          </p>
+
+          <div class="stat-row">
+            <div class="stat"><strong>{{ site.verein.gegruendet }}</strong><span>Gegründet</span></div>
+            <div class="stat"><strong>~{{ site.verein.mitglieder_gesamt }}</strong><span>Mitglieder</span></div>
+            <div class="stat"><strong>{{ site.verein.mannschaften_aktuell }}</strong><span>Mannschaften</span></div>
+          </div>
+
+          {% assign ueber_uns_nav = site.data.nav | where: "url", "/ueber-uns.html" | first %}
+
+          <div class="nav-cards">
+            {% for eintrag in ueber_uns_nav.submenu %}
+            <a class="nav-card" href="{{ eintrag.url }}">
+              <strong>{{ eintrag.label }}</strong>
+              <span>{{ eintrag.description }}</span>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% include sidebar-trainingszeiten.html %}
+      </div>
+    </div>

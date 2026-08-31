@@ -1,0 +1,110 @@
+# Minimal-Konfiguration für Jekyll auf GitHub Pages.
+# Kein Gemfile nötig - die hier gelisteten Plugins sind Teil der von
+# GitHub Pages bereitgestellten "github-pages"-Gem-Sammlung und müssen
+# nur hier aktiviert werden.
+
+title: "TSV Eppstein Badminton"
+description: "Badminton-Abteilung des TSV Eppstein in Frankenthal"
+
+# Sprache der Seite - wird u.a. vom jekyll-seo-tag-Plugin für das
+# og:locale-Meta-Tag genutzt (Standardwert des Plugins wäre sonst
+# "en_US", auch wenn <html lang="de"> im Layout korrekt gesetzt ist -
+# das eine hat mit dem anderen nichts zu tun).
+lang: de
+locale: de_DE
+
+# Logo fürs strukturierte Daten-Schema (JSON-LD/schema.org), vom
+# jekyll-seo-tag-Plugin genutzt.
+logo: "/assets/img/site/logo.png"
+
+# Für korrekte absolute URLs in der generierten sitemap.xml. Läuft die
+# Seite an der Domain-Wurzel (eigene/custom Domain via CNAME-Datei), muss
+# baseurl ein LEERER String sein - nicht "/". Nur bei einer GitHub
+# Project Page mit Unterpfad (z. B. .../website/) wäre baseurl: "/website"
+# korrekt.
+url: "https://tsv-eppstein-badminton.de"
+baseurl: ""
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Alle internen Links/Pfade auf der Seite sind root-relativ (mit
+# führendem Slash, z. B. "/kontakt.html", siehe Abschnitt
+# "Funktionsprinzip" im README). Damit sind wir nicht mehr auf eine
+# flache Verzeichnisstruktur angewiesen - News-Posts landen deshalb ganz
+# normal in Jekylls Standard-Permalink-Schema, verschachtelt nach Datum.
+permalink: /:year/:month/:day/:title.html
+
+# Stellt sicher, dass jeder News-Post automatisch das post.html-Layout
+# bekommt, auch wenn im jeweiligen Post selbst kein "layout:" gesetzt
+# wird. Ohne das würde ein vergessenes layout: post dazu führen, dass die
+# einzelne Post-Seite komplett unformatiert (ohne Header/Footer/CSS)
+# ausgeliefert wird - ist uns schon passiert, deshalb dieser Schutz.
+defaults:
+  # Der globale "permalink:"-Wert oben ist eigentlich nur für News-Posts
+  # gedacht (siehe Kommentar dort), wirkt über Jekylls permalink_style
+  # aber ungewollt auch auf normale Seiten: page.url wird dadurch OHNE
+  # .html berechnet (z. B. "/kontakt" statt "/kontakt.html"), obwohl die
+  # tatsächlich ausgelieferte Datei weiterhin "kontakt.html" heißt und
+  # AUSNAHMSLOS jeder interne Link im Menü/Footer/Seiteninhalt auf die
+  # .html-Variante zeigt. Das führte dazu, dass Canonical-Tag, og:url,
+  # JSON-LD-"url" (alle via jekyll-seo-tag) sowie die sitemap.xml auf die
+  # .html-lose URL zeigten - im Widerspruch zur kompletten internen
+  # Verlinkung und damit klassischer doppelter Content (beide Varianten
+  # lieferten identischen Inhalt mit Status 200). Fix: page.url für
+  # normale Seiten explizit auf Basisname + tatsächliche Dateiendung
+  # zurückzwingen, passend zur tatsächlichen Verlinkung (":output_ext"
+  # statt hart ".html", damit von jekyll-sitemap automatisch erzeugte
+  # Seiten wie robots.txt/sitemap.xml ihre eigene Endung behalten).
+  # Betrifft nur "type: pages" (News-Posts haben ihr eigenes
+  # Permalink-Schema weiter oben in "permalink:" bzw. via Scope
+  # "type: posts" unten und sind hier bewusst ausgeschlossen).
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      permalink: "/:basename:output_ext"
+
+  # Bild für die Link-Vorschau (Open Graph og:image / Twitter Card), z. B.
+  # wenn der Seitenlink bei WhatsApp, iMessage o. Ä. geteilt wird. Das
+  # jekyll-seo-tag-Plugin liest "image" NUR aus dem Front Matter der
+  # jeweiligen Seite (page.image), nicht aus einem Top-Level-Config-Wert -
+  # ein einfaches "image:" hier in _config.yml würde also ignoriert.
+  # Über "defaults" wird der Wert stattdessen wie echtes Front Matter auf
+  # jede Seite angewendet, ohne jede Datei einzeln anfassen zu müssen.
+  # Einzelne Seiten können das bei Bedarf mit eigenem "image:" im Front
+  # Matter überschreiben (z. B. für einen News-Post mit eigenem Foto).
+  - scope:
+      path: ""
+    values:
+      image: "/assets/img/site/logo.png"
+  - scope:
+      type: posts
+    values:
+      layout: post
+
+# Globale Vereins-Kennzahlen, damit Zahlen wie Mitgliederzahl oder Anzahl
+# Mannschaften nur an EINER Stelle gepflegt werden, auch wenn sie auf
+# mehreren Seiten angezeigt werden (Startseite, Über uns, Mannschaften, ...).
+# In Seiten per Liquid nutzen, z. B.: {{ site.verein.mitglieder_gesamt }}
+#
+# Wichtig: Änderungen hier wirken sich erst nach dem nächsten Build aus
+# (auf GitHub Pages: nach dem nächsten Push/Upload - passiert automatisch).
+verein:
+  gegruendet: 1997
+  mitglieder_gesamt: 70
+  mitglieder_kinder: 20
+  mitglieder_erwachsene: 50
+  mannschaften_aktuell: 3
+  saison_start_monat: "September"
+  saison_aktuell: "2026/27"
+  # Liga-Infos pro Mannschaft (früher hier als liga_erste_mannschaft etc.)
+  # stehen jetzt strukturiert in _data/mannschaften.yml, zusammen mit
+  # Tabellen-/Spielplan-Links pro Team.
+
+# Dateien/Ordner, die Jekyll beim Build ignorieren soll (Dev-Kram, keine
+# Website-Inhalte).
+exclude:
+  - README.md
+  - CLAUDE.md

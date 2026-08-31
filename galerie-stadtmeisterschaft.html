@@ -1,0 +1,51 @@
+---
+layout: default
+title: "Galerie: Stadtmeisterschaft"
+description: "Bilder der Frankenthaler Stadtmeisterschaft im Badminton."
+hero_title: "Stadtmeisterschaft"
+---
+    <div class="container page-body">
+      <div class="layout">
+        <div>
+          <p>
+            Impressionen von der Frankenthaler Stadtmeisterschaft – unserem Turnier
+            insbesondere für Hobbyspieler aus der Region.
+          </p>
+
+          {% assign jahre = site.data.gallery.stadtmeisterschaft %}
+
+          {% if jahre.size == 0 %}
+            <div class="empty-state">
+              <p style="margin:0;">Für dieses Thema sind noch keine Bilder hinterlegt.</p>
+            </div>
+          {% else %}
+
+            {% if jahre.size > 1 %}
+            <div class="year-nav">
+              {% for eintrag in jahre %}
+                <a href="#jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            {% for eintrag in jahre %}
+            <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
+            <div class="gallery-grid">
+              {% for bild in eintrag.bilder %}
+              <a href="/assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}">
+                <img
+                  src="/assets/img/gallery/stadtmeisterschaft/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  alt="{{ bild.alt | default: 'Stadtmeisterschaft ' | append: eintrag.jahr }}"
+                  loading="lazy">
+              </a>
+              {% endfor %}
+            </div>
+            {% endfor %}
+
+          {% endif %}
+        </div>
+
+        {% include sidebar-trainingszeiten.html %}
+      </div>
+    </div>
+  

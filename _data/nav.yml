@@ -1,0 +1,90 @@
+# Zentrale Navigationsstruktur, genutzt von _includes/header.html.
+#
+# Ein Menüpunkt ändern/hinzufügen/entfernen = nur hier anpassen, header.html
+# muss dafür nicht angefasst werden.
+#
+# Felder pro Eintrag:
+#   label       - sichtbarer Text
+#   url         - Linkziel. Innerhalb der Seite: root-relativer Pfad mit
+#                 führendem Slash (z. B. "/index.html"), da die Seite an
+#                 der Domain-Wurzel läuft.
+#   submenu     - optional: Liste weiterer Einträge (Dropdown UND
+#                 gleichzeitig Datenquelle für die Karten-Übersichten auf
+#                 spielbetrieb.html/galerie.html - Duplikation vermeiden)
+#   description - optional, nur auf Submenu-Ebene: Kurzbeschreibung für die
+#                 Karten-Übersicht (wird im reinen Dropdown-Menü ignoriert)
+#   data_key    - optional, nur auf Submenu-Ebene: Schlüssel in
+#                 _data/gallery.yml, falls die Karten-Übersicht dynamische
+#                 Werte (z. B. "Neueste Bilder: <Jahr>") anzeigen soll
+#   button      - optional (true/false): als Button statt normalem Link
+#                 darstellen (aktuell für "Mitgliedsantrag" genutzt)
+#   external    - optional (true/false): öffnet in neuem Tab
+#                 (target="_blank" rel="noopener")
+
+- label: "Startseite"
+  url: "/index.html"
+
+- label: "Über uns"
+  url: "/ueber-uns.html"
+  submenu:
+    - label: "Abteilung & Verein"
+      url: "/ueber-uns-abteilung-verein.html"
+      description: "Die Geschichte unserer Abteilung seit 1997 und des TSV Eppstein e.V. seit 1889."
+    - label: "Was ist Badminton?"
+      url: "/ueber-uns-was-ist-badminton.html"
+      description: "Kurz erklärt: Ursprung, Regeln und Zählweise des Sports."
+    - label: "Häufige Fragen"
+      url: "/ueber-uns-faq.html"
+      description: "Antworten auf die häufigsten Fragen von Neueinsteiger:innen."
+    - label: "Kontakt"
+      url: "/kontakt.html"
+      description: "Formular oder E-Mail – wir freuen uns, von dir zu hören."
+
+- label: "Spielbetrieb"
+  url: "/spielbetrieb.html"
+  submenu:
+    - label: "Training Erwachsene"
+      url: "/spielbetrieb-training-erwachsene.html"
+      description: "Regelmäßiges Training und freies Spiel für alle Leistungsniveaus."
+    - label: "Training Kinder und Jugend"
+      url: "/spielbetrieb-training-kinder-jugend.html"
+      description: "Nachwuchstraining für Kinder und Jugendliche jeden Alters."
+    - label: "Mannschaften"
+      url: "/spielbetrieb-mannschaften.html"
+      description: "Unsere Teams im Liga-Spielbetrieb."
+    - label: "Turniere"
+      url: "/spielbetrieb-turniere.html"
+      description: "Eigene und externe Turniere, an denen wir teilnehmen."
+    - label: "Unsere Halle"
+      url: "/spielbetrieb-unsere-halle.html"
+      description: "Die Isenachsporthalle – unsere sportliche Heimat."
+
+- label: "Förderverein"
+  url: "/foerderverein.html"
+
+- label: "Galerie"
+  url: "/galerie.html"
+  submenu:
+    - label: "Stadtmeisterschaft"
+      url: "/galerie-stadtmeisterschaft.html"
+      data_key: "stadtmeisterschaft"
+    - label: "Länderspiele"
+      url: "/galerie-laenderspiele.html"
+      data_key: "laenderspiele"
+    - label: "Kinder- und Jugendturniere"
+      url: "/galerie-kinder-jugendturniere.html"
+      data_key: "kinder_jugendturniere"
+    - label: "Strohhutfest"
+      url: "/galerie-strohhutfest.html"
+      data_key: "strohhutfest"
+
+- label: "News"
+  url: "/news.html"
+
+- label: "Sponsoren"
+  url: "/sponsoren.html"
+
+- label: "Mitgliedsantrag"
+  url: "https://www.tsv-eppstein.de/html/se/se-mitgliedsantrag.php"
+  button: true
+  external: true

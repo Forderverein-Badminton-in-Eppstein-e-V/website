@@ -1,0 +1,60 @@
+---
+layout: default
+title: "Mannschaften"
+description: "Unsere Mannschaften im Liga-Spielbetrieb der Badminton-Abteilung des TSV Eppstein."
+---
+<div class="container page-body">
+  <div class="layout">
+    <div>
+      <p>
+        In der Saison 2023/2024 hatten wir unseren Neustart im Liga-Spielbetrieb und konnten
+        die Saison 2024/2025 mit einem sicheren Klassenerhalt erfolgreich abschließen. Für
+        die Saison {{ site.verein.saison_aktuell }} sind wir mit {{ site.verein.mannschaften_aktuell }}
+        Mannschaften gemeldet. Die Saison startet Anfang {{ site.verein.saison_start_monat }}.
+      </p>
+
+      <div class="team-cards">
+        {% for team in site.data.mannschaften %}
+        <div class="team-card">
+          <h3>{{ team.name }}</h3>
+          <span class="team-liga">{{ team.liga }}</span>
+
+          {% if team.mannschaftsfuehrer %}
+          <p><strong>Mannschaftsführer:</strong> {{ team.mannschaftsfuehrer }}</p>
+          {% endif %}
+
+          {% if team.bild %}
+          <img class="team-bild" src="/assets/img/site/{{ team.bild }}" alt="{{ team.name }}" width="1200" height="586">
+          {% endif %}
+
+          {% if team.spieler.size > 0 %}
+          <p class="team-spieler">
+            <strong>Spieler:</strong> {{ team.spieler | join: ", " }}
+          </p>
+          {% endif %}
+
+          {% if team.spieler_ohne_bild.size > 0 %}
+          <p class="team-spieler-weitere">
+            <strong>Weitere Spieler:</strong> {{ team.spieler_ohne_bild | join: ", " }}
+          </p>
+          {% endif %}
+
+          <div class="team-links">
+            <a class="btn btn-outline" style="color:var(--court); border-color: var(--court);"
+              href="{{ team.tabelle_url }}" target="_blank" rel="noopener">Tabelle</a>
+            <a class="btn btn-outline" style="color:var(--court); border-color: var(--court);"
+              href="{{ team.spielplan_url }}" target="_blank" rel="noopener">Nächste Spiele</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <p>
+        Mehr zu unseren Turnieren und dem Spielbetrieb findet ihr auf der
+        <a href="/spielbetrieb-turniere.html">Turniere-Seite</a>.
+      </p>
+    </div>
+
+    {% include sidebar-trainingszeiten.html %}
+  </div>
+</div>

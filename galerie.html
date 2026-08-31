@@ -1,0 +1,31 @@
+---
+layout: default
+title: "Galerie"
+description: "Bilder von Turnieren und Vereinsevents der Badminton-Abteilung des TSV Eppstein."
+---
+    <div class="container page-body">
+      <div class="layout">
+        <div>
+          <p>
+            Impressionen von unseren Turnieren und Vereinsevents – nach Thema sortiert.
+          </p>
+
+          {% assign gallerie_nav = site.data.nav | where: "url", "/galerie.html" | first %}
+
+          <div class="nav-cards">
+            {% for eintrag in gallerie_nav.submenu %}
+            {% assign jahre = site.data.gallery[eintrag.data_key] %}
+            <a class="nav-card" href="{{ eintrag.url }}">
+              <strong>{{ eintrag.label }}</strong>
+              <span>
+                {% if jahre.size > 0 %}Neueste Bilder: {{ jahre.first.jahr }}{% else %}Bilder folgen{% endif %}
+              </span>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% include sidebar-trainingszeiten.html %}
+      </div>
+    </div>
+  

@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="container page-body">
+    <div{% if page.images %} class="layout"{% endif %}>
+        <div style="max-width: 74ch;">
+            <p class="post-meta">
+                Veröffentlicht am {{ page.date | date: "%d.%m.%Y" }}{% if page.author %} von {{ page.author }}{% endif %}
+            </p>
+
+            {{ content }}
+
+            <hr class="court-divider">
+            <p><a href="/news.html">&larr; Zurück zur News-Übersicht</a></p>
+        </div>
+
+        {% if page.images %}
+        <aside class="news-bilder">
+            {% for img in page.images %}
+            <figure>
+                <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy"{% if img.width %} width="{{ img.width }}"{% endif %}{% if img.height %} height="{{ img.height }}"{% endif %}>
+                {% if img.alt %}<figcaption>{{ img.alt }}</figcaption>{% endif %}
+            </figure>
+            {% endfor %}
+        </aside>
+        {% endif %}
+    </div>
+</div>

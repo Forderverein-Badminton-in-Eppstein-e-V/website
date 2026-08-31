@@ -1,0 +1,48 @@
+---
+layout: default
+title: "Galerie: Länderspiele"
+description: "Bilder von Badminton-Länderspielen der Abteilung des TSV Eppstein."
+hero_title: "Länderspiele"
+---
+    <div class="container page-body">
+      <div class="layout">
+        <div>
+          <p>Impressionen von Badminton-Länderspielen.</p>
+
+          {% assign jahre = site.data.gallery.laenderspiele %}
+
+          {% if jahre.size == 0 %}
+            <div class="empty-state">
+              <p style="margin:0;">Für dieses Thema sind noch keine Bilder hinterlegt.</p>
+            </div>
+          {% else %}
+
+            {% if jahre.size > 1 %}
+            <div class="year-nav">
+              {% for eintrag in jahre %}
+                <a href="#jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+            {% for eintrag in jahre %}
+            <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
+            <div class="gallery-grid">
+              {% for bild in eintrag.bilder %}
+              <a href="/assets/img/gallery/laenderspiele/{{ eintrag.jahr }}/{{ bild.datei }}">
+                <img
+                  src="/assets/img/gallery/laenderspiele/{{ eintrag.jahr }}/{{ bild.datei }}"
+                  alt="{{ bild.alt | default: 'Länderspiel ' | append: eintrag.jahr }}"
+                  loading="lazy">
+              </a>
+              {% endfor %}
+            </div>
+            {% endfor %}
+
+          {% endif %}
+        </div>
+
+        {% include sidebar-trainingszeiten.html %}
+      </div>
+    </div>
+  

@@ -1,0 +1,58 @@
+<div class="topbar">
+  <div class="container">
+    <span>TSV Eppstein e.V. &middot; Ernst-Moritz-Arndt-Straße 11 &middot; 67227 Frankenthal</span>
+    <a href="https://www.tsv-eppstein.de/" target="_blank" rel="noopener">www.tsv-eppstein.de</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/index.html">
+      <img src="/assets/img/site/logo.png" alt="Logo TSV Eppstein Badminton">
+      <span class="brand-text">
+        <strong>TSV Eppstein</strong>
+        <span>Badminton-Abteilung</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menü öffnen">&#9776;</button>
+
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        {% for item in site.data.nav %}
+        <li>
+          {% if item.button %}
+          <a
+            class="btn btn-outline"
+            href="{{ item.url }}"
+            {% if item.external %}target="_blank" rel="noopener"{% endif %}
+            style="margin-top:0.3rem;"
+          >{{ item.label }}</a>
+          {% else %}
+          <a
+            href="{{ item.url }}"
+            {% if item.external %}target="_blank" rel="noopener"{% endif %}
+          >{{ item.label }}</a>
+          {% endif %}
+
+          {% if item.submenu %}
+          <button
+            type="button"
+            class="submenu-toggle"
+            aria-expanded="false"
+            aria-label="Untermenü {{ item.label }} ein-/ausblenden"
+          >
+            <span aria-hidden="true">&#9662;</span>
+          </button>
+          <ul class="submenu">
+            {% for sub in item.submenu %}
+            <li><a href="{{ sub.url }}">{{ sub.label }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

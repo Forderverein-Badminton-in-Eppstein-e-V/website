@@ -1,0 +1,69 @@
+# Datenquelle für die Mannschaften-Seite (spielbetrieb-mannschaften.html).
+#
+# Neue Mannschaft (z. B. nächste Saison) = neuen Block unten anhängen,
+# kein HTML anfassen nötig. Vergiss nicht, site.verein.mannschaften_aktuell
+# in _config.yml auf die neue Anzahl zu setzen.
+#
+# Felder pro Mannschaft:
+#   name          - Pflicht, z. B. "1. Mannschaft"
+#   liga          - Pflicht, z. B. "Bezirksoberliga Südwest"
+#   tabelle_url   - Pflicht, Link zur Liga-Tabelle (liga.nu)
+#   spielplan_url - Pflicht, Link zu den nächsten Spielen dieser Mannschaft
+#   bild          - optional, Dateiname in assets/img/site/ (z. B. "team1.jpg").
+#                   Weglassen/leer lassen, wenn noch kein Bild vorhanden ist -
+#                   erscheint dann einfach nicht auf der Seite.
+#   mannschaftsfuehrer - optional, Name. Weglassen, wenn noch nicht bekannt.
+#   spieler       - optional, Liste von Namen der Spieler *auf dem Teambild*,
+#                   in der Reihenfolge, wie sie von links nach rechts auf dem
+#                   Bild stehen. Weglassen/leere Liste, wenn noch nicht bekannt.
+#   spieler_ohne_bild - optional, Liste von Namen weiterer Spieler, die
+#                   (noch) nicht mit auf dem Teambild sind. Weglassen/leere
+#                   Liste, wenn nicht benötigt.
+
+- name: "1. Mannschaft"
+  liga: "Bezirksoberliga Südwest"
+  bild: "team1.webp"
+  mannschaftsfuehrer: "Hayley Wilkinson"
+  spieler:
+    - "Tobias Sohn"
+    - "Tobias Sperfeldt"
+    - "Matthias Formanski"
+    - "Nikhil Dandekar"
+    - "Hayley Wilkinson"    
+    - "Patricia Prunkl"
+  spieler_ohne_bild:
+  tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
+  spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242541&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41618"
+
+- name: "2. Mannschaft"
+  liga: "Bezirksliga Mitte"
+  bild: "team2.webp"
+  mannschaftsfuehrer: "Heet Vora"
+  spieler:
+    - "Heet Vora"
+    - "Thorsten Martin"
+    - "Arthur Paszek"
+    - "Simon Gräf"
+    - "Beatrice Sohn"
+    - "Monika Paszek"
+  spieler_ohne_bild:
+  tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
+  spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=241749&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
+
+- name: "3. Mannschaft"
+  liga: "Bezirksliga Mitte"
+  bild: "team3.webp"
+  mannschaftsfuehrer: "Julian Kaiser"
+  spieler:
+    - "Viral Voral"
+    - "Jan Carsten Leschke"
+    - "Dennis Honacker"
+    - "Tobias Eßwein"
+    - "Carsten Wegner"
+    - "Carsten Friedrich"
+    - "Alicja Ebert"
+    - "Astrid Stempien"
+    - "Axelle Hemmer"
+  spieler_ohne_bild:
+  tabelle_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/groupPage?championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"
+  spielplan_url: "https://bvrp-badminton.liga.nu/cgi-bin/WebObjects/nuLigaBADDE.woa/wa/teamPortrait?teamtable=242393&pageState=vorrunde&championship=VICTOR+BVRP+Ligen+26%2F27&group=41537"

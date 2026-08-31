@@ -1,0 +1,57 @@
+/* ============================================================
+   Selbst gehostete Schriften (Oswald, Source Sans 3).
+   Ersetzt das Nachladen von fonts.googleapis.com/fonts.gstatic.com,
+   damit keine Nutzer-IP an Google übertragen wird (datenschutzrechtlich
+   seit dem LG-München-Urteil 2022 in Deutschland eine Grauzone).
+   Dateien stammen von @fontsource (https://fontsource.org), nur
+   Latin-Subset (deckt deutsche Umlaute ä/ö/ü/ß mit ab) und nur die
+   tatsächlich genutzten Schnitte, um die Dateigröße klein zu halten.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('./oswald-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('./oswald-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('./oswald-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('./source-sans-3-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('./source-sans-3-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('./source-sans-3-latin-700-normal.woff2') format('woff2');
+}
