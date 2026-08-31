@@ -34,5 +34,7 @@ bricht:
   (`/kontakt.html`, nicht `kontakt.html`).
 - Wiederkehrende Inhalte (Navigation, Mannschaften, Sponsoren, Galerie)
   sind datengetrieben über `_data/*.yml` – dafür kein HTML anfassen.
+- Nicht gendern (kein `:innen`, `*innen` o. ä.) – neutralen Begriff finden
+  oder männliche Form verwenden, siehe README.md.
 - Jede nicht-triviale Code-Änderung vor dem Push lokal mit echtem
   `jekyll build` testen (siehe README, Abschnitt "Lokal testen").

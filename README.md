@@ -120,6 +120,12 @@ Weil es sich von Seite zu Seite unterscheidet:
   relativ zum verschachtelten Datums-Unterpfad auflösen würde.
 - **Navigation ändern:** nur `_data/nav.yml` anpassen –
   `_includes/header.html` muss dafür nicht angefasst werden.
+- **Kein Gendern in Fließtexten** (weder `:innen`, `*innen`, `/innen` noch
+  Binnen-I). Stattdessen entweder einen neutralen Begriff finden (z. B.
+  "Mitglieder", "Teilnehmende" nur falls es wirklich neutral gemeint ist)
+  oder einfach die klassische männliche Form verwenden (z. B. "Spieler",
+  "Teilnehmer"). Gilt für alle Seiten, News-Posts und Front-Matter-Texte
+  (Title/Description).
 
 ### Lokal testen
 
@@ -173,7 +179,7 @@ Ein Eintrag pro Mannschaft: `name`, `liga`, `tabelle_url`,
 `spielplan_url` (Pflicht), optional `bild` (Dateiname in
 `assets/img/site/`), `mannschaftsfuehrer`, `spieler` (Liste der Namen auf
 dem Teambild, von links nach rechts), `spieler_ohne_bild` (Liste
-weiterer Spieler:innen, die noch nicht mit auf dem Teambild sind).
+weiterer Spieler, die noch nicht mit auf dem Teambild sind).
 Fehlende optionale Felder werden auf `spielbetrieb-mannschaften.html`
 einfach nicht angezeigt, kein Fehler. Liga-Tabellen/Spielpläne verlinken direkt
 zu nuLiga (BVRP); ein Live-Einbetten der Tabelle wurde geprüft und
