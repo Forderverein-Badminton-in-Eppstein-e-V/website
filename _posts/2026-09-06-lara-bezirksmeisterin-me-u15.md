@@ -3,7 +3,6 @@ title: "Lara ist Bezirksmeisterin! Titel im ME U15 bei der Bezirksmeisterschaft 
 date: 2026-09-06
 images:
   - src: /assets/img/news/2026-09-06-lara.webp
-    alt: "Lara Rühlig"
     width: 942
     height: 1200
 ---
@@ -13,4 +12,4 @@ Im Round-Robin-Modus, bei dem jede gegen jede spielt, ließ Lara nichts anbrenne
 
 Hinter Lara komplettierten Luina Le (2. Platz) und Luisa Le (3. Platz), beide vom ASV Waldsee, das Podium. Ein toller Erfolg für unseren Nachwuchs, herzlichen Glückwunsch, Lara!
 
-Alle Ergebnisse gibt's <a href="https://dbv.turnier.de/tournament/6F55C5BD-B452-41E7-92A0-900C3193E87D/draw/25" target="_blank" rel="noopener">beim DBV-Turnierportal</a>.
+Alle Ergebnisse gibt's <a href="https://dbv.turnier.de/sport/winners.aspx?id=6f55c5bd-b452-41e7-92a0-900c3193e87d" target="_blank" rel="noopener">beim DBV-Turnierportal</a>.
