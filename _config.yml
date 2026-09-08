@@ -83,6 +83,10 @@ defaults:
       type: posts
     values:
       layout: post
+  - scope: 
+      path: "assets/docs/**/*.pdf"
+    values:
+      sitemap: false
 
 # Globale Vereins-Kennzahlen, damit Zahlen wie Mitgliederzahl oder Anzahl
 # Mannschaften nur an EINER Stelle gepflegt werden, auch wenn sie auf
