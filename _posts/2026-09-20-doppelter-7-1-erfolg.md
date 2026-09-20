@@ -9,6 +9,6 @@ Bei Team 1 lief fast alles nach Plan. Nikhil/Thorsten eröffneten das erste Herr
 
 Keinen Deut schlechter machte es Team 2 auswärts. Besonders nervenstark: Simon im zweiten Herreneinzel, der den ersten Satz hauchdünn mit 24:26 abgab, um danach mit 21:13 und 21:17 zurückzuschlagen. Im zweiten Herrendoppel ging's ähnlich spannend zu: Arthur/Simon gaben Satz eins mit 18:21 ab, drehten dann klar mit 21:8, ehe sie sich im Entscheidungssatz mit 24:22 den Punkt sicherten. Auch Alicja/Moni im Damendoppel mussten im zweiten Satz nochmal um jeden Punkt kämpfen, machten mit 21:18 und 21:19 aber beide Sätze klar. Heet/Jan im ersten Herrendoppel sowie Heet, Jan und Alicja in ihren Einzeln sorgten für die restlichen Zähler – nur das Gemischte Doppel mit Arthur/Moni ging nach drei Sätzen (21:18, 18:21, 21:13) an die Gastgeber.
 
-Weiter so, Truppe – nächste Woche darf's gerne genauso weitergehen!
+Weiter so, Truppe – nächstes Mal darf's gerne genauso weitergehen!
 
 _-tj-_
