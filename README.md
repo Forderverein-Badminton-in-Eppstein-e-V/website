@@ -191,6 +191,10 @@ PHP-Server voraussetzen, den GitHub Pages nicht bietet).
   `laenderspiele`, `kinder_jugendturniere`, `strohhutfest`) eine Liste
   von Jahren, pro Jahr eine Liste von Bild-Dateinamen. Neuestes Jahr
   steht in der Liste zuerst (wird dann auch zuerst angezeigt).
+  **Ausnahme `strohhutfest`:** bewusst ohne Jahres-Unterteilung, nur eine
+  flache Liste von Bildern (`- datei: shf-1.webp`), Dateien direkt unter
+  `assets/img/gallery/strohhutfest/` (kein Jahresordner). Die Kachel auf
+  `galerie.html` zeigt dafür statt "Neueste Bilder: <Jahr>" die Bildanzahl.
 - Dateinamen-Schema: `<thema>-<jahr>-<nummer>.webp`, dreistellig
   durchnummeriert, z. B. `stadtmeisterschaft-2025-001.webp`. Ursprünglich
   wurden `.jpg` verwendet, wurde aber komplett auf `.webp` umgestellt
@@ -205,9 +209,9 @@ PHP-Server voraussetzen, den GitHub Pages nicht bietet).
   (`initLightbox()` in `main.js`).
 - Neues Jahr = neuer Eintrag in `_data/gallery.yml` + neuer Bilderordner,
   kein HTML anfassen nötig.
-- **Offen:** `laenderspiele` und `strohhutfest` sind in `_data/gallery.yml`
-  noch leer (`[]`), bis Bilder dafür hochgeladen sind. Die entsprechenden
-  Galerie-Seiten zeigen bis dahin automatisch einen "noch keine Bilder"-Hinweis
+- **Offen:** `laenderspiele` ist in `_data/gallery.yml` noch leer (`[]`),
+  bis Bilder dafür hochgeladen sind. Die Galerie-Seite zeigt bis dahin
+  automatisch einen "noch keine Bilder"-Hinweis
   (`empty-state`).
 - **Duplikation vermieden:** Die Karten-Übersicht auf `galerie.html`
   generiert sich automatisch aus dem `submenu` des "Galerie"-Eintrags in
@@ -287,7 +291,8 @@ assets/img/
     │   ├── 2025/
     │   └── 2026/
     ├── laenderspiele/              (noch leer)
-    └── jugendturniere/
+    ├── jugendturniere/
+    └── strohhutfest/               (ohne Jahresordner, Bilder direkt hier)
 ```
 
 Kein separates Thumbnail-Bild nötig – die Galerie zeigt die Originale in

@@ -18,7 +18,7 @@ description: "Bilder von Turnieren und Vereinsevents der Badminton-Abteilung des
             <a class="nav-card" href="{{ eintrag.url }}">
               <strong>{{ eintrag.label }}</strong>
               <span>
-                {% if jahre.size > 0 %}Neueste Bilder: {{ jahre.first.jahr }}{% else %}Bilder folgen{% endif %}
+                {% if jahre.size == 0 %}Bilder folgen{% elsif jahre.first.jahr %}Neueste Bilder: {{ jahre.first.jahr }}{% else %}{{ jahre.size }} Bilder{% endif %}
               </span>
             </a>
             {% endfor %}

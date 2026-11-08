@@ -24,33 +24,23 @@ hero_title: "Strohhutfest"
       </p>
       <p>Hier ein paar Eindrücke aus den letzten Jahren:</p>
 
-      {% assign jahre = site.data.gallery.strohhutfest %}
+      {% comment %} Bewusst ohne Jahres-Unterteilung: eine flache Bilderliste (siehe _data/gallery.yml). {% endcomment %}
+      {% assign bilder = site.data.gallery.strohhutfest %}
 
-      {% if jahre.size == 0 %}
+      {% if bilder.size == 0 %}
       <div class="empty-state">
         <p style="margin:0;">Für dieses Thema sind noch keine Bilder hinterlegt.</p>
       </div>
       {% else %}
 
-      {% if jahre.size > 1 %}
-      <div class="year-nav">
-        {% for eintrag in jahre %}
-        <a href="#jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      {% for eintrag in jahre %}
-      <h2 id="jahr-{{ eintrag.jahr }}">{{ eintrag.jahr }}</h2>
       <div class="gallery-grid">
-        {% for bild in eintrag.bilder %}
-        <a href="/assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}">
-          <img src="/assets/img/gallery/strohhutfest/{{ eintrag.jahr }}/{{ bild.datei }}"
-            alt="{{ bild.alt | default: 'Strohhutfest ' | append: eintrag.jahr }}" loading="lazy">
+        {% for bild in bilder %}
+        <a href="/assets/img/gallery/strohhutfest/{{ bild.datei }}">
+          <img src="/assets/img/gallery/strohhutfest/{{ bild.datei }}"
+            alt="{{ bild.alt | default: 'Strohhutfest Frankenthal' }}" loading="lazy">
         </a>
         {% endfor %}
       </div>
-      {% endfor %}
 
       {% endif %}
     </div>

@@ -148,5 +148,36 @@ kinder_jugendturniere:
       - datei: jugendturnier-2025-025.webp
       - datei: jugendturnier-2025-026.webp
 
-strohhutfest: []
-# ^ TODO Kai: sobald Bilder hochgeladen sind, analog eintragen.
+# Ausnahme: Strohhutfest bewusst OHNE Jahres-Unterteilung – eine einzige
+# flache Bilderliste, Dateien direkt unter assets/img/gallery/strohhutfest/.
+strohhutfest:
+  - datei: shf-1.webp
+  - datei: shf-2.webp
+  - datei: shf-3.webp
+  - datei: shf-4.webp
+  - datei: shf-5.webp
+  - datei: shf-6.webp
+  - datei: shf-7.webp
+  - datei: shf-8.webp
+  - datei: shf-9.webp
+  - datei: shf-10.webp
+  - datei: shf-11.webp
+  - datei: shf-12.webp
+  - datei: shf-13.webp
+  - datei: shf-14.webp
+  - datei: shf-15.webp
+  - datei: shf-16.webp
+  - datei: shf-17.webp
+  - datei: shf-18.webp
+  - datei: shf-19.webp
+  - datei: shf-20.webp
+  - datei: shf-21.webp
+  - datei: shf-22.webp
+  - datei: shf-23.webp
+  - datei: shf-24.webp
+  - datei: shf-25.webp
+  - datei: shf-26.webp
+  - datei: shf-27.webp
+  - datei: shf-28.webp
+  - datei: shf-29.webp
+  - datei: shf-30.webp
