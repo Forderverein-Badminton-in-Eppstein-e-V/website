@@ -33,7 +33,6 @@ automatisch von GitHub aus den Quelldateien zu fertigem HTML gebaut (siehe
 │   ├── header.html             ← Topbar + Logo + Navigation (Liquid-Schleife über _data/nav.yml)
 │   ├── footer.html              ← Vereinsinfos + rechtliche Links
 │   ├── sidebar-trainingszeiten.html  ← Trainingszeiten-Box (Modul für Sidebar)
-│   ├── cookie-banner.html      ← Consent-Banner fürs Google-Ads-Conversion-Tracking (s. u.)
 │   └── schema-sportsclub.html  ← strukturierte Daten (JSON-LD, schema.org/SportsClub)
 ├── _data/
 │   ├── nav.yml                 ← Navigationsstruktur (an EINER Stelle pflegen)
@@ -45,7 +44,7 @@ automatisch von GitHub aus den Quelldateien zu fertigem HTML gebaut (siehe
 │   └── YYYY-MM-DD-titel.md     ← News-Beiträge (URL verschachtelt nach Datum, s.u.)
 ├── assets/
 │   ├── css/style.css           ← komplettes Design (Farben, Schrift, Layout)
-│   ├── js/main.js              ← Mobile-Menü, Galerie-Paginierung, Lightbox, Cookie-Banner
+│   ├── js/main.js              ← Mobile-Menü, Galerie-Paginierung, Lightbox
 │   ├── fonts/                  ← selbst gehostete Google Fonts (Oswald, Source Sans 3)
 │   ├── img/site/               ← normale Layout-Bilder (Logo, Favicon, Vereinsfotos)
 │   ├── img/gallery/<thema>/<jahr>/  ← Galerie-Fotos (.webp)
@@ -327,8 +326,10 @@ nur ohne die schöne Inline-Erfolgsmeldung.
 
 ### GoatCounter – aktiv
 
-Einziges Analytics-Tool der Website (Google Analytics wurde entfernt,
-siehe Git-Historie). Eingebunden per Script-Tag in
+Einziges Analytics-/Tracking-Tool der Website (Google Analytics und
+später auch das Google-Ads-Conversion-Tracking samt Cookie-Banner wurden
+entfernt, siehe Git-Historie). Die Website setzt dadurch keine Cookies und
+braucht keinen Cookie-Banner. Eingebunden per Script-Tag in
 `_layouts/default.html`
 (`data-goatcounter="https://stats.tsv-eppstein-badminton.de/count"`), lädt
 bei **jedem** Seitenaufruf ohne Cookie-Hinweis, da cookielos und ohne
@@ -339,32 +340,6 @@ Custom Domain auf den GoatCounter-Account `fv-badminton.goatcounter.com`
 `count.js`-Script selbst lädt weiterhin von `gc.zgo.at`). Dashboard
 weiterhin auch unter https://fv-badminton.goatcounter.com erreichbar.
 Dokumentiert in `datenschutz.html` unter "4. Analyse-Tools".
-
-### Google Ads Conversion-Tracking + Cookie-Banner
-
-Zusätzlich zu GoatCounter läuft (unabhängig davon) Google Ads
-Conversion-Tracking (`gtag.js`), Pflichtvoraussetzung für die Teilnahme am
-kostenlosen **Google Ad Grants**-Kontingent für gemeinnützige Vereine –
-Google verlangt eine funktionierende Conversion-Messung, sonst wird die
-Anzeigenauslieferung eingeschränkt.
-
-- Eingebunden im `<head>` von `_layouts/default.html`, ausführlich
-  kommentiert direkt im Code.
-- Läuft über **Google Consent Mode**: Beim Seitenaufruf ist der Zustand
-  standardmäßig `denied` (keine Werbe-Cookies, keine Personalisierung, nur
-  ein anonymes cookiefreies Signal). Erst nach Klick auf "Akzeptieren" im
-  Cookie-Banner (`_includes/cookie-banner.html`, Logik in `main.js` unter
-  `initCookieBanner()`) wird auf `granted` umgeschaltet. Die getroffene Wahl
-  wird in `localStorage` unter `ads_consent` gespeichert und beim nächsten
-  Seitenaufruf direkt als Startzustand übernommen.
-- `ad_personalization` ist bewusst von der Nutzerwahl entkoppelt und bleibt
-  immer `denied` – gewollt ist ausschließlich Conversion-Tracking, kein
-  Remarketing.
-- Ein "Cookie-Einstellungen"-Button im Footer (`_includes/footer.html`)
-  öffnet den Banner erneut, um die Wahl jederzeit zu ändern.
-- Dokumentiert in `datenschutz.html` unter "5. Google Ads
-  Conversion-Tracking" (Anker `#google-ads-tracking`), verlinkt aus dem
-  Cookie-Banner und aus "3. Datenerfassung auf dieser Website".
 
 ### Impressum & Datenschutzerklärung
 

@@ -619,7 +619,7 @@ button:focus-visible {
   padding: 0.7em 1.3em;
   border-radius: var(--radius);
   border: 2px solid transparent;
-  /* .btn wird auch auf echten <button>-Elementen genutzt (z. B. Cookie-Banner) -
+  /* .btn wird auch auf echten <button>-Elementen genutzt (z. B. Kontaktformular) -
      ohne diesen Reset würde deren Browser-Standardhintergrund durchscheinen. */
   background: none;
   cursor: pointer;
@@ -1199,65 +1199,4 @@ button:focus-visible {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-/* Footer-Link, der optisch wie ein normaler <a> aussieht, aber ein
-   <button> ist (für "Cookie-Einstellungen", das per JS den Banner
-   erneut öffnet statt zu einer Seite zu verlinken). */
-.link-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  font: inherit;
-  color: #cfe0d3;
-  cursor: pointer;
-  text-align: left;
-}
-
-.link-button:hover {
-  color: var(--accent);
-}
-
-/* -------------------- Cookie-Banner (nur Google-Ads-Tracking) -------------------- */
-/* Breites, flaches schwebendes Popup, horizontal zentriert - auf schmalen
-   Screens durch die max-width/calc trotzdem mit Rand statt Kante-an-Kante,
-   Text/Buttons brechen dann per flex-wrap untereinander um. */
-.cookie-banner {
-  position: fixed;
-  left: 50%;
-  bottom: 1rem;
-  transform: translateX(-50%);
-  width: calc(100% - 2rem);
-  max-width: 640px;
-  z-index: 1000;
-  background: var(--court-dark);
-  color: #cfe0d3;
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-.cookie-banner-inner {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 0.9rem 1.2rem;
-}
-
-.cookie-banner-inner p {
-  margin: 0;
-  font-size: 0.85rem;
-  flex: 1 1 320px;
-}
-
-.cookie-banner-inner a {
-  color: var(--accent);
-}
-
-.cookie-banner-actions {
-  display: flex;
-  gap: 0.7rem;
-  flex-shrink: 0;
 }

@@ -181,67 +181,6 @@ function initLightbox() {
   });
 }
 
-/**
- * Cookie-Banner für das Google-Ads-Conversion-Tracking (siehe
- * _includes/cookie-banner.html, Datenschutzerklärung Abschnitt 5).
- * Speichert die Wahl in localStorage ("ads_consent": "granted"/"denied").
- */
-function initCookieBanner() {
-  const banner = document.getElementById("cookieBanner");
-  if (!banner) return;
-
-  const acceptBtn = document.getElementById("cookieAccept");
-  const declineBtn = document.getElementById("cookieDecline");
-  const settingsLink = document.getElementById("cookieSettingsLink");
-
-  function getStoredChoice() {
-    try {
-      return localStorage.getItem("ads_consent");
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function updateConsent(granted) {
-    try {
-      localStorage.setItem("ads_consent", granted ? "granted" : "denied");
-    } catch (e) { /* localStorage evtl. nicht verfügbar */ }
-
-    if (typeof gtag === "function") {
-      const state = granted ? "granted" : "denied";
-      gtag("consent", "update", {
-        ad_storage: state,
-        ad_user_data: state,
-        ad_personalization: "denied", // nur Conversion-Tracking, kein Remarketing
-      });
-    }
-  }
-
-  function showBanner() {
-    banner.hidden = false;
-  }
-
-  function hideBanner() {
-    banner.hidden = true;
-  }
-
-  acceptBtn?.addEventListener("click", () => {
-    updateConsent(true);
-    hideBanner();
-  });
-
-  declineBtn?.addEventListener("click", () => {
-    updateConsent(false);
-    hideBanner();
-  });
-
-  settingsLink?.addEventListener("click", showBanner);
-
-  if (getStoredChoice() === null) {
-    showBanner();
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   initNavToggle();
   initSubmenuToggles();
@@ -249,5 +188,4 @@ document.addEventListener("DOMContentLoaded", () => {
   setFooterYear();
   initGalleryPagination();
   initLightbox();
-  initCookieBanner();
 });
